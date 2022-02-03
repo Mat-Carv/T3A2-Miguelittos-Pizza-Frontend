@@ -24,7 +24,7 @@ function App() {
 
   const addToCart = (pizza) => {
     console.log(pizza.name + " added to cart");
-    setCart([...cart,pizza]);//pushes the given pizza to the cart array
+    setCart([...cart,{...pizza}]);//pushes the given pizza to the cart array as a new object, not a duplicate
   }
 
   const navigateTo = (nextPage) => {
@@ -84,6 +84,9 @@ function App() {
       <header>
         <button onClick={()=> navigateTo(PAGE_CART)}>
           Show Cart ({cart.length})
+        </button>
+        <button onClick={()=> navigateTo(PAGE_PIZZAS)}>
+          Back to Pizzas
         </button>
       </header>
       {page === PAGE_PIZZAS && //this is the page that loops through the pizzas array
