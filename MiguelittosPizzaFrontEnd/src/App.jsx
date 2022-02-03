@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-const PAGE_PIZZAS = 'pizzas';
+const PAGE_PIZZAS = 'pizzas';//these are the constants that change the page that is being loaded
 const PAGE_CART = 'cart';
 
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const [page, setPage] = useState(PAGE_PIZZAS);
+  const [cart, setCart] = useState([]);//created an empty shopping cart
+  const [page, setPage] = useState(PAGE_PIZZAS);//always start on the pizzas page
 
 
   const [pizzas] = useState([//placeholder for backend summons
@@ -24,14 +24,20 @@ function App() {
 
   const addToCart = (pizza) => {
     console.log(pizza.name + " added to cart");
-    setCart([...cart,pizza]);
+    setCart([...cart,pizza]);//pushes the given pizza to the cart array
   }
 
   const navigateTo = (nextPage) => {
-    setPage(nextPage);
+    setPage(nextPage);//calls the change page
   };
 
-  const renderCart =() => {
+  const removeFromCart =(pizzaToRemove) => {
+    setCart(
+      cart.filter((pizza) => pizza !== pizzaToRemove)
+    );
+  };
+
+  const renderCart =() => {//I am doing something wrong with the offshoring
     <>
       <h1>Cart</h1>
       <p></p>
@@ -80,7 +86,7 @@ function App() {
           Show Cart ({cart.length})
         </button>
       </header>
-      {page === PAGE_PIZZAS && 
+      {page === PAGE_PIZZAS && //this is the page that loops through the pizzas array
       <>
         <h1>Pizzas</h1>
         <p></p>
@@ -102,7 +108,7 @@ function App() {
         </>
       }
 
-      {page === PAGE_CART &&  
+      {page === PAGE_CART &&  //shows the cart with stuff in it
       <>
       <h1>Cart</h1>
       <p></p>
@@ -115,7 +121,7 @@ function App() {
               <h4>{pizza.price}</h4>
               <p></p>
             </div>
-            <button>Remove?</button>
+            <button onClick={() => removeFromCart(pizza)}>Remove?</button>
           </>
           ))
         }
