@@ -31,7 +31,7 @@ function App() {
     setPage(nextPage);//calls the change page
   };
 
-  const removeFromCart =(pizzaToRemove) => {
+  const removeFromCart =(pizzaToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
     setCart(
       cart.filter((pizza) => pizza !== pizzaToRemove)
     );
