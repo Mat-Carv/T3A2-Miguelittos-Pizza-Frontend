@@ -1,0 +1,20 @@
+[
+    {
+      "name": "Traditional",
+      "category": "Bases",
+      "description": null,
+      "price": 5.0,
+      "available": true,
+      "created": "2022-02-04T00:30:01.102Z",
+      "updated": "2022-02-04T00:30:01.102Z"
+    },
+    {
+      "name": "Thin",
+      "category": "Bases",
+      "description": null,
+      "price": 4.0,
+      "available": true,
+      "created": "2022-02-04T00:30:01.106Z",
+      "updated": "2022-02-04T00:30:01.106Z"
+    }
+  ]
