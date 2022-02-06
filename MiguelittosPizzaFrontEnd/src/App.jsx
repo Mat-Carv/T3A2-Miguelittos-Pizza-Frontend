@@ -1,11 +1,17 @@
-import { useState } from 'react'
+import React from 'react';
+import Postlists from './posts/Postlists';
+import { Component } from 'react'
+
 
 
 function App() {
  
 
   return (
-    <h1>A thing</h1>);
+    <>
+    <Postlists />
+    </>
+    );
 }
 
 export default App;
