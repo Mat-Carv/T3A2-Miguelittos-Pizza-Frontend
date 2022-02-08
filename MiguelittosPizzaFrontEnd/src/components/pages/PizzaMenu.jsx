@@ -16,11 +16,24 @@ const PizzaMenu = () => {
           console.error(error)
       }
   }, [])
-  const pizzaMenu = menuItems.map((menuItem) => {
-    return <li key={menuItem.name}>{menuItem.name}</li>
+
+  const pizzaMenu = menuItems.map((menuItem,index) => {
+     return (
+     <>
+        <div key ={index}>
+        <h3>{menuItem.name}</h3>
+        <h3>{menuItem.base}</h3>
+        <h3>{menuItem.sauce}</h3>
+        <p></p>
+
+      </div>
+
+     {/* <li key={menuItem.name}>{menuItem.name}</li> */}
+     </>
+     )
   })
 
-  return <ul>{pizzaMenu}</ul>  
+  return <div>{pizzaMenu}</div>
 }
 
 export default PizzaMenu
