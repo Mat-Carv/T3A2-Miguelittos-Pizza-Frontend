@@ -1,33 +1,44 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
+
+
 
 export class PizzaMenu extends Component {
 
-    state = {
-        loading: true,
-        pizza: null,
-    };
-
-    async componentDidMount(){
-        const url = "https://pizzaria-miguel.herokuapp.com/api/pizzas/index";
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({pizza: data.results[2], loading: false})//the 0 should be a variable but for testing...
-       console.log(data)
-    }
-
   render() {
-    return (
+    // const [pizzas, setPizzas] = useState([])
+    // const [isLoading, setIsLoading] = useState(false)
 
-    <div>
-        {this.state.loading || !this.state.pizza  ? (
-        <div>loading...</div>
-         ) : (
+    // const fetchPizzas = () => {
+    //   setIsLoading(true)
+
+    //   fetch('https://pizzaria-miguel.herokuapp.com/api/pizzas/index')
+    //     .then(response => {
+    //       return response.json()
+    //     })
+    //     .then (data => {
+    //       setIsLoading(false)
+    //       setPizzas(data)
+    //     })
+    // }
+
+    // useEffect(()=> {
+    //   fetchPizzas()
+    // }, ['https://pizzaria-miguel.herokuapp.com/api/pizzas/index'])
+
+  let pizzaFetch = fetch('https://pizzaria-miguel.herokuapp.com/api/pizzas/index')
+  .then((response) => response.json())
+  .then((response) => {JSON.parse(response)})
+  .then((data) => {console.log(data)})
+  
+  .catch((error) => (console.log ("error: "+ error)))
+    
+      return(
         <div>
-            <div>fetched</div>
-
-        </div>)}
-    </div>
-    )
+          {pizzaFetch.response}//no error
+         
+        </div>
+           )
+     
   }
 }
 
