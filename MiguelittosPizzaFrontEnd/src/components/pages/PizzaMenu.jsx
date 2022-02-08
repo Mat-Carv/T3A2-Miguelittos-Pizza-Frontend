@@ -41,7 +41,7 @@ const PizzaMenu = () => {
      return (//the correct way to do style is below
      <>
         <div className="card" style={{width: 18 +'em'}}>
-          <img src="[placeholder]" className='card-img' alt='pizzaimage'></img>
+          <img src="[placeholder]" className='card-img' alt='pizzaimageshouldbehere'></img>
           <div className="card-img-overlay">
             <h4 className="card-title">{menuItem.name}</h4>
             <p className="card-text">{menuItem.description}</p>
