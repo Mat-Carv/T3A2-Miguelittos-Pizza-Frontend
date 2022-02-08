@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PizzaMenu from './components/pages/PizzaMenu'
+import DIYPizza from './components/pages/DIYPizza'
 
 
 
@@ -22,8 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello world</h1>
-      <PizzaMenu />
+      <DIYPizza />
     </div>
   )
 }

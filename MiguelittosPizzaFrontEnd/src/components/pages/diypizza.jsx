@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export class DIYPizza extends Component {
-    state = {
-        loading: true
-    };
+const DIYPizza = () =>{
+  const [ingredients, setIngredients] = useState([])
 
-    async componentDidMount(){
-        const url = ""
-    }
+  useEffect(async () => {
+    console.log("menu ingredients fetched")
+      try{
+        const {status, data} = await axios.get("https://pizzaria-miguel.herokuapp.com/api/products/index/1") 
+        console.log (status, data)
+        setIngredients(data)
+      }
+      catch(error){
+          console.error(error)
+      }
+  }, [])
+  const availableIngredients = ingredients.map((ingredient) => {
+    return <li key={ingredient.category}>{ingredient.base}</li>
+  })
 
-
-  render() {
-    return <div></div>;
-  }
+  return <ul>{availableIngredients}</ul>  
 }
 
 export default DIYPizza;
