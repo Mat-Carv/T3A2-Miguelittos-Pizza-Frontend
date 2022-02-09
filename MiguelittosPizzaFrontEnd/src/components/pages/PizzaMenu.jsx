@@ -12,14 +12,6 @@ const PizzaMenu = () => {
   const addToCart = (menuItem) => {
     console.log(menuItem.name + " added to cart");
     setCart([...cart,{...menuItem}]);//pushes the given pizza to the cart array as a new object, not a duplicate
-
-    return (
-      <>
-      <div class="alert alert-success" role="alert">
-          A simple success alert—check it out!
-      </div>
-      </>
-    )
   }
 
   const removeFromCart =(menuItemToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
@@ -27,6 +19,20 @@ const PizzaMenu = () => {
       cart.filter((menuItem) => menuItem !== menuItemToRemove)
     );
   };
+
+  let navigate = useNavigate();
+  
+    function goToDIYPizzas(){
+      navigate ('/DIYPizza')
+    }
+
+    function goToMainMenu(){
+      navigate('/')
+    }
+
+    function goToCheckout(){
+      navigate('')
+    }
 
 
   useEffect(async () => {
@@ -71,7 +77,7 @@ const PizzaMenu = () => {
   <h1>Shopping Cart</h1>
     <p></p>
     <div className='cart'>
-      {
+      {//TODO: STYLE
         cart.map((menuItem, index) => (
         <>
           <div className='ItemsInCart' key={index}>
@@ -85,58 +91,10 @@ const PizzaMenu = () => {
       }
       <p>
       </p>
-      <button>Check Out</button>
+      <button onClick={goToCheckout}>Check Out</button>
     </div>
   </div>
   </>)
 }
 
 export default PizzaMenu
-
-
-
-
-
-
-// export class PizzaMenu extends Component {
-
-//   render() {
-//     // const [pizzas, setPizzas] = useState([])
-//     // const [isLoading, setIsLoading] = useState(false)
-
-//     // const fetchPizzas = () => {
-//     //   setIsLoading(true)
-
-//     //   fetch('https://pizzaria-miguel.herokuapp.com/api/pizzas/index')
-//     //     .then(response => {
-//     //       return response.json()
-//     //     })
-//     //     .then (data => {
-//     //       setIsLoading(false)
-//     //       setPizzas(data)
-//     //     })
-//     // }
-
-
-//     // useEffect(()=> {
-//     //   fetchPizzas()
-//     // }, ['https://pizzaria-miguel.herokuapp.com/api/pizzas/index'])
-
-//   let pizzaFetch = fetch('https://pizzaria-miguel.herokuapp.com/api/pizzas/index')
-//   .then((response) => response.json())
-//   .then((response) => {JSON.parse(response)})
-//   .then((data) => {console.log(data)})
-
-//   .catch((error) => (console.log ("error: "+ error)))
-
-//       return(
-//         <div>
-//           {}//no error
-
-//         </div>
-//            )
-
-//   }
-// }
-
-// export default PizzaMenu;
