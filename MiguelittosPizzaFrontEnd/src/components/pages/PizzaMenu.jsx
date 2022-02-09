@@ -40,19 +40,21 @@ const PizzaMenu = () => {
   const pizzaMenu = menuItems.map((menuItem,menuIndex) => {
      return (//the correct way to do style is below
      <>
-     
+      <div className='cardcustomhandler' id='cardHandler'>
         <div className="card" style={{width: 18 +'em'}} key={menuIndex}>
           <img src="[placeholder]" className='card-img' alt='pizzaimageshouldbehere'></img>
           <div className="card-img-overlay">
-            <h4 className="card-title">{menuItem.name}</h4>
+            <h4 className="card-title">{menuItem.name}  {menuItem.price}</h4>
             <p className="card-text">{menuItem.description}</p>
+            
 
             {/* <h4>{menuItem.base}</h4>
             <h4>{menuItem.sauce}</h4>
             <h4>{menuIndex}</h4>  these are all things you can call. not price though*/}
          </div>
         <p></p>
-      </div>    
+      </div>
+      </div> 
       <p></p>
       <p></p>
      </>
