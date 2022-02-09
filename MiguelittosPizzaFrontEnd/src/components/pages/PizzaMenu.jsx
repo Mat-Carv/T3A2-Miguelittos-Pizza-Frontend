@@ -60,7 +60,7 @@ const PizzaMenu = () => {
                 <div className="card" style={{width: 18 +'em'}} key={menuIndex}>
                   <img src="[placeholder]" className='card-img' alt='pizzaimageshouldbehere'></img>
                   <div className="card-img-overlay">
-                    <h4 className="card-title">{menuItem.name}  {menuItem.price}</h4>
+                    <h4 className="card-title">{menuItem.name}  ${menuItem.price}</h4>
                     <p className="card-text">{menuItem.description}</p>
                     <p></p>
                     <p></p>

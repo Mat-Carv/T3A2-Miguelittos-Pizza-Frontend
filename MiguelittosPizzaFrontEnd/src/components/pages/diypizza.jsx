@@ -17,30 +17,92 @@ const DIYPizza = () =>{
       }
   }, [])
 
-  const DIYPizzaConstructor = ingredientsTable[0]?.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it.
-    
-    return (
-        <>
-        <div>
-            <div className="card" style={{width: 18 +'em'}} key={index}>
-            <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
-                <div className="card-img-overlay">
-                <h4 className="card-title">{ingredient.name}  {ingredient.price}</h4>
-                <p></p>
-                <p></p>
+  const DIYPizzaConstructor = ingredientsTable[0]?.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
+
+            if (ingredient.category === "Toppings") {
+                return(
+                    <>
+                    <div>
+                        <div className="card" style={{width: 18 +'em'}} key={index}>
+                        <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+                            <div className="card-img-overlay">
+                            <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
+                            <p></p>
+                            <p></p>
+                            </div>
+                        <p></p>    
+                        </div>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    </>
+                )
+            } if (ingredient.category === "Sauces") {
+                return(
+                <>
+                <div>
+                    <div className="card" style={{width: 18 +'em'}} key={index}>
+                    <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+                        <div className="card-img-overlay">
+                        <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
+                        <p></p>
+                        <p></p>
+                        </div>
+                    <p></p>    
+                    </div>
+                    <p></p>
+                    <p></p>
                 </div>
-            <p></p>    
-            </div>
-            <p></p>
-            <p></p>
-        </div>
-        </>
-    )
+                </>
+                )
+                
+            } if(ingredient.category === "Bases"){
+                return(
+                <>
+                <div>
+                    <div className="card" style={{width: 18 +'em'}} key={index}>
+                    <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+                        <div className="card-img-overlay">
+                        <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
+                        <p></p>
+                        <p></p>
+                        </div>
+                    <p></p>    
+                    </div>
+                    <p></p>
+                    <p></p>
+                </div>
+                </>
+                )
+            }
+            
+            else {
+                return console.log("error, that shouldn't be there")
+            }
+
+
+    // return (  
+    //     <>
+    //     <div>
+    //         <div className="card" style={{width: 18 +'em'}} key={index}>
+    //         <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+    //             <div className="card-img-overlay">
+    //             <h4 className="card-title">{ingredient.name}  {ingredient.price}</h4>
+    //             <p></p>
+    //             <p></p>
+    //             </div>
+    //         <p></p>    
+    //         </div>
+    //         <p></p>
+    //         <p></p>
+    //     </div>
+    //     </>
+    // )
   })
 
 
   //console.log(ingredients[0])
-  return <div>{DIYPizzaConstructor}</div> 
+  return <div id="ingredientsConstructor">{DIYPizzaConstructor}</div> 
  
 }
 
