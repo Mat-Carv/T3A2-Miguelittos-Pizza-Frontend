@@ -16,6 +16,9 @@ const LandingPage = () => {
 
     return(
         <>
+        <div id="LandingPageContent">
+        <h1 id="landingPageTitle">Miguelitto's Pizzeria</h1>
+        <p></p>
         <span id="hero" >
         {/* <img src="MiguelittosPizzaFrontEnd/src/images/miguelittosPizeriaLogo.png" alt="Miguelittos Pizza Logo in a circle" /> */}
         <p></p>
@@ -52,10 +55,9 @@ const LandingPage = () => {
 
             <div id="aboutUsMap"></div>
         </span>
+        </div>
         </>
     )
-
-
 }
 
 export default LandingPage

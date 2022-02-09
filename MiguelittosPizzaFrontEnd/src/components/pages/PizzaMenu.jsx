@@ -53,21 +53,25 @@ const PizzaMenu = () => {
 
 
   const pizzaMenu = menuItems.map((menuItem,menuIndex) => {
-     return (//the correct way to do style is below
+     return (//the correct way to do style is below//so to avoid a very annoying if statement here, it might be better to remove the custom pizza from the pizzas database
      <>
-      <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>
-        <div className="card" style={{width: 18 +'em'}} key={menuIndex}>
-          <img src="[placeholder]" className='card-img' alt='pizzaimageshouldbehere'></img>
-          <div className="card-img-overlay">
-            <h4 className="card-title">{menuItem.name}  {menuItem.price}</h4>
-            <p className="card-text">{menuItem.description}</p>
-            
-         </div>
-        <p></p>
+      <div>
+            <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>
+                <div className="card" style={{width: 18 +'em'}} key={menuIndex}>
+                  <img src="[placeholder]" className='card-img' alt='pizzaimageshouldbehere'></img>
+                  <div className="card-img-overlay">
+                    <h4 className="card-title">{menuItem.name}  {menuItem.price}</h4>
+                    <p className="card-text">{menuItem.description}</p>
+                    <p></p>
+                    <p></p>
+                  </div>
+                  <p></p>
+                </div>
+            </div>
+          <p></p>  
+          <p></p>
+          <p></p>
       </div>
-      </div> 
-      <p></p>
-      <p></p>
      </>
      )
   })

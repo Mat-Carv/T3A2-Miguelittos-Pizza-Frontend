@@ -15,8 +15,9 @@ const DIYPizza = () =>{
           console.error(error)
       }
   }, [])
-  const availableIngredients = ingredients.map((ingredient) => {
-    return <li key={ingredient.category}>{ingredient.base}</li>
+  const availableIngredients = ingredients.map((ingredient, ingredientindex) => {//so the issue here is that the products index has the custom pizza template in it.
+    
+    return <li key={ingredientindex}>{ingredientindex.name}</li>
   })
 
   return <ul>{availableIngredients}</ul>  
