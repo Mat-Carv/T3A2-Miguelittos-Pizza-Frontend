@@ -58,8 +58,6 @@ const PizzaMenu = () => {
       </div> 
       <p></p>
       <p></p>
-
-      
      </>
      )
   })
@@ -68,14 +66,15 @@ const PizzaMenu = () => {
   <>
   <div>{pizzaMenu}</div>
   <p></p><p></p>
-  <div>
+
+  <div id='ShoppingCart'>
   <h1>Shopping Cart</h1>
     <p></p>
     <div className='cart'>
       {
         cart.map((menuItem, index) => (
         <>
-          <div className='pizzasInCart' key={index}>
+          <div className='ItemsInCart' key={index}>
             <h3>{menuItem.name}</h3>
             <h4>{menuItem.price}</h4>
             <p></p>
