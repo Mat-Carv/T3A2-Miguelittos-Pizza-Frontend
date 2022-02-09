@@ -5,24 +5,21 @@ import './PizzaMenu.css';
 const PizzaMenu = () => {
 
   const pizzaMenuUrl = "https://pizzaria-miguel.herokuapp.com/api/pizzas/index";
-  // const ingredientsUrl = "https://pizzaria-miguel.herokuapp.com/api/products/index/1";
+  const [cart, setCart] = useState([]);//created an empty shopping cart
 
   const [menuItems, setMenuItems] = useState([])
-  // const [ingredients, setIngredients] = useState([])
 
-  // useEffect(async () => {
-  //   console.log ("ingredients fetched")
-  //   try{
-  //     const {status, data} = await axios.get(ingredientsUrl)
-  //     console.log (status,data)
-  //     setIngredients(data)
-  //   }
+  const addToCart = (menuItem) => {
+    console.log(menuItem.name + " added to cart");
+    setCart([...cart,{...menuItem}]);//pushes the given pizza to the cart array as a new object, not a duplicate
+  }
 
-  //   catch(error){
-  //     console.error(error + " in ingredients fetch")
-  //   }
+  const removeFromCart =(pizzaToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
+    setCart(
+      cart.filter((menuItem) => menuItem !== pizzaToRemove)
+    );
+  };
 
-  // }, [])
 
   useEffect(async () => {
     console.log("menu fetched")
@@ -40,7 +37,7 @@ const PizzaMenu = () => {
   const pizzaMenu = menuItems.map((menuItem,menuIndex) => {
      return (//the correct way to do style is below
      <>
-      <div className='cardcustomhandler' id='cardHandler'>
+      <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>
         <div className="card" style={{width: 18 +'em'}} key={menuIndex}>
           <img src="[placeholder]" className='card-img' alt='pizzaimageshouldbehere'></img>
           <div className="card-img-overlay">
@@ -57,6 +54,8 @@ const PizzaMenu = () => {
       </div> 
       <p></p>
       <p></p>
+
+      <div>TODO: PLACE ORDER</div>
      </>
      )
   })
