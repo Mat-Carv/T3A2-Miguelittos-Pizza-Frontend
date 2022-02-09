@@ -12,11 +12,19 @@ const PizzaMenu = () => {
   const addToCart = (menuItem) => {
     console.log(menuItem.name + " added to cart");
     setCart([...cart,{...menuItem}]);//pushes the given pizza to the cart array as a new object, not a duplicate
+
+    return (
+      <>
+      <div class="alert alert-success" role="alert">
+          A simple success alert—check it out!
+      </div>
+      </>
+    )
   }
 
-  const removeFromCart =(pizzaToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
+  const removeFromCart =(menuItemToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
     setCart(
-      cart.filter((menuItem) => menuItem !== pizzaToRemove)
+      cart.filter((menuItem) => menuItem !== menuItemToRemove)
     );
   };
 
@@ -44,10 +52,6 @@ const PizzaMenu = () => {
             <h4 className="card-title">{menuItem.name}  {menuItem.price}</h4>
             <p className="card-text">{menuItem.description}</p>
             
-
-            {/* <h4>{menuItem.base}</h4>
-            <h4>{menuItem.sauce}</h4>
-            <h4>{menuIndex}</h4>  these are all things you can call. not price though*/}
          </div>
         <p></p>
       </div>
@@ -55,7 +59,7 @@ const PizzaMenu = () => {
       <p></p>
       <p></p>
 
-      <div>TODO: PLACE ORDER</div>
+      
      </>
      )
   })
@@ -64,7 +68,27 @@ const PizzaMenu = () => {
   <>
   <div>{pizzaMenu}</div>
   <p></p><p></p>
- 
+  <div>
+  <h1>Shopping Cart</h1>
+    <p></p>
+    <div className='cart'>
+      {
+        cart.map((menuItem, index) => (
+        <>
+          <div className='pizzasInCart' key={index}>
+            <h3>{menuItem.name}</h3>
+            <h4>{menuItem.price}</h4>
+            <p></p>
+          </div>
+          <button onClick={() => removeFromCart(menuItem)}>Remove?</button>
+        </>
+        ))
+      }
+      <p>
+      </p>
+      <button>Check Out</button>
+    </div>
+  </div>
   </>)
 }
 
