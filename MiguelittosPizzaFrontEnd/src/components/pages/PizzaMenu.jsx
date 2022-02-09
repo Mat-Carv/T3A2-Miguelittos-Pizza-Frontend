@@ -24,6 +24,9 @@ const PizzaMenu = () => {
   let navigate = useNavigate();
   
     function goToDIYPizzas(){
+      let cartToDIYPizzas = cart
+      console.log(cartToDIYPizzas)
+      localStorage.setitem(cartToDIYPizzas, JSON.stringify('cartToDIY',cartToDIYPizzas))
       navigate('/DIYPizza')
     }
 
@@ -79,7 +82,21 @@ const PizzaMenu = () => {
   return (
   <>
   <div>{pizzaMenu}</div>
-  <p></p><p></p>
+  <p></p>
+  <p></p>
+
+  <div id='customPizzaLink' onClick={goToDIYPizzas}>
+        <div className="card" style={{width: 18 +'em'}}>
+            <img src="[placeholder]" className='card-img' alt='pizzaimageshouldbehere'></img>
+            <div className="card-img-overlay">
+              <h4 className="card-title">Custom Pizza</h4>
+              <p className="card-text">Fancy something else? Try out our custom pizza designer to design your perfect pizza</p>
+              <p></p>
+              <p></p>
+            </div>
+          <p></p>
+      </div>
+  </div>
 
   <div id='ShoppingCart'>
   <h1>Shopping Cart</h1>
