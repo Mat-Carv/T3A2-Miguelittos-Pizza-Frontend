@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const DIYPizza = () =>{
-  const [ingredients, setIngredients] = useState([])
+  const [ingredientsTable, setIngredients] = useState([])
+  const ingredientsURL = 'https://pizzaria-miguel.herokuapp.com/api/products/index/1'
 
   useEffect(async () => {
     console.log("menu ingredients fetched")
       try{
-        const {status, data} = await axios.get("https://pizzaria-miguel.herokuapp.com/api/products/index/1") 
+        const {status, data} = await axios.get(ingredientsURL) 
         console.log (status, data)
         setIngredients(data)
       }
@@ -15,12 +16,16 @@ const DIYPizza = () =>{
           console.error(error)
       }
   }, [])
-  const availableIngredients = ingredients.map((ingredient, ingredientindex) => {//so the issue here is that the products index has the custom pizza template in it.
+
+  const DIYPizzaConstructor = ingredientsTable[0]?.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it.
     
-    return <li key={ingredientindex}>{ingredientindex.name}</li>
+    return <div key={index}> {ingredient.name} </div>
   })
 
-  return <ul>{availableIngredients}</ul>  
+
+  //console.log(ingredients[0])
+  return <div>{DIYPizzaConstructor}</div> 
+ 
 }
 
 export default DIYPizza;
