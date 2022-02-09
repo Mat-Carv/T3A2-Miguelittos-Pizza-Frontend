@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import axios from 'axios';
 import './PizzaMenu.css';
 
@@ -23,7 +24,7 @@ const PizzaMenu = () => {
   let navigate = useNavigate();
   
     function goToDIYPizzas(){
-      navigate ('/DIYPizza')
+      navigate('/DIYPizza')
     }
 
     function goToMainMenu(){
@@ -31,7 +32,10 @@ const PizzaMenu = () => {
     }
 
     function goToCheckout(){
-      navigate('')
+      let cartFinalised = cart
+      console.log(cartFinalised)
+      localStorage.setItem(cartFinalised, JSON.stringify('cartToCheckout',cartFinalised))
+      navigate('/PlaceOrder')
     }
 
 

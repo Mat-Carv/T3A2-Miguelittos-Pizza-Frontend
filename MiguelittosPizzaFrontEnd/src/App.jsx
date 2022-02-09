@@ -1,6 +1,9 @@
 
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import useLocalStorage from "use-local-storage"
+
+
 import { useNavigate } from 'react-router'
   import PizzaMenu from './components/pages/PizzaMenu'
   import DIYPizza from './components/pages/DIYPizza'
@@ -12,11 +15,13 @@ import { useNavigate } from 'react-router'
 
 
 function App() {
+
   
 //TODO: Admin Routes
 
   return (
     <div className="App">
+     
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -27,7 +32,7 @@ function App() {
 
           </Routes>
         </BrowserRouter>
-      
+     
     </div>
   )
 }
