@@ -19,9 +19,6 @@ const LandingPage = () => {
     return(
         <>
         <div id="LandingPageContent">
-        <h1 id="landingPageTitle">Miguelitto's Pizzeria</h1>
-        <img src = {pizzaLogo} alt="miguelittos pizza logo"/>
-        <p></p>
         <span id="hero" >
         <p></p>
         <div id="ClassicMenuSection" onClick={goToPizzaMenu}>

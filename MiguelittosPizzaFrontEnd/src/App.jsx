@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router'
   import PlaceOrder from './components/pages/PlaceOrder'
   import SignUp from './components/pages/SignUp'
   import Title from './components/Header/Header.jsx'
-import LandingPage from './components/pages/LandingPage.jsx'
+import LandingPage from './components/pages/LandingPage.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
 
 
 
@@ -23,8 +23,10 @@ function App() {
 
   return (
     <div className="App">
+     
      <Context.Provider value={{context, setContext}}>
         <BrowserRouter>
+        <Title />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/PizzaMenu" element={<PizzaMenu />} />
@@ -32,11 +34,11 @@ function App() {
             <Route path="/Admin" element={<Admin />} />
             <Route path="/PlaceOrder" element={<PlaceOrder />} />
             <Route path="/SignUp" element={<SignUp />} />
-
+           
           </Routes>
+          
         </BrowserRouter>
       </Context.Provider>
-      <Title />
     </div>
   )
 }
