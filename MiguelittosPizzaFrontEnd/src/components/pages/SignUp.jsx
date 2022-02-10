@@ -1,6 +1,7 @@
 // import React from 'react'
 import React, {useState} from 'react';
 import {apiUrl, devUrl} from '../../config/api';
+import {useNavigate, Route} from "react-router-dom";
 
 function SignUp(props) {
 
@@ -26,6 +27,12 @@ function SignUp(props) {
         } else {
             console.log('Passwords do not match');
         }
+    }   
+    
+    const navigate = useNavigate()
+
+    function redirectToHome() {
+        navigate('/')
     }
 
     const sendDetailsToServer = () => {
@@ -37,7 +44,7 @@ function SignUp(props) {
                 "password":state.password,
                 "password_confirmation":state.password_confirmation
             }
-            apiUrl.post('/api/auth/sign_up', payload)
+            devUrl.post('/api/auth/sign_up', payload)
                 .then(function (response) {
                     if(response.status === 201){
                         setState(prevState => ({
