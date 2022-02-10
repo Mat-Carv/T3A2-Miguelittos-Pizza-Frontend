@@ -1,6 +1,6 @@
 
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import useLocalStorage from "use-local-storage"
 
 import Context from './components/context/context.jsx'

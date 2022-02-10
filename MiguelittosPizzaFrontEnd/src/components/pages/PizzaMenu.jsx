@@ -95,10 +95,9 @@ const PizzaMenu = () => {
      </>
      )
   })
-
+  
   return (
   <>
-  <Title />
   <div id='PizzaMenuHeading'>
     <h2>Miguelitto's Classic Pizzas</h2>
   </div>
