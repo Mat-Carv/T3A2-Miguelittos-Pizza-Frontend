@@ -23,18 +23,15 @@ const PlaceOrder = () => {
             else return(console.log("There is no cart"))
         }
 
-    const getCartTotalSum = () => {
-        return getPizzacart.reduce(
-          (sum, {price}) => sum + price, 0
-        )
-      }
-
     return(
         <>
         <h1>Place Order Page</h1>
-        <div>total: {getPizzacart()}</div>
-        <div></div>
-        
+        <div>Your total: {getPizzacart()}</div>
+        <div>Your Pizzas will be ready in 30 minutes!</div>
+        <div>
+
+            
+        </div>
         </>
     )
 

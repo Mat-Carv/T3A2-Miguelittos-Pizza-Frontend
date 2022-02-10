@@ -42,8 +42,8 @@ const PizzaMenu = () => {
       let cartToDIYPizzas = cart
       console.log(cartToDIYPizzas)
       localStorage.setitem(cartToDIYPizzas, JSON.stringify('cartToDIY',cartToDIYPizzas))
-      setTimeout(() =>{navigate('/DIYPizza')}, 5000 )
-      
+      navigate('/DIYPizza')
+       
     }
 
     function goToMainMenu(){
@@ -97,6 +97,10 @@ const PizzaMenu = () => {
 
   return (
   <>
+  <div id='PizzaMnuHeading'>
+    <h2>Miguelitto's Classic Pizzas</h2>
+  </div>
+
   <div>{pizzaMenu}</div>
   <p></p>
   <p></p>

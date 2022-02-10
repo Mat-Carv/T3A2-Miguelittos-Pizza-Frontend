@@ -8,10 +8,11 @@ import Context from './components/context/context.jsx'
 import { useNavigate } from 'react-router'
   import PizzaMenu from './components/pages/PizzaMenu'
   import DIYPizza from './components/pages/DIYPizza'
-  import LandingPage from './components/pages/landingpage'
   import Admin from './components/pages/Admin.jsx'
   import PlaceOrder from './components/pages/PlaceOrder'
-  import SignUp from './components/pages/Signup'
+  import SignUp from './components/pages/SignUp'
+  import Title from './components/Header/Header.jsx'
+import LandingPage from './components/pages/LandingPage.jsx'
 
 
 
@@ -35,6 +36,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Context.Provider>
+      <Title />
     </div>
   )
 }
