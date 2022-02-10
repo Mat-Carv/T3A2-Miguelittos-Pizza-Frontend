@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Context from '../context/context';
 import './PizzaMenu.css';
+import Title from '../Header/Header';
 
 const PizzaMenu = () => {
 
@@ -97,7 +98,8 @@ const PizzaMenu = () => {
 
   return (
   <>
-  <div id='PizzaMnuHeading'>
+  <Title />
+  <div id='PizzaMenuHeading'>
     <h2>Miguelitto's Classic Pizzas</h2>
   </div>
 

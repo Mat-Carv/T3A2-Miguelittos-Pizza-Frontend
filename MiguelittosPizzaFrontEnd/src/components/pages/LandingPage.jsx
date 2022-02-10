@@ -21,9 +21,9 @@ const LandingPage = () => {
         <>
         <Title />
         <div id="LandingPageContent">
-        <span id="hero" >
+        <div id="hero" className="container px-4">
         <p></p>
-        <div id="ClassicMenuSection" onClick={goToPizzaMenu}>
+        <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
              <div className="card mb-3" style={{width: 25 +'em'}}>
              
              <div className="row no-gutters">
@@ -35,8 +35,8 @@ const LandingPage = () => {
         </div>
 
         <p></p>
-        <div id="MakeYourOwnSection" onClick={goToDIYPizzas}>
-            <div className="card mb-3" style={{width: 25 +'em'}}>
+        <div id="MakeYourOwnSection" onClick={goToDIYPizzas} className="col">
+            <div className="card mb-3" style={{width: 25 +'em'}} >
                 
                 <div className="row no-gutters">
                     <h5 className="card-title">Design Your Own Pizza</h5>
@@ -44,9 +44,9 @@ const LandingPage = () => {
                 </div>
                 </div>
         </div>
-        </span>
+        </div>
 
-        <span id= "aboutUs">
+        <div id= "aboutUs" className="col">
             <div id="aboutUsTitle">
                 About Miguelittos Pizza
             </div>
@@ -73,7 +73,7 @@ const LandingPage = () => {
                 <h3>Come Find us</h3>
                 <img src={miguelittosLocationMap} alt="Map totally showing the location of miguelittos pizzeria in brazil"/>
 
-        </span>
+        </div>
         </div>
         </>
     )

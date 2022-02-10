@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import { renderMatches } from "react-router";
 
+import Title from "../Header/Header";
 import Context from "../context/context";
 
 const PlaceOrder = () => {
@@ -25,12 +26,11 @@ const PlaceOrder = () => {
 
     return(
         <>
+        <Title />
         <h1>Place Order Page</h1>
         <div>Your total: {getPizzacart()}</div>
         <div>Your Pizzas will be ready in 30 minutes!</div>
         <div>
-
-            
         </div>
         </>
     )

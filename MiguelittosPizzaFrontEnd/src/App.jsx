@@ -5,14 +5,12 @@ import useLocalStorage from "use-local-storage"
 
 import Context from './components/context/context.jsx'
 
-import { useNavigate } from 'react-router'
   import PizzaMenu from './components/pages/PizzaMenu'
   import DIYPizza from './components/pages/DIYPizza'
   import Admin from './components/pages/Admin.jsx'
   import PlaceOrder from './components/pages/PlaceOrder'
   import SignUp from './components/pages/SignUp'
-  import Title from './components/Header/Header.jsx'
-import LandingPage from './components/pages/LandingPage.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
+  import LandingPage from './components/pages/LandingPage.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
 
 
 

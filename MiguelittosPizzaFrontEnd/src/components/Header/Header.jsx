@@ -6,10 +6,15 @@ const Title = () => {
     const navigate = useNavigate();
 
     return(
-        <><div>
-            <img src={miguelittosLogo} alt="miguelittos logo" onClick={navigate('/')} />
-
-            <h1>Miguelitto's Pizzeria</h1>
+        <><div className="container-fluid">
+            <div className="row">
+                <div className="col">
+                    <img src={miguelittosLogo} alt="miguelittos logo" onClick={navigate('/')} style={{width: 7 +'em'}}/>
+                </div>
+                <div className="col">
+                    <h1>Miguelitto's Pizzeria</h1>
+                </div>
+            </div>
         </div></>
 
     )

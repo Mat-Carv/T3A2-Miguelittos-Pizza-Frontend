@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import Title from '../Header/Header';
+
 const DIYPizza = () =>{
   const [ingredientsTable, setIngredients] = useState([])//get ingredients
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
@@ -100,7 +102,9 @@ const DIYPizza = () =>{
   //console.log(ingredients[0])
   return( 
   <>
-  <div id="ingredientsConstructor">{DIYPizzaConstructor}</div> 
+    <Title />
+
+    <div id="ingredientsConstructor">{DIYPizzaConstructor}</div> 
   </>
   )
  
