@@ -26,7 +26,6 @@ function App() {
      
      <Context.Provider value={{context, setContext}}>
         <BrowserRouter>
-        <Title />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/PizzaMenu" element={<PizzaMenu />} />
