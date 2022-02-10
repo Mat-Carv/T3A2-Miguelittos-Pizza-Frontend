@@ -17,6 +17,7 @@ const PizzaMenu = () => {
   const [cart, setCart] = useState([]);//created an empty shopping cart
   //state for the menu
   const [menuItems, setMenuItems] = useState([])
+  
 //cart functions
   const addToCart = (menuItem) => {
     console.log(menuItem.name + " added to cart");

@@ -5,8 +5,10 @@ import Context from '../context/context';
 import Title from '../Header/Header';
 
 const DIYPizza = () =>{
-  const [ingredientsTable, setIngredients] = useState([])//get ingredients
+  const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
+  
+  
   const {context, setContext} = useContext(Context) //call for save files
 
   const ingredientsURL = 'https://pizzaria-miguel.herokuapp.com/api/products/index/1'
@@ -31,6 +33,11 @@ const DIYPizza = () =>{
 
       console.log(cartfromMiddata)
       return(cartfromMiddata)
+  }
+
+  const addIngredientToCart = (ingredient) => {
+    console.log(ingredient.name + " added to cart");
+    setCart([...cart,{...ingredient}]);//pushes the given ingredient to the cart array as a new object, not a duplicate. well that just makes it really easy to send multiples of an ingredient
   }
 
   //returns the ingredients fetched prior
@@ -99,8 +106,6 @@ const DIYPizza = () =>{
 
   })
 
-
-  //console.log(ingredients[0])
   return( 
   <>
     <Title />
