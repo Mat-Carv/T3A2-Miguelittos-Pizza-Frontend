@@ -2,16 +2,12 @@ import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import './PizzaMenu.css';
-//import pizzaimageplaceholder from "https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg"
-
-  
 
 const PizzaMenu = () => {
 
   const pizzaMenuUrl = "https://pizzaria-miguel.herokuapp.com/api/pizzas/index";
-  //const pizzaimageplaceholder = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.taste.com.au%2Fquick-easy%2Fgalleries%2Fwinter-pizzas-we-cant-get-enough%2Fhktjp30r&psig=AOvVaw0nMKA51NGjS1Eb61msvGFu&ust=1644536043625000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiZh9jk8_UCFQAAAAAdAAAAABAD"
-
   const [cart, setCart] = useState([]);//created an empty shopping cart
+
   const [menuItems, setMenuItems] = useState([])
 
   const addToCart = (menuItem) => {
@@ -64,9 +60,9 @@ const PizzaMenu = () => {
      <>
       <div>
             <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>
-                <div className="card" style={{width: 18 +'em'}} key={menuIndex}>
-                  <img src={require ('placeholder')} className='card-img-top' alt='pizzaimageshouldbehere'></img>
-                  <div className="card-body">
+                <div className="card bg-dark text-white" style={{width: 18 +'em'}} key={menuIndex}>
+                  <img src="https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg" className='card-img' alt='pizzaimageshouldbehere'></img>
+                  <div className="card-img-overlay">
                     <h4 className="card-title">{menuItem.name}  ${menuItem.price}</h4>
                     <p className="card-text">{menuItem.description}</p>
                     <p></p>
@@ -90,9 +86,9 @@ const PizzaMenu = () => {
   <p></p>
 
   <div id='customPizzaLink' onClick={goToDIYPizzas}>
-        <div className="card" style={{width: 18 +'em'}}>
-            <img src={pizzaimageplaceholder} className='card-img-top' alt='pizzaimageshouldbehere'></img>
-            <div className="card-body">
+        <div className="card bg-dark text-white" style={{width: 18 +'em'}}>
+            <img src="https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg" className='card-img' alt='pizzaimageshouldbehere'></img>
+            <div className="card-img-overlay">
               <h4 className="card-title">Custom Pizza</h4>
               <p className="card-text">Fancy something else? Try out our custom pizza designer to design your perfect pizza</p>
               <p></p>
@@ -123,8 +119,7 @@ const PizzaMenu = () => {
       <button onClick={goToCheckout}>Check Out</button>
     </div>
   </div>
-  </>
-  )
+  </>)
 }
 
 export default PizzaMenu
