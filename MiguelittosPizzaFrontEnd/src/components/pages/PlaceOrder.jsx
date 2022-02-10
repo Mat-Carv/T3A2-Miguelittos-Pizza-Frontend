@@ -89,7 +89,7 @@ function PlaceOrder () {
         <h1>Place Order Page</h1>
         <div>Your total: {getPizzacart()}</div>
         <button onClick={sendCartToBackEnd}>Place Order</button>
-        <div>Your Pizzas will be ready in 30 minutes!</div>
+        <div id="ThisShouldBeAPopup">Your Pizzas will be ready in 30 minutes!</div>
         </>
     )
 
