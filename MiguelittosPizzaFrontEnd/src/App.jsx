@@ -3,11 +3,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import useLocalStorage from "use-local-storage"
 
+import Context from './components/context/context.jsx'
 
 import { useNavigate } from 'react-router'
   import PizzaMenu from './components/pages/PizzaMenu'
   import DIYPizza from './components/pages/DIYPizza'
-  import LandingPage from './components/pages/LandingPage'
+  import LandingPage from './components/pages/landingpage'
   import Admin from './components/pages/admin.jsx'
   import PlaceOrder from './components/pages/PlaceOrder'
 
@@ -16,12 +17,12 @@ import { useNavigate } from 'react-router'
 
 function App() {
 
-  
+  const [context,setContext] = useLocalStorage("context", {});  
 //TODO: Admin Routes
 
   return (
     <div className="App">
-     
+     <Context.Provider value={{context, setContext}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -32,7 +33,7 @@ function App() {
 
           </Routes>
         </BrowserRouter>
-     
+      </Context.Provider>
     </div>
   )
 }

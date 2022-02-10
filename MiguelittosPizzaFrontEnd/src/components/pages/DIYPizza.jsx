@@ -94,29 +94,15 @@ const DIYPizza = () =>{
                 return console.log("error, that shouldn't be there")
             }
 
-
-    // return (  
-    //     <>
-    //     <div>
-    //         <div className="card" style={{width: 18 +'em'}} key={index}>
-    //         <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
-    //             <div className="card-img-overlay">
-    //             <h4 className="card-title">{ingredient.name}  {ingredient.price}</h4>
-    //             <p></p>
-    //             <p></p>
-    //             </div>
-    //         <p></p>    
-    //         </div>
-    //         <p></p>
-    //         <p></p>
-    //     </div>
-    //     </>
-    // )
   })
 
 
   //console.log(ingredients[0])
-  return <div id="ingredientsConstructor">{DIYPizzaConstructor}</div> 
+  return( 
+  <>
+  <div id="ingredientsConstructor">{DIYPizzaConstructor}</div> 
+  </>
+  )
  
 }
 

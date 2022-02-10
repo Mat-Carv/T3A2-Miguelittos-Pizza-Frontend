@@ -1,6 +1,7 @@
 import React from "react";
 import {useNavigate, Route} from "react-router-dom";
 import pizzaLogo from '../images/MiguelittosPizeriaCircle.png';
+import miguelittosLocationMap from "../images/Miguelittos_Pizeria_Location.png";
 
 
 
@@ -19,10 +20,9 @@ const LandingPage = () => {
         <>
         <div id="LandingPageContent">
         <h1 id="landingPageTitle">Miguelitto's Pizzeria</h1>
-        <img src = {pizzaLogo}/>
+        <img src = {pizzaLogo} alt="miguelittos pizza logo"/>
         <p></p>
         <span id="hero" >
-        {/* <img src="MiguelittosPizzaFrontEnd/src/images/miguelittosPizeriaLogo.png" alt="Miguelittos Pizza Logo in a circle" /> */}
         <p></p>
         <div id="ClassicMenuSection" onClick={goToPizzaMenu}>
              <div className="card mb-3" style={{width: 25 +'em'}}>
@@ -71,6 +71,9 @@ const LandingPage = () => {
             </div>
 
             <div id="aboutUsMap"></div>
+                <h3>Come Find us</h3>
+                <img src={miguelittosLocationMap} alt="Map totally showing the location of miguelittos pizzeria in brazil"/>
+
         </span>
         </div>
         </>

@@ -1,15 +1,19 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
+
+import Context from '../context/context';
 import './PizzaMenu.css';
 
 const PizzaMenu = () => {
+
+  const {context, setContext} = useContext(Context)
 
   const pizzaMenuUrl = "https://pizzaria-miguel.herokuapp.com/api/pizzas/index";
   const [cart, setCart] = useState([]);//created an empty shopping cart
 
   const [menuItems, setMenuItems] = useState([])
-
+//cart functions
   const addToCart = (menuItem) => {
     console.log(menuItem.name + " added to cart");
     setCart([...cart,{...menuItem}]);//pushes the given pizza to the cart array as a new object, not a duplicate
@@ -21,13 +25,25 @@ const PizzaMenu = () => {
     );
   };
 
+  const clearCart = () => {
+    setCart([]);
+  }
+
+  const getCartTotalSum = () => {
+    return cart.reduce(
+      (sum, {price}) => sum + price, 0
+    )
+   
+  }
+
   let navigate = useNavigate();
   
     function goToDIYPizzas(){
       let cartToDIYPizzas = cart
       console.log(cartToDIYPizzas)
       localStorage.setitem(cartToDIYPizzas, JSON.stringify('cartToDIY',cartToDIYPizzas))
-      navigate('/DIYPizza')
+      setTimeout(() =>{navigate('/DIYPizza')}, 5000 )
+      
     }
 
     function goToMainMenu(){
@@ -36,8 +52,8 @@ const PizzaMenu = () => {
 
     function goToCheckout(){
       let cartFinalised = cart
+      setContext({...context, cartFinalised})
       console.log(cartFinalised)
-      localStorage.setItem(cartFinalised, JSON.stringify('cartToCheckout',cartFinalised))
       navigate('/PlaceOrder')
     }
 
@@ -116,7 +132,9 @@ const PizzaMenu = () => {
       }
       <p>
       </p>
+      <div>Total: ${getCartTotalSum()}</div>
       <button onClick={goToCheckout}>Check Out</button>
+      <button onClick={clearCart}>Clear Cart</button>
     </div>
   </div>
   </>)
