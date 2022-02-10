@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router'
   import PizzaMenu from './components/pages/PizzaMenu'
   import DIYPizza from './components/pages/DIYPizza'
   import LandingPage from './components/pages/LandingPage'
-  import Admin from './components/pages/Admin.jsx'
+  import Admin from './components/pages/admin.jsx'
   import PlaceOrder from './components/pages/PlaceOrder'
 
 
