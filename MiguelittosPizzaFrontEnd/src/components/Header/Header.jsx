@@ -6,11 +6,11 @@ const Title = () => {
     const navigate = useNavigate();
 
     return(
-        <div>
-            <img src={miguelittosLogo} alt="miguelittos logo" onClick={navigate('/')}/>
+        <><div>
+            <img src={miguelittosLogo} alt="miguelittos logo" onClick={navigate('/')} />
 
             <h1>Miguelitto's Pizzeria</h1>
-        </div>
+        </div></>
 
     )
 }

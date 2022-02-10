@@ -2,6 +2,7 @@ import React from "react";
 import {useNavigate, Route} from "react-router-dom";
 import pizzaLogo from '../images/MiguelittosPizeriaCircle.png';
 import miguelittosLocationMap from "../images/Miguelittos_Pizeria_Location.png";
+import Title from "../Header/Header";
 
 
 
@@ -18,6 +19,7 @@ const LandingPage = () => {
 
     return(
         <>
+        <Title />
         <div id="LandingPageContent">
         <span id="hero" >
         <p></p>
