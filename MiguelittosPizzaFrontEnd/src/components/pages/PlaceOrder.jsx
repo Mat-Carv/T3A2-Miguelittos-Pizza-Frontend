@@ -43,7 +43,7 @@ function PlaceOrder () {
 
     function getPizzacart() 
     {
-        let data = context.cartFinalised;//this could also be session storage in the live, but because I have to KEEP F**KING RESTARTING VITE TO GET IT TO UPDATE, thatway lies madness
+        let data = context.cartFinalised;
             //data = JSON.parse(data)
             //console.log(data)
 
@@ -86,7 +86,8 @@ function PlaceOrder () {
     
     return(
         <>
-        <h1>Place Order Page</h1>
+        <Title />
+        <h1>Confirm Order</h1>
         <div>Your total: {getPizzacart()}</div>
         <button onClick={sendCartToBackEnd}>Place Order</button>
         <div id="ThisShouldBeAPopup">Your Pizzas will be ready in 30 minutes!</div>

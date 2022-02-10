@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios';
+import Context from '../context/context';
 
 import Title from '../Header/Header';
 
 const DIYPizza = () =>{
   const [ingredientsTable, setIngredients] = useState([])//get ingredients
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
+  const {context, setContext} = useContext(Context) //call for save files
 
   const ingredientsURL = 'https://pizzaria-miguel.herokuapp.com/api/products/index/1'
   const placeholderPizzaIngredientImageURL = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.taste.com.au%2Fquick-easy%2Fgalleries%2Fwinter-pizzas-we-cant-get-enough%2Fhktjp30r&psig=AOvVaw0nMKA51NGjS1Eb61msvGFu&ust=1644536043625000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiZh9jk8_UCFQAAAAAdAAAAABAD'
@@ -25,8 +27,7 @@ const DIYPizza = () =>{
 
   function getPizzacartFromClassicMenu() 
   {
-      let cartfromMiddata = localStorage.getItem('cartToDIY');//this could also be session storage in the live, but because I have to KEEP F**KING RESTARTING VITE TO GET IT TO UPDATE, thatway lies madness
-      cartfromMiddata = JSON.parse(cartfromMiddata)
+    let data = context.cartToDIYPizzas;
 
       console.log(cartfromMiddata)
       return(cartfromMiddata)
