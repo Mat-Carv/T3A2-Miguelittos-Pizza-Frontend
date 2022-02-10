@@ -1,6 +1,6 @@
 // import React from 'react'
 import React, {useState} from 'react';
-import axios from 'axios';
+import {apiUrl, devUrl} from '../../config/api';
 
 function SignUp(props) {
 
@@ -37,7 +37,7 @@ function SignUp(props) {
                 "password":state.password,
                 "password_confirmation":state.password_confirmation
             }
-            axios.post('http://localhost:8080/api/auth/sign_up', payload)
+            apiUrl.post('/api/auth/sign_up', payload)
                 .then(function (response) {
                     if(response.status === 201){
                         setState(prevState => ({
