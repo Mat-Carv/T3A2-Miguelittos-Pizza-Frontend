@@ -16,8 +16,8 @@ const PlaceOrder = () => {
         <>
         <h1>Place Order Page</h1>
         <div>{getPizzacart()}</div>
-        <data>{data}</data>
-
+        <div></div>
+        
         </>
     )
 

@@ -27,7 +27,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/PizzaMenu" element={<PizzaMenu />} />
             <Route path="/DIYPizza" element={<DIYPizza />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/Admin" element={<Admin />} />
             <Route path="/PlaceOrder" element={<PlaceOrder />} />
 
           </Routes>

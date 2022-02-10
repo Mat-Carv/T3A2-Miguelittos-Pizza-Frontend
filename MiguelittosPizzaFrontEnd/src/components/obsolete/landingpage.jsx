@@ -1,6 +1,5 @@
 import React from "react";
 import {useNavigate, Route} from "react-router-dom";
-import pizzaLogo from '../images/MiguelittosPizeriaCircle.png';
 
 
 
@@ -19,7 +18,7 @@ const LandingPage = () => {
         <>
         <div id="LandingPageContent">
         <h1 id="landingPageTitle">Miguelitto's Pizzeria</h1>
-        <img src = {pizzaLogo}/>
+        <img src =""/> 
         <p></p>
         <span id="hero" >
         {/* <img src="MiguelittosPizzaFrontEnd/src/images/miguelittosPizeriaLogo.png" alt="Miguelittos Pizza Logo in a circle" /> */}
