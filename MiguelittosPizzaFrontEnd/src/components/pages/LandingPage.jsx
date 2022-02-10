@@ -17,11 +17,19 @@ const LandingPage = () => {
         navigate ('/DIYPizza')
     }
 
+    function goToSignup(){
+        navigate ('/SignUp')
+    }
+
     return(
         <>
         <Title />
         <div id="LandingPageContent">
         <div id="hero" className="container px-4">
+        <p></p>
+        <button id="SignUpBtn" onClick={goToSignup}>SignUp</button>
+        
+        {/* <img src="MiguelittosPizzaFrontEnd/src/images/miguelittosPizeriaLogo.png" alt="Miguelittos Pizza Logo in a circle" /> */}
         <p></p>
         <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
              <div className="card mb-3" style={{width: 25 +'em'}}>
