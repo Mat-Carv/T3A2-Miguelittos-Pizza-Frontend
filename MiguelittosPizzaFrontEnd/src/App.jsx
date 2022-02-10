@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router'
   import PizzaMenu from './components/pages/PizzaMenu'
   import DIYPizza from './components/pages/DIYPizza'
   import LandingPage from './components/pages/landingpage'
-  import Admin from './components/pages/admin.jsx'
+  import Admin from './components/pages/Admin.jsx'
   import PlaceOrder from './components/pages/PlaceOrder'
   import SignUp from './components/pages/Signup'
 
