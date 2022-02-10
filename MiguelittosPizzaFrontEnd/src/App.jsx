@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router'
   import LandingPage from './components/pages/landingpage'
   import Admin from './components/pages/admin.jsx'
   import PlaceOrder from './components/pages/PlaceOrder'
-
+  import SignUp from './components/pages/Signup'
 
 
 
@@ -30,6 +30,7 @@ function App() {
             <Route path="/DIYPizza" element={<DIYPizza />} />
             <Route path="/Admin" element={<Admin />} />
             <Route path="/PlaceOrder" element={<PlaceOrder />} />
+            <Route path="/SignUp" element={<SignUp />} />
 
           </Routes>
         </BrowserRouter>
