@@ -25,36 +25,38 @@ const PendingOrders = () =>{
    function returnOrders(){ 
        
        const EachOrder = orders.map((newOrder, orderIndex) => {
-        
-        return(
-            <>
-            <div>
-                <div id ='order'>
-                    <div>
+          
+            return(
+                <>
+                <div>
+                    <div id ='order'>
                         <div>
-                        Order ID: {newOrder.id}
-                        </div>
-                        <div>
-                        Name: {newOrder.name}
-                        </div>
+                            <div>
+                            Order ID: {newOrder.id}
+                            </div>
+                            <div>
+                            Name: {newOrder.name}
+                            </div>
 
-                        <div>
-                            Pizzas
-                        </div>
+                            <div>
+                                Pizzas Type: {newOrder.pizza[0].name}
+                            </div>
 
-                        <div>
-                        Drinks: {newOrder.drink}
-                        </div>
-                        <div>
-                        Sides: {newOrder.side}
+                            <div>
+                            Drinks: {newOrder.drink}
+                            </div>
+                            <div>
+                            Sides: {newOrder.side}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            </>
-        )
+                </>
+            )
     })
-   return EachOrder
+            return( EachOrder)
+                
+            
     }
 
     return(
@@ -63,7 +65,6 @@ const PendingOrders = () =>{
 
         <div id="OrdersPanel">
                 <div>{returnOrders()}</div>
-                
         </div>
         
         </>
