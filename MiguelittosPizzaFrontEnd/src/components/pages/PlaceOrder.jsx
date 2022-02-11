@@ -66,7 +66,7 @@ function PlaceOrder () {
         }
         console.log(payload)
 
-        apiUrl.post('/api/orders/new', payloadForbackEnd)
+        apiUrl.post('/api/orders/new', payload)
 
         .then(function (response) {
             if(response.status === 201){
@@ -92,6 +92,9 @@ function PlaceOrder () {
         <div>Your total: {getPizzacart()}</div>
         <button onClick={sendCartToBackEnd}>Place Order</button>
         <div id="ThisShouldBeAPopup">Your Pizzas will be ready in 30 minutes!</div>
+        <div id='goBackTO Home'>
+            <button onClick={redirectToHome}>Back to Home</button>
+        </div>
         </>
     )
 

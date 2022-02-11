@@ -2,6 +2,7 @@ import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios';
 import Context from '../context/context';
 import apiUrl from '../../config/api';
+import { useNavigate } from 'react-router';
 
 import Title from '../Header/Header';
 
@@ -13,8 +14,10 @@ const DIYPizza = () =>{
   const {context, setContext} = useContext(Context) //call for save files
 
   const ingredientsURL = '/api/products/index/1'
-  const placeholderPizzaIngredientImageURL = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.taste.com.au%2Fquick-easy%2Fgalleries%2Fwinter-pizzas-we-cant-get-enough%2Fhktjp30r&psig=AOvVaw0nMKA51NGjS1Eb61msvGFu&ust=1644536043625000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiZh9jk8_UCFQAAAAAdAAAAABAD'
+  const placeholderPizzaIngredientImageURL = 'https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg'
 
+
+  const navigate = useNavigate()
 //fetch ingredients
   useEffect(async () => {
     console.log("menu ingredients fetched")
@@ -34,10 +37,9 @@ const DIYPizza = () =>{
     if(cartfromMiddata != null){
         setNewCart([])
     }else{
-      newCart = cartfromMiddata
+     let newCart = context.cartToDIYPizzas
     }
   }
- 
 
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
