@@ -10,7 +10,8 @@ import PizzaMenu from './components/pages/PizzaMenu'
 import DIYPizza from './components/pages/DIYPizza' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
 import Admin from './components/pages/Admin.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
 import PlaceOrder from './components/pages/PlaceOrder'
-import SignUp from './components/pages/SignUp'
+import SignUpForm from './components/pages/SignUpForm'
+import SignInForm from './components/pages/SignInForm'
 import LandingPage from './components/pages/LandingPage.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
 
 
@@ -31,7 +32,8 @@ function App() {
             <Route path="/DIYPizza" element={<DIYPizza />} />
             <Route path="/Admin" element={<Admin />} />
             <Route path="/PlaceOrder" element={<PlaceOrder />} />
-            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/SignUp" element={<SignUpForm />} />
+            <Route path="/SignIn" element={<SignInForm />} />
            
           </Routes>
           

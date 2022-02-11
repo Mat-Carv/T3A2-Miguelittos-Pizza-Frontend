@@ -1,15 +1,13 @@
 // import React from 'react'
 import React, {useState} from 'react';
-import {signUp} from '../../services/authServices';
+import {signIn} from '../../services/authServices';
 import {useNavigate, Route} from "react-router-dom";
 
-function SignUp(props) {
+function SignIn(props) {
 
     const [state , setState] = useState({
-        name: "",
         email : "",
-        password : "",
-        password_confirmation : ""
+        password : ""
     })
 
     const handleChange = (e) => {
@@ -18,16 +16,7 @@ function SignUp(props) {
             ...prevState,
             [id] : value
         }))
-    }
-
-    const handleSubmitClick = (e) => {
-        e.preventDefault();
-        if(state.password === state.password_confirmation) {
-            sendDetailsToServer()    
-        } else {
-            console.log('Passwords do not match');
-        }
-    }   
+    }  
     
     const navigate = useNavigate()
 
@@ -35,18 +24,17 @@ function SignUp(props) {
         navigate('/')
     }
 
-    const sendDetailsToServer = () => {
+    const sendDetailsToServer = (e) => {
+        e.preventDefault();
         if(state.email.length && state.password.length) {
             // console.log(null);
             const payload={
-                "name":state.name,
                 "email":state.email,
-                "password":state.password,
-                "password_confirmation":state.password_confirmation
+                "password":state.password
             }
             
-            signUp(payload)
-                .then(({name, jwt}) => {                 
+            signIn(payload)
+                .then(({name,jwt}) => {                 
                     sessionStorage.user = name;
                     sessionStorage.token = jwt;
                     
@@ -64,16 +52,6 @@ function SignUp(props) {
     return(
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
             <form>
-                <div className="form-group text-left">
-                    <label htmlFor="exampleInputName1">Name</label>
-                    <input type="text" 
-                        className="form-control" 
-                        id="name"  
-                        placeholder="Enter name" 
-                        value={state.name}
-                        onChange={handleChange}
-                    />
-                </div>
                 <div className="form-group text-left">
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input type="email" 
@@ -95,20 +73,10 @@ function SignUp(props) {
                         onChange={handleChange} 
                     />
                 </div>
-                <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" 
-                        className="form-control" 
-                        id="password_confirmation" 
-                        placeholder="Password Confirmation"
-                        value={state.password_confirmation}
-                        onChange={handleChange} 
-                    />
-                </div>
                 <button 
                     type="submit" 
                     className="btn btn-primary"
-                    onClick={handleSubmitClick}
+                    onClick={sendDetailsToServer}
                     >Sign Up
                 </button>
             </form>
@@ -116,4 +84,4 @@ function SignUp(props) {
     )
 }
 
-export default SignUp
+export default SignIn
