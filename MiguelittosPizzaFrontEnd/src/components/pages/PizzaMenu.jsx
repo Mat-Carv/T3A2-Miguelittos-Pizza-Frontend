@@ -8,18 +8,22 @@ import Title from '../Header/Header';
 
 const PizzaMenu = () => {
 
+  //save cart context
   const {context, setContext} = useContext(Context)
-
+  //url for pizza menu
   const pizzaMenuUrl = "https://pizzaria-miguel.herokuapp.com/api/pizzas/index";
-  const [cart, setCart] = useState([]);//created an empty shopping cart
 
+  //set state for the shopping cart
+  const [cart, setCart] = useState([]);//created an empty shopping cart
+  //state for the menu
   const [menuItems, setMenuItems] = useState([])
+  
 //cart functions
   const addToCart = (menuItem) => {
     console.log(menuItem.name + " added to cart");
     setCart([...cart,{...menuItem}]);//pushes the given pizza to the cart array as a new object, not a duplicate
   }
-
+  //remove one item from cart function
   const removeFromCart =(menuItemToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
     setCart(
       cart.filter((menuItem) => menuItem !== menuItemToRemove)
@@ -37,12 +41,13 @@ const PizzaMenu = () => {
    
   }
 
+
   let navigate = useNavigate();
   
     function goToDIYPizzas(){
       let cartToDIYPizzas = cart
       console.log(cartToDIYPizzas)
-      localStorage.setitem(cartToDIYPizzas, JSON.stringify('cartToDIY',cartToDIYPizzas))
+      setContext({...context, cartToDIYPizzas})
       navigate('/DIYPizza')
        
     }
@@ -54,7 +59,7 @@ const PizzaMenu = () => {
     function goToCheckout(){
       let cartFinalised = cart
       setContext({...context, cartFinalised})
-      console.log(cartFinalised)
+      //console.log(cartFinalised)
       navigate('/PlaceOrder')
     }
 
@@ -98,6 +103,7 @@ const PizzaMenu = () => {
   
   return (
   <>
+  <Title />
   <div id='PizzaMenuHeading'>
     <h2>Miguelitto's Classic Pizzas</h2>
   </div>

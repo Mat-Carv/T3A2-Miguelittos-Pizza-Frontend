@@ -22,7 +22,7 @@ function PlaceOrder () {
     let payloadDataForPizzas = context.cartFinalised;
     //console.log(payloadDataForPizzas)
 
-    let someVariable = payloadDataForPizzas.map(element => {
+    let PizzaOven = payloadDataForPizzas.map(element => {
         return {
             name: element.name,
             base: element.base,
@@ -30,11 +30,11 @@ function PlaceOrder () {
             toppings: element.toppings
         }
     });
-    console.log(someVariable)
+    //console.log(PizzaOven)
 
     const [state , setState]= useState({
         user_id: 1,
-        pizza: someVariable,
+        pizza: PizzaOven,
             side:[],
             drink:[],
     })
@@ -43,7 +43,7 @@ function PlaceOrder () {
 
     function getPizzacart() 
     {
-        let data = context.cartFinalised;//this could also be session storage in the live, but because I have to KEEP F**KING RESTARTING VITE TO GET IT TO UPDATE, thatway lies madness
+        let data = context.cartFinalised;
             //data = JSON.parse(data)
             //console.log(data)
 
@@ -58,15 +58,16 @@ function PlaceOrder () {
 
     const sendCartToBackEnd=() =>{
         
-        const payloadForbackEnd ={  
+        const payload ={  
             "user_id":1,
             "pizza": state.pizza,
             "side": state.side,
             "drink": state.drink
         }
-        console.log(payloadForbackEnd)
+        console.log(payload)
 
         apiUrl.post('/api/orders/new', payloadForbackEnd)
+
         .then(function (response) {
             if(response.status === 201){
                 setState(prevState => ({
@@ -86,7 +87,8 @@ function PlaceOrder () {
     
     return(
         <>
-        <h1>Place Order Page</h1>
+        <Title />
+        <h1>Confirm Order</h1>
         <div>Your total: {getPizzacart()}</div>
         <button onClick={sendCartToBackEnd}>Place Order</button>
         <div id="ThisShouldBeAPopup">Your Pizzas will be ready in 30 minutes!</div>

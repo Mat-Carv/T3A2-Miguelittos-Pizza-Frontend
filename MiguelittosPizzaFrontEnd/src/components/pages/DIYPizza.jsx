@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios';
+import Context from '../context/context';
 
 import Title from '../Header/Header';
 
 const DIYPizza = () =>{
-  const [ingredientsTable, setIngredients] = useState([])//get ingredients
+  const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
+  
+  
+  const {context, setContext} = useContext(Context) //call for save files
 
   const ingredientsURL = 'https://pizzaria-miguel.herokuapp.com/api/products/index/1'
   const placeholderPizzaIngredientImageURL = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.taste.com.au%2Fquick-easy%2Fgalleries%2Fwinter-pizzas-we-cant-get-enough%2Fhktjp30r&psig=AOvVaw0nMKA51NGjS1Eb61msvGFu&ust=1644536043625000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiZh9jk8_UCFQAAAAAdAAAAABAD'
@@ -22,16 +26,64 @@ const DIYPizza = () =>{
           console.error(error)
       }
   }, [])
-
+  //note to self refactor shopping cart into its own class if time allows
+  //calls the cart if you come from the classic menu page
   function getPizzacartFromClassicMenu() 
   {
-      let cartfromMiddata = localStorage.getItem('cartToDIY');//this could also be session storage in the live, but because I have to KEEP F**KING RESTARTING VITE TO GET IT TO UPDATE, thatway lies madness
-      cartfromMiddata = JSON.parse(cartfromMiddata)
-
+    let cartfromMiddata = context.cartToDIYPizzas;
       console.log(cartfromMiddata)
       return(cartfromMiddata)
   }
 
+  // const setQuantity = (ingredient, amount) => {//so this is bugged
+  //   const newCart = [...DIYCart];
+  //   console.log(newCart)
+  //   newCart.find(
+  //     (item) => item.name === ingredient.name
+  //     ).quantity = amount;
+  //   setDIYCart(newCart)
+  // }
+  //adds an ingredient to the cart
+  const addIngredientToCart = (ingredient) => {
+    //console.log(ingredient.name + " added to cart");
+    
+    let newCart = [...DIYCart];
+    let itemInCart = newCart.find((item) => ingredient.name === item.name);
+          if (itemInCart && ingredient.category === 'Bases' ){//these need to be separate statements
+            return//so this is the bare bones - you have to remove it from the cart before you can pick a new one. if the cart is properly styled this isnt bad
+          }
+          if (itemInCart && ingredient.category === 'Sauces'){
+            return
+          }
+          if (itemInCart && ingredient.category === 'Toppings') {//if statement testing whether or not an item is there (and if it is a topping), if it is, increment the quantity
+            itemInCart.quantity++;
+          } else {
+            itemInCart = {//add the item as a new object with a quantity of one
+              ...ingredient, quantity: 1,
+            };
+            newCart.push(itemInCart);
+          }
+            setDIYCart(newCart);
+            //setDIYCart([...DIYCart,{...ingredient}]);//pushes the given ingredient to the cart array as a new object, not a duplicate. well that just makes it really easy to send multiples of an ingredient
+          };
+
+  const removeFromCart =(ingredientToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
+    setDIYCart(
+      DIYCart.filter((ingredient) => ingredient !== ingredientToRemove)
+    );
+  };
+
+  const getCartTotalSum = () => {
+    return DIYCart.reduce(
+      (sum, {price, quantity}) => sum + price *quantity, 0
+    )
+   
+  }
+  const clearCart = () => {
+    setDIYCart([]);
+  }
+
+  
   //returns the ingredients fetched prior
   const DIYPizzaConstructor = ingredientsTable[0]?.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
 
@@ -39,7 +91,7 @@ const DIYPizza = () =>{
                 return(
                     <>
                     <div>
-                        <div className="card" style={{width: 18 +'em'}} key={index}>
+                        <div className="card" style={{width: 18 +'em'}} key={index}  onClick={()=>addIngredientToCart(ingredient)}>
                         <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                             <div className="card-body">
                             <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -57,7 +109,7 @@ const DIYPizza = () =>{
                 return(
                 <>
                 <div>
-                    <div className="card" style={{width: 18 +'em'}} key={index}>
+                    <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
                     <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -76,7 +128,7 @@ const DIYPizza = () =>{
                 return(
                 <>
                 <div>
-                    <div className="card" style={{width: 18 +'em'}} key={index}>
+                    <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
                     <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -98,13 +150,34 @@ const DIYPizza = () =>{
 
   })
 
-
-  //console.log(ingredients[0])
   return( 
   <>
     <Title />
 
-    <div id="ingredientsConstructor">{DIYPizzaConstructor}</div> 
+    <div id="ingredientsConstructor">{DIYPizzaConstructor}</div>
+
+    <div id='DIYPizzaCart'>
+        {
+        DIYCart.map((ingredient, index) => (
+          <>
+            <div className='ItemsInCart' key={index}>
+              <h3>{ingredient.name} x {ingredient.quantity}</h3>
+              <h4>{ingredient.price}</h4>
+              <p></p>
+            </div>
+            <button onClick={() => removeFromCart(ingredient)}>Remove?</button>
+          </>
+          ))
+        }
+    </div>
+
+    <div id='TotalSum'>
+      <div>Total: ${getCartTotalSum()}</div>
+    </div>
+    
+    <div id="clearCart">
+      <button type="button" className="btn btn-danger" onClick={clearCart}>Clear Pizza</button>
+    </div> 
   </>
   )
  
