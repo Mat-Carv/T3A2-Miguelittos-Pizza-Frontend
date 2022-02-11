@@ -49,22 +49,26 @@ const DIYPizza = () =>{
     
     let newCart = [...DIYCart];
     let itemInCart = newCart.find((item) => ingredient.name === item.name);
-  
-          if (itemInCart) {//if statement testing whether or not an item is there (and if it is a topping), if it is, increment the quantity
-            if(itemInCart.category === "Sauces" || "Bases"){
+    let itemInCartCategory = newCart.find((item) => ingredient.category === item.category);
+      //if statement testing whether or not an item is there (and if it is a topping), if it is, increment the quantity
+          if (itemInCart || itemInCartCategory) {//so this statement has to be incredibly annoying because you have to intialise the varialbes here
+            if(itemInCartCategory === "Sauces" || "Bases"){
               return
-            } else {
+            } if (itemInCartCategory === "Toppings") {
               itemInCart.quantity++;
+            } else{
+              return
             }
-            //console.log("added " + itemInCart.name)//this finally works
-          } else {
+          } 
+          else{
             itemInCart = {//add the item as a new object with a quantity of one
               ...ingredient, quantity: 1,
             };
             newCart.push(itemInCart);
-          }
+            console.log(newCart)
+          } 
+
             setDIYCart(newCart);
-            //setDIYCart([...DIYCart,{...ingredient}]);//pushes the given ingredient to the cart array as a new object, not a duplicate. well that just makes it really easy to send multiples of an ingredient
           };
 
   const removeFromCart =(ingredientToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
