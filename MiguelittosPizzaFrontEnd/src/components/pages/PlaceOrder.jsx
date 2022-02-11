@@ -30,7 +30,7 @@ function PlaceOrder () {
             toppings: element.toppings
         }
     });
-    console.log(PizzaOven)
+    //console.log(PizzaOven)
 
     const [state , setState]= useState({
         user_id: 1,

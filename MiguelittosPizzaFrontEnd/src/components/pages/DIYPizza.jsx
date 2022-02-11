@@ -26,19 +26,36 @@ const DIYPizza = () =>{
           console.error(error)
       }
   }, [])
-
+  //note to self refactor shopping cart into its own class if time allows
+  //calls the cart if you come from the classic menu page
   function getPizzacartFromClassicMenu() 
   {
-    let data = context.cartToDIYPizzas;
-
+    let cartfromMiddata = context.cartToDIYPizzas;
       console.log(cartfromMiddata)
       return(cartfromMiddata)
   }
-
+  //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
     console.log(ingredient.name + " added to cart");
-    setCart([...cart,{...ingredient}]);//pushes the given ingredient to the cart array as a new object, not a duplicate. well that just makes it really easy to send multiples of an ingredient
+    setDIYCart([...DIYCart,{...ingredient}]);//pushes the given ingredient to the cart array as a new object, not a duplicate. well that just makes it really easy to send multiples of an ingredient
   }
+
+  const removeFromCart =(ingredientToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
+    setDIYCart(
+      DIYCart.filter((ingredient) => ingredient !== ingredientToRemove)
+    );
+  };
+
+  const getCartTotalSum = () => {
+    return DIYCart.reduce(
+      (sum, {price}) => sum + price, 0
+    )
+   
+  }
+  const clearCart = () => {
+    setDIYCart([]);
+  }
+
 
   //returns the ingredients fetched prior
   const DIYPizzaConstructor = ingredientsTable[0]?.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
@@ -47,7 +64,7 @@ const DIYPizza = () =>{
                 return(
                     <>
                     <div>
-                        <div className="card" style={{width: 18 +'em'}} key={index}>
+                        <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
                         <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                             <div className="card-body">
                             <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -65,7 +82,7 @@ const DIYPizza = () =>{
                 return(
                 <>
                 <div>
-                    <div className="card" style={{width: 18 +'em'}} key={index}>
+                    <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
                     <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -84,7 +101,7 @@ const DIYPizza = () =>{
                 return(
                 <>
                 <div>
-                    <div className="card" style={{width: 18 +'em'}} key={index}>
+                    <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
                     <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -110,7 +127,30 @@ const DIYPizza = () =>{
   <>
     <Title />
 
-    <div id="ingredientsConstructor">{DIYPizzaConstructor}</div> 
+    <div id="ingredientsConstructor">{DIYPizzaConstructor}</div>
+
+    <div id='DIYPizzaCart'>
+        {
+        DIYCart.map((ingredient, index) => (
+          <>
+            <div className='ItemsInCart' key={index}>
+              <h3>{ingredient.name}</h3>
+              <h4>{ingredient.price}</h4>
+              <p></p>
+            </div>
+            <button onClick={() => removeFromCart(ingredient)}>Remove?</button>
+          </>
+          ))
+        }
+    </div>
+
+    <div id='TotalSum'>
+      <div>Total: ${getCartTotalSum()}</div>
+    </div>
+    
+    <div id="clearCart">
+      <button type="button" className="btn btn-danger" onClick={clearCart}>Clear Pizza</button>
+    </div> 
   </>
   )
  

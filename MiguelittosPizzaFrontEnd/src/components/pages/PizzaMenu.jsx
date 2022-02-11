@@ -41,6 +41,7 @@ const PizzaMenu = () => {
    
   }
 
+
   let navigate = useNavigate();
   
     function goToDIYPizzas(){
