@@ -1,6 +1,6 @@
 // import React from 'react'
 import React, {useState} from 'react';
-import {apiUrl, devUrl} from '../../config/api';
+import {signUp} from '../../services/authServices';
 import {useNavigate, Route} from "react-router-dom";
 
 function SignUp(props) {
@@ -44,18 +44,13 @@ function SignUp(props) {
                 "password":state.password,
                 "password_confirmation":state.password_confirmation
             }
-            devUrl.post('/api/auth/sign_up', payload)
-                .then(function (response) {
-                    if(response.status === 201){
-                        setState(prevState => ({
-                            ...prevState,
-                            'successMessage' : 'Registration successful. Redirecting to home page..'
-                        }))
-                        redirectToHome();
-                        console.log(null)
-                    } else{
-                        console.log("Some error ocurred");
-                    }
+            
+            signUp(payload)
+                .then(({name, jwt}) => {                 
+                    sessionStorage.user = name;
+                    sessionStorage.token = jwt;
+                    
+                    redirectToHome()
                 })
                 .catch(function (error) {
                     console.log(error);
