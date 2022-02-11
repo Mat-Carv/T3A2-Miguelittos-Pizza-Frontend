@@ -28,35 +28,21 @@ const DIYPizza = () =>{
   }, [])
   //note to self refactor shopping cart into its own class if time allows
   //calls the cart if you come from the classic menu page
-  function getPizzacartFromClassicMenu() 
-  {
-    let cartfromMiddata = context.cartToDIYPizzas;
-      console.log(cartfromMiddata)
-      return(cartfromMiddata)
-  }
 
-  // const setQuantity = (ingredient, amount) => {//so this is bugged
-  //   const newCart = [...DIYCart];
-  //   console.log(newCart)
-  //   newCart.find(
-  //     (item) => item.name === ingredient.name
-  //     ).quantity = amount;
-  //   setDIYCart(newCart)
-  // }
+    let cartfromMiddata = context.cartToDIYPizzas;
+
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
-    //console.log(ingredient.name + " added to cart");
-    
+    //console.log(ingredient.name + " added to cart"); 
     let newCart = [...DIYCart];
     let itemInCart = newCart.find((item) => ingredient.name === item.name);
     let itemInCartCategory = newCart.find((item) => ingredient.category === item.category);
       //if statement testing whether or not an item is there (and if it is a topping), if it is, increment the quantity
           if (itemInCart || itemInCartCategory) {//so this statement has to be incredibly annoying because you have to intialise the varialbes here
-            if(itemInCartCategory === "Sauces" || "Bases"){
+            if(itemInCartCategory == "Sauces" || "Bases"){
               return
-            } if (itemInCartCategory === "Toppings") {
-              itemInCart.quantity++;
-            } else{
+            } 
+             else {
               return
             }
           } 
@@ -70,6 +56,23 @@ const DIYPizza = () =>{
 
             setDIYCart(newCart);
           };
+
+  const addToppingToCart = (ingredient) =>{
+    let newCart = [...DIYCart];
+    let itemInCart = newCart.find((item) => ingredient.name === item.name);
+    //let itemInCartCategory = newCart.find((item) => ingredient.category === item.category);
+
+    if (itemInCart) {
+      itemInCart.quantity++;
+    } else {
+      itemInCart = {//add the item as a new object with a quantity of one
+        ...ingredient, quantity: 1,
+      };
+      newCart.push(itemInCart);
+      console.log(newCart)
+    }
+    setDIYCart(newCart);
+  }
 
   const removeFromCart =(ingredientToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
     setDIYCart(
@@ -87,6 +90,22 @@ const DIYPizza = () =>{
     setDIYCart([]);
   }
 
+  const addCustomPizzaToCart = () =>{
+
+    let customPizzaToppings = DIYCart.filter(obj => obj.category == "Toppings")
+
+    let customPizzaOven = DIYCart.map( element => {
+      return {
+          name: "Custom",
+          base: element.base,
+          sauce: element.sauce,
+          toppings: {customPizzaToppings}
+          
+      }
+    })
+    console.log( customPizzaOven)
+  }
+
   
   //returns the ingredients fetched prior
   const DIYPizzaConstructor = ingredientsTable.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
@@ -95,7 +114,7 @@ const DIYPizza = () =>{
                 return(
                     <>
                     <div>
-                        <div className="card" style={{width: 18 +'em'}} key={index}  onClick={()=>addIngredientToCart(ingredient)}>
+                        <div className="card" style={{width: 18 +'em'}} key={index}  onClick={()=>addToppingToCart(ingredient)}>
                         <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                             <div className="card-body">
                             <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -166,7 +185,7 @@ const DIYPizza = () =>{
           <>
             <div className='ItemsInCart' key={index}>
               <h3>{ingredient.name} x {ingredient.quantity}</h3>
-              <h4>{ingredient.price}</h4>
+              <h4>${ingredient.price}</h4>
               <p></p>
             </div>
             <button onClick={() => removeFromCart(ingredient)}>Remove?</button>
@@ -177,6 +196,13 @@ const DIYPizza = () =>{
 
     <div id='TotalSum'>
       <div>Total: ${getCartTotalSum()}</div>
+    </div>
+
+    <div id= 'addCustomPizzaTocart'>
+        <button onClick={addCustomPizzaToCart}>
+        ADD ZE PIZZA
+        </button>
+
     </div>
     
     <div id="clearCart">
