@@ -4,7 +4,7 @@ import { renderMatches } from "react-router";
 
 import Title from "../Header/Header";
 import Context from "../context/context";
-import { apiUrl ,devUrl } from "../../config/api";
+import apiUrl from "../../config/api";
 import {useNavigate} from "react-router";
 
 
@@ -66,7 +66,7 @@ function PlaceOrder () {
         }
         console.log(payloadForbackEnd)
 
-        devUrl.post('/api/orders/new', payloadForbackEnd)
+        apiUrl.post('/api/orders/new', payloadForbackEnd)
         .then(function (response) {
             if(response.status === 201){
                 setState(prevState => ({
