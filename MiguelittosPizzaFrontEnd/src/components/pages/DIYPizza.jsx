@@ -8,6 +8,7 @@ import Title from '../Header/Header';
 const DIYPizza = () =>{
   const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
+  const [newCart, setNewCart] = useState([])
   
   const {context, setContext} = useContext(Context) //call for save files
 
@@ -28,12 +29,19 @@ const DIYPizza = () =>{
   }, [])
   //note to self refactor shopping cart into its own class if time allows
   //calls the cart if you come from the classic menu page
-
-  let cartfromMiddata = context.cartToDIYPizzas;
+  function getCartIfItExists(){
+    let cartfromMiddata = context.cartToDIYPizzas;
+    if(cartfromMiddata != null){
+        setNewCart([])
+    }else{
+      newCart = cartfromMiddata
+    }
+  }
+ 
 
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
-    //console.log(ingredient.name + " added to cart"); 
+
     let newCart = [...DIYCart];
     let itemInCart = newCart.find((item) => ingredient.name === item.name);
     let itemInCartCategory = newCart.find((item) => ingredient.category === item.category);
@@ -60,7 +68,6 @@ const DIYPizza = () =>{
   const addToppingToCart = (ingredient) =>{
     let newCart = [...DIYCart];
     let itemInCart = newCart.find((item) => ingredient.name === item.name);
-    //let itemInCartCategory = newCart.find((item) => ingredient.category === item.category);
 
     if (itemInCart) {
       itemInCart.quantity++;
@@ -86,6 +93,10 @@ const DIYPizza = () =>{
     )
    
   }
+  const clearAllCarts = () => {
+    setDIYCart([]);
+    setNewCart([]);
+  }
   const clearCart = () => {
     setDIYCart([]);
   }
@@ -103,17 +114,24 @@ const DIYPizza = () =>{
     let customPizzaSauce = DIYCart.filter( obj => obj.category =="Sauces")
     
     
-    //console.log (pizzaToppings,customPizzabase,customPizzaSauce)
    // return 
-   return{
+    let customPizza = {
         name: "Custom",
         base: customPizzabase[0].name,
         sauce: customPizzaSauce[0].name,
         toppings: pizzaToppings
     }
+ //push to newCart  
+    setNewCart([...newCart,{...customPizza}]);
    
+   //console.log(localStorage.context.cartToDIYPizzas)
   }
 
+  function goToCheckout(){
+    let cartFinalised = newCart
+    setContext({...context, cartFinalised})
+    navigate('/PlaceOrder')
+  }
   
   //returns the ingredients fetched prior
   const DIYPizzaConstructor = ingredientsTable.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
@@ -184,6 +202,7 @@ const DIYPizza = () =>{
   return( 
   <>
     <Title />
+    {getCartIfItExists}
 
     <div id="ingredientsConstructor">{DIYPizzaConstructor}</div>
 
@@ -208,14 +227,24 @@ const DIYPizza = () =>{
 
     <div id= 'addCustomPizzaTocart'>
         <button onClick={addCustomPizzaToCart}>
-        Confirm Pizza 
+        Confirm Pizza
         </button>
 
     </div>
     
     <div id="clearCart">
       <button type="button" className="btn btn-danger" onClick={clearCart}>Clear Pizza</button>
-    </div> 
+    </div>
+
+    <div id='clearEverything'>
+      <button onClick={clearAllCarts}>Clear Everything</button>
+
+    </div>
+
+    <div id='submitOrder'>
+        <button onClick={goToCheckout}>Submit Order</button>
+
+    </div>
   </>
   )
  

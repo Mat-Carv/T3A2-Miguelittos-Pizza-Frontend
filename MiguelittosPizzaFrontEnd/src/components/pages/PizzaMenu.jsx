@@ -59,7 +59,6 @@ const PizzaMenu = () => {
     function goToCheckout(){
       let cartFinalised = cart
       setContext({...context, cartFinalised})
-      //console.log(cartFinalised)
       navigate('/PlaceOrder')
     }
 
