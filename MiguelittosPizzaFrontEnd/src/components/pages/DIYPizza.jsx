@@ -94,16 +94,17 @@ const DIYPizza = () =>{
 
     let customPizzaToppings = DIYCart.filter(obj => obj.category == "Toppings")
 
-    let customPizzaOven = DIYCart.map( element => {
-      return {
-          name: "Custom",
-          base: element.base,
-          sauce: element.sauce,
-          toppings: {customPizzaToppings}
-          
-      }
+    let customPizzabase = DIYCart.filter( obj => obj.category =="Bases")
+    let customPizzaSauce = DIYCart.filter( obj => obj.category =="Sauces")
+  
+   // return 
+   console.log({
+        name: "Custom",
+        base: customPizzabase,
+        sauce: customPizzaSauce,
+        toppings: customPizzaToppings
     })
-    console.log( customPizzaOven)
+   
   }
 
   
@@ -200,7 +201,7 @@ const DIYPizza = () =>{
 
     <div id= 'addCustomPizzaTocart'>
         <button onClick={addCustomPizzaToCart}>
-        ADD ZE PIZZA
+        ADD ZE PIZZA 
         </button>
 
     </div>
