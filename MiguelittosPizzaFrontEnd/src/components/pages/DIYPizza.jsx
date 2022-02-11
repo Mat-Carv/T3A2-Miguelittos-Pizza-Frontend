@@ -90,19 +90,26 @@ const DIYPizza = () =>{
     setDIYCart([]);
   }
 
-  const addCustomPizzaToCart = () =>{
+  const addCustomPizzaToCart = () => {
 
     let customPizzaToppings = DIYCart.filter(obj => obj.category == "Toppings")
+      let pizzaToppings = {}
+      customPizzaToppings.forEach((topping) => {
+        pizzaToppings[topping.name] = topping.quantity
+      })
+
 
     let customPizzabase = DIYCart.filter( obj => obj.category =="Bases")
     let customPizzaSauce = DIYCart.filter( obj => obj.category =="Sauces")
-  
+    
+    
+    //console.log (pizzaToppings,customPizzabase,customPizzaSauce)
    // return 
    console.log({
         name: "Custom",
-        base: customPizzabase,
-        sauce: customPizzaSauce,
-        toppings: customPizzaToppings
+        base: customPizzabase[0].name,
+        sauce: customPizzaSauce[0].name,
+        toppings: pizzaToppings
     })
    
   }
