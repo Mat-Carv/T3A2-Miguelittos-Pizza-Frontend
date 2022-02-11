@@ -21,64 +21,51 @@ const PendingOrders = () =>{
               console.error(error + " in menu fetch")
           }
       }, [])
-    
-    const getAnOrder = (number) => {
 
-        let orderIDToGet = orders.filter( obj => obj.id == number)
-
-        let OrderName = orderIDToGet.find(obj => obj = 'name')
-        console.log(OrderName)
+   function returnOrders(){ 
+       
+       const EachOrder = orders.map((newOrder, orderIndex) => {
         
-        return (
-            <>
-            <div>
-            <div>Order ID: {OrderName.id}</div>
-            <div>Client: {OrderName.name}</div>
-            <div>Pizzas: {}</div>
-            <div>Drinks: {OrderName.drink}</div>
-            <div>Sides: {OrderName.side}</div>
-            <div>
-                <button>mark Complete</button>
-            </div>
-            </div>
-            </>    
-            )
-    }
-
-
-    const GetNewOrders = orders.map((newOrder, orderIndex) => {
         return(
             <>
             <div>
-                <div id ='order1'>
+                <div id ='order'>
                     <div>
-                        {getAnOrder(1)}
+                        <div>
+                        Order ID: {newOrder.id}
+                        </div>
+                        <div>
+                        Name: {newOrder.name}
+                        </div>
+
+                        <div>
+                            Pizzas
+                        </div>
+
+                        <div>
+                        Drinks: {newOrder.drink}
+                        </div>
+                        <div>
+                        Sides: {newOrder.side}
+                        </div>
                     </div>
                 </div>
-    
-                <div id= 'order2'>
-                        {}
-                </div>
-    
-                <div id='order 3'>
-    
-                </div>
-                <div> {newOrder, orderIndex}</div>
-               
-                </div>
+            </div>
             </>
         )
     })
-
+   return EachOrder
+    }
 
     return(
         <>
         <Title />
 
         <div id="OrdersPanel">
-                <div></div>
-                <div>{GetNewOrders}</div>
+                <div>{returnOrders()}</div>
+                
         </div>
+        
         </>
     )
 } 
