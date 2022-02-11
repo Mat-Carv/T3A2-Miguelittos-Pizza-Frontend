@@ -37,11 +37,17 @@ const PendingOrders = () =>{
                             <div>
                             Name: {newOrder.name}
                             </div>
-
                             <div>
-                                Pizzas Type: {newOrder.pizza[0].name}
+                                <div>
+                                    Pizzas Type: {newOrder.pizza[0].name}
+                                </div>
+                                <div>
+                                    Pizza base: {newOrder.pizza[0].base}
+                                </div>
+                                <div>
+                                    Pizza Sauce: {newOrder.pizza[0].sauce}
+                                </div>
                             </div>
-
                             <div>
                             Drinks: {newOrder.drink}
                             </div>
