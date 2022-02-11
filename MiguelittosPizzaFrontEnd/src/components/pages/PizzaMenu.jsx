@@ -38,7 +38,6 @@ const PizzaMenu = () => {
     return cart.reduce(
       (sum, {price}) => sum + price, 0
     )
-   
   }
 
 
@@ -77,7 +76,7 @@ const PizzaMenu = () => {
 
 
   const pizzaMenu = menuItems.map((menuItem,menuIndex) => {
-     return (//the correct way to do style is below//so to avoid a very annoying if statement here, it might be better to remove the custom pizza from the pizzas database
+     return (//the correct way to do style is below
      <>
       <div>
             <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>

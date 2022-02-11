@@ -29,7 +29,6 @@ const LandingPage = () => {
         <p></p>
         <button id="SignUpBtn" onClick={goToSignup}>SignUp</button>
         
-        {/* <img src="MiguelittosPizzaFrontEnd/src/images/miguelittosPizeriaLogo.png" alt="Miguelittos Pizza Logo in a circle" /> */}
         <p></p>
         <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
              <div className="card mb-3" style={{width: 25 +'em'}}>
@@ -77,10 +76,10 @@ const LandingPage = () => {
                     <p></p>
             </div>
 
-            <div id="aboutUsMap"></div>
+            <div id="aboutUsMap">
                 <h3>Come Find us</h3>
                 <img src={miguelittosLocationMap} alt="Map totally showing the location of miguelittos pizzeria in brazil"/>
-
+            </div>
         </div>
         </div>
         </>

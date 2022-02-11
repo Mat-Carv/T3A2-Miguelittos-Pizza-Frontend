@@ -37,7 +37,7 @@ function SignUp(props) {
 
     const sendDetailsToServer = () => {
         if(state.email.length && state.password.length) {
-            // console.log(null);
+           
             const payload={
                 "name":state.name,
                 "email":state.email,

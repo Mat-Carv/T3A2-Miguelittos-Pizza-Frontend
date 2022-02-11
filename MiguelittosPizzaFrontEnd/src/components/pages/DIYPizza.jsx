@@ -78,7 +78,7 @@ const DIYPizza = () =>{
         ...ingredient, quantity: 1,
       };
       newCart.push(itemInCart);
-      console.log(newCart)
+      //console.log(newCart)
     }
     setDIYCart(newCart);
   }

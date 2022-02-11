@@ -20,7 +20,7 @@ function PlaceOrder () {
     }
 
     let payloadDataForPizzas = context.cartFinalised;
-    //console.log(payloadDataForPizzas)
+    
 
     let PizzaOven = payloadDataForPizzas.map(element => {
         return {
@@ -30,7 +30,7 @@ function PlaceOrder () {
             toppings: element.toppings
         }
     });
-    //console.log(PizzaOven)
+    
 
     const [state , setState]= useState({
         user_id: 1,
@@ -44,8 +44,7 @@ function PlaceOrder () {
     function getPizzacart() 
     {
         let data = context.cartFinalised;
-            //data = JSON.parse(data)
-            //console.log(data)
+          
 
             if (data!= null)
                 return(
@@ -64,7 +63,7 @@ function PlaceOrder () {
             "side": state.side,
             "drink": state.drink
         }
-        console.log(payload)
+       
 
         apiUrl.post('/api/orders/new', payload)
 
