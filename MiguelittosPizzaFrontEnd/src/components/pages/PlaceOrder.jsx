@@ -59,14 +59,13 @@ function PlaceOrder () {
     const sendCartToBackEnd=() =>{
         
         const payload ={  
-            "user_id":1,
             "pizza": state.pizza,
             "side": state.side,
             "drink": state.drink
         }
         console.log(payload)
 
-        apiUrl.post('/api/orders/new', payloadForbackEnd)
+        apiUrl.post('/api/orders/new', payload)
 
         .then(function (response) {
             if(response.status === 201){
