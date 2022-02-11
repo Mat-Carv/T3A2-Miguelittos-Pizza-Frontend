@@ -34,11 +34,38 @@ const DIYPizza = () =>{
       console.log(cartfromMiddata)
       return(cartfromMiddata)
   }
+
+  // const setQuantity = (ingredient, amount) => {//so this is bugged
+  //   const newCart = [...DIYCart];
+  //   console.log(newCart)
+  //   newCart.find(
+  //     (item) => item.name === ingredient.name
+  //     ).quantity = amount;
+  //   setDIYCart(newCart)
+  // }
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
-    console.log(ingredient.name + " added to cart");
-    setDIYCart([...DIYCart,{...ingredient}]);//pushes the given ingredient to the cart array as a new object, not a duplicate. well that just makes it really easy to send multiples of an ingredient
-  }
+    //console.log(ingredient.name + " added to cart");
+    
+    let newCart = [...DIYCart];
+    let itemInCart = newCart.find((item) => ingredient.name === item.name);
+          if (itemInCart && ingredient.category === 'Bases' ){//these need to be separate statements
+            return//so this is the bare bones - you have to remove it from the cart before you can pick a new one. if the cart is properly styled this isnt bad
+          }
+          if (itemInCart && ingredient.category === 'Sauces'){
+            return
+          }
+          if (itemInCart && ingredient.category === 'Toppings') {//if statement testing whether or not an item is there (and if it is a topping), if it is, increment the quantity
+            itemInCart.quantity++;
+          } else {
+            itemInCart = {//add the item as a new object with a quantity of one
+              ...ingredient, quantity: 1,
+            };
+            newCart.push(itemInCart);
+          }
+            setDIYCart(newCart);
+            //setDIYCart([...DIYCart,{...ingredient}]);//pushes the given ingredient to the cart array as a new object, not a duplicate. well that just makes it really easy to send multiples of an ingredient
+          };
 
   const removeFromCart =(ingredientToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
     setDIYCart(
@@ -48,7 +75,7 @@ const DIYPizza = () =>{
 
   const getCartTotalSum = () => {
     return DIYCart.reduce(
-      (sum, {price}) => sum + price, 0
+      (sum, {price, quantity}) => sum + price *quantity, 0
     )
    
   }
@@ -56,7 +83,7 @@ const DIYPizza = () =>{
     setDIYCart([]);
   }
 
-
+  
   //returns the ingredients fetched prior
   const DIYPizzaConstructor = ingredientsTable[0]?.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
 
@@ -64,7 +91,7 @@ const DIYPizza = () =>{
                 return(
                     <>
                     <div>
-                        <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
+                        <div className="card" style={{width: 18 +'em'}} key={index}  onClick={()=>addIngredientToCart(ingredient)}>
                         <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                             <div className="card-body">
                             <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
@@ -134,7 +161,7 @@ const DIYPizza = () =>{
         DIYCart.map((ingredient, index) => (
           <>
             <div className='ItemsInCart' key={index}>
-              <h3>{ingredient.name}</h3>
+              <h3>{ingredient.name} x {ingredient.quantity}</h3>
               <h4>{ingredient.price}</h4>
               <p></p>
             </div>
