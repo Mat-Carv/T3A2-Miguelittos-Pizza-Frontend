@@ -13,7 +13,7 @@ import PlaceOrder from './components/pages/PlaceOrder'
 import SignUpForm from './components/pages/SignUpForm'
 import SignInForm from './components/pages/SignInForm'
 import LandingPage from './components/pages/LandingPage.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
-
+import PendingOrders from './components/pages/PendingOrders'
 
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
             <Route path="/PlaceOrder" element={<PlaceOrder />} />
             <Route path="/SignUp" element={<SignUpForm />} />
             <Route path="/SignIn" element={<SignInForm />} />
+            <Route path ="/PendingOrders" element ={<PendingOrders />} />
            
           </Routes>
           
