@@ -1,6 +1,7 @@
 import React, { useState, useEffect,useContext } from 'react';
 import axios from 'axios';
 import Context from '../context/context';
+import apiUrl from '../../config/api';
 
 import Title from '../Header/Header';
 
@@ -8,17 +9,16 @@ const DIYPizza = () =>{
   const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
   
-  
   const {context, setContext} = useContext(Context) //call for save files
 
-  const ingredientsURL = 'https://pizzaria-miguel.herokuapp.com/api/products/index/1'
+  const ingredientsURL = '/api/products/index/1'
   const placeholderPizzaIngredientImageURL = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.taste.com.au%2Fquick-easy%2Fgalleries%2Fwinter-pizzas-we-cant-get-enough%2Fhktjp30r&psig=AOvVaw0nMKA51NGjS1Eb61msvGFu&ust=1644536043625000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiZh9jk8_UCFQAAAAAdAAAAABAD'
 
 //fetch ingredients
   useEffect(async () => {
     console.log("menu ingredients fetched")
       try{
-        const {status, data} = await axios.get(ingredientsURL) 
+        const {status, data} = await apiUrl.get(ingredientsURL) 
         console.log (status, data)
         setIngredients(data[0])//this removes the stupid pizza from the import and makes the rest of my life so much easier
       }
@@ -29,7 +29,7 @@ const DIYPizza = () =>{
   //note to self refactor shopping cart into its own class if time allows
   //calls the cart if you come from the classic menu page
 
-    let cartfromMiddata = context.cartToDIYPizzas;
+  let cartfromMiddata = context.cartToDIYPizzas;
 
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
@@ -105,12 +105,12 @@ const DIYPizza = () =>{
     
     //console.log (pizzaToppings,customPizzabase,customPizzaSauce)
    // return 
-   console.log({
+   return{
         name: "Custom",
         base: customPizzabase[0].name,
         sauce: customPizzaSauce[0].name,
         toppings: pizzaToppings
-    })
+    }
    
   }
 
@@ -208,7 +208,7 @@ const DIYPizza = () =>{
 
     <div id= 'addCustomPizzaTocart'>
         <button onClick={addCustomPizzaToCart}>
-        ADD ZE PIZZA 
+        Confirm Pizza 
         </button>
 
     </div>
