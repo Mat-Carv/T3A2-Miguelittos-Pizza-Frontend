@@ -2,21 +2,22 @@
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import useLocalStorage from "use-local-storage"
+import { useState } from "react"
 
 import Context from './components/context/context.jsx'
 
-  import PizzaMenu from './components/pages/PizzaMenu'
-  import DIYPizza from './components/pages/DIYPizza' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
-  import Admin from './components/pages/Admin.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
-  import PlaceOrder from './components/pages/PlaceOrder'
-  import SignUp from './components/pages/SignUp'
-  import LandingPage from './components/pages/LandingPage.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
+import PizzaMenu from './components/pages/PizzaMenu'
+import DIYPizza from './components/pages/DIYPizza' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
+import Admin from './components/pages/Admin.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
+import PlaceOrder from './components/pages/PlaceOrder'
+import SignUp from './components/pages/SignUp'
+import LandingPage from './components/pages/LandingPage.jsx' //this import occasionally throws an error where it shows as the wrong page, even though it isn't, and it loads regardless
 
 
 
 function App() {
 
-  const [context,setContext] = useLocalStorage("context", {});  
+  const [context,setContext] = useLocalStorage("context", {});
 //TODO: Admin Routes
 
   return (
