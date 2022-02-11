@@ -21,14 +21,34 @@ const LandingPage = () => {
         navigate ('/SignUp')
     }
 
+    function goToSignin(){
+        navigate ('/SignIn')
+    }
+
+    function userButtons(){
+        if (sessionStorage.token) {
+            return <>
+                <span>{sessionStorage.user}</span>
+                <button id="SignOutBtn" onClick={goToSignup}>Sign Out</button>
+            </>
+            
+        } else {
+            return <>
+                <button id="SignUpBtn" onClick={goToSignup}>SignUp</button>
+                <button id="SignInBtn" onClick={goToSignin}>SignIn</button>
+            </>  
+        }
+        
+    }
+
     return(
         <>
         <Title />
         <div id="LandingPageContent">
         <div id="hero" className="container px-4">
         <p></p>
-        <button id="SignUpBtn" onClick={goToSignup}>SignUp</button>
-        
+        {userButtons()}
+        {/* <img src="MiguelittosPizzaFrontEnd/src/images/miguelittosPizeriaLogo.png" alt="Miguelittos Pizza Logo in a circle" /> */}
         <p></p>
         <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
              <div className="card mb-3" style={{width: 25 +'em'}}>

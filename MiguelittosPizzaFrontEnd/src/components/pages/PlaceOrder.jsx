@@ -58,7 +58,6 @@ function PlaceOrder () {
     const sendCartToBackEnd=() =>{
         
         const payload ={  
-            "user_id":1,
             "pizza": state.pizza,
             "side": state.side,
             "drink": state.drink
