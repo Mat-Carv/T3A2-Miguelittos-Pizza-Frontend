@@ -110,7 +110,7 @@ const PizzaMenu = () => {
   <p></p>
   <p></p>
 
-  <div id='customPizzaLink' onClick={goToDIYPizzas}>
+  {/* <div id='customPizzaLink' onClick={goToDIYPizzas}>
         <div className="card bg-dark text-white" style={{width: 18 +'em'}}>
             <img src="https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg" className='card-img' alt='pizzaimageshouldbehere'></img>
             <div className="card-img-overlay">
@@ -121,7 +121,7 @@ const PizzaMenu = () => {
             </div>
           <p></p>
       </div>
-  </div>
+  </div> */}
 
   <div id='ShoppingCart'>
   <h1>Shopping Cart</h1>
