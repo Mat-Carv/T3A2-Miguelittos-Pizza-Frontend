@@ -20,7 +20,7 @@ const DIYPizza = () =>{
       try{
         const {status, data} = await axios.get(ingredientsURL) 
         console.log (status, data)
-        setIngredients(data)
+        setIngredients(data[0])//this removes the stupid pizza from the import and makes the rest of my life so much easier
       }
       catch(error){
           console.error(error)
@@ -49,14 +49,14 @@ const DIYPizza = () =>{
     
     let newCart = [...DIYCart];
     let itemInCart = newCart.find((item) => ingredient.name === item.name);
-          if (itemInCart && ingredient.category === 'Bases' ){//these need to be separate statements
-            return//so this is the bare bones - you have to remove it from the cart before you can pick a new one. if the cart is properly styled this isnt bad
-          }
-          if (itemInCart && ingredient.category === 'Sauces'){
-            return
-          }
-          if (itemInCart && ingredient.category === 'Toppings') {//if statement testing whether or not an item is there (and if it is a topping), if it is, increment the quantity
-            itemInCart.quantity++;
+  
+          if (itemInCart) {//if statement testing whether or not an item is there (and if it is a topping), if it is, increment the quantity
+            if(itemInCart.category === "Sauces" || "Bases"){
+              return
+            } else {
+              itemInCart.quantity++;
+            }
+            //console.log("added " + itemInCart.name)//this finally works
           } else {
             itemInCart = {//add the item as a new object with a quantity of one
               ...ingredient, quantity: 1,
@@ -85,8 +85,8 @@ const DIYPizza = () =>{
 
   
   //returns the ingredients fetched prior
-  const DIYPizzaConstructor = ingredientsTable[0]?.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
-
+  const DIYPizzaConstructor = ingredientsTable.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
+//the Pizza that should never have been in the table has now been removed from the import
             if (ingredient.category === "Toppings") {
                 return(
                     <>
