@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate, Route} from "react-router-dom";
-import pizzaLogo from '../images/MiguelittosPizeriaCircle.png';
+
 import miguelittosLocationMap from "../images/Miguelittos_Pizeria_Location.png";
 import Title from "../Header/Header";
 
@@ -86,13 +86,14 @@ const LandingPage = () => {
                 <div id="Address">Address: 123 Fake St, Sydney</div>
                     <p></p>
 
-                <div id="Instagram">Instagram:</div>
+                <div id="Instagram">Instagram: <a href ="https://www.instagram.com/">Instagram</a> </div>
                     <p></p>
                 
-                <div id="Facebook">Facebook:</div>
+                <div id="Facebook">Facebook: <a href ='https://www.facebook.com/'>Facebook</a>
+                </div>
                     <p></p>
       
-                <div id="Myspace">Myspace:</div>
+                <div id="Myspace">Myspace:<a href="https://myspace.com/">Myspace</a></div>
                     <p></p>
             </div>
 
