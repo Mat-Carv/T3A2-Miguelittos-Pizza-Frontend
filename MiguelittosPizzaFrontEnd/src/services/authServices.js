@@ -10,6 +10,11 @@ export async function signIn(data) {
 
     return response.data
 }
+export async function adminSignIn(data) {
+    const response = await apiUrl.post('/api/admin/sign_in', data)  
+
+    return response.data
+}
 export async function signOut() {
 	delete sessionStorage.user
 	delete sessionStorage.token
