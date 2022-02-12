@@ -4,6 +4,7 @@ import {useNavigate, Route} from "react-router-dom";
 import miguelittosLocationMap from "../images/Miguelittos_Pizeria_Location.png";
 import {signOut} from '../../services/authServices';
 import Title from "../Header/Header";
+import pizzaPhoto from "../images/pizzaPhoto.jpg";
 
 //Note to markers. Due to MIME type errors... for like the 10th FUCKING time in this assignment... making it imposible to deploy a project that has touched my computer, 
 // the final project had to be deployed via a fork on my team mates computer from one commit back
@@ -36,7 +37,7 @@ const LandingPage = () => {
         if (sessionStorage.token) {
             return <>
                 <span>{sessionStorage.user}</span>
-                <button id="SignOutBtn" onClick={endSession}>Sign Out</button>
+                <button id="SignOutBtn" onClick={endSession} className= "btn btn-primary">Sign Out</button>
             </>
             
         } else {
@@ -60,7 +61,7 @@ const LandingPage = () => {
             </div>
             <p></p>
             <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
-                <div className="card mb-3" style={{width: 25 +'em'}}>
+                <div className="card text-dark bg-danger" style={{width: 50 +'em'}}>
                 
                 <div className="row no-gutters">
                     <h5 className="card-title">Classic Pizzas</h5>
@@ -72,7 +73,7 @@ const LandingPage = () => {
 
             <p></p>
             <div id="MakeYourOwnSection" onClick={goToDIYPizzas} className="col">
-                <div className="card mb-3" style={{width: 25 +'em'}} >
+                <div className="card text-dark bg-warning" style={{width: 50 +'em'}} >
                     
                     <div className="row no-gutters">
                         <h5 className="card-title">Design Your Own Pizza</h5>
@@ -83,7 +84,7 @@ const LandingPage = () => {
             </div>
 
             <div id= "aboutUs" className="col">
-                <div id="aboutUsTitle">
+                <div id="aboutUsTitle" className="fs-3">
                     About Miguelittos Pizza
                 </div>
                 <p id="aboutUsBlurb">Miguelitto's Pizzeria is a traditional Italian Pizzeria that uses only the best and freshest ingredients to create the pizza of your dreams</p>
@@ -107,7 +108,7 @@ const LandingPage = () => {
                 </div>
 
                 <div id="aboutUsMap">
-                    <h3>Come Find us</h3>
+                    <h3>Come Find Us</h3>
                     <img src={miguelittosLocationMap} alt="Map totally showing the location of miguelittos pizzeria in Brazil"/>
                 </div>
             </div>

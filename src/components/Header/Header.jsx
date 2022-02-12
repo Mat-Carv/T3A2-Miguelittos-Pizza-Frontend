@@ -10,7 +10,7 @@ const Title = () => {
                     <img src={miguelittosLogo} alt="miguelittos logo" style={{width: 7 +'em'}}/>
                 </div>
                 <div className="col">
-                    <h1>Miguelitto's Pizzeria</h1>
+                    <h1 className="fs-1">Miguelitto's Pizzeria</h1>
                 </div>
             </div>
         </div></>
