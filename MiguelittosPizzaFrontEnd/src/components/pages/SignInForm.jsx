@@ -77,7 +77,7 @@ function SignIn(props) {
                     type="submit" 
                     className="btn btn-primary"
                     onClick={sendDetailsToServer}
-                    >Sign Up
+                    >Sign In
                 </button>
             </form>
         </div>

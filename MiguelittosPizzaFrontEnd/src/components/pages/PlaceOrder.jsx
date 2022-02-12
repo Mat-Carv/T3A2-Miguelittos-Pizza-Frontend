@@ -10,8 +10,8 @@ import {useNavigate} from "react-router";
 
 
 function PlaceOrder () {
-     
-    const {context, setContext} = useContext(Context)
+    
+    const { cart, setCart } = useContext(Context);
     
     const navigate = useNavigate()
 
@@ -19,10 +19,10 @@ function PlaceOrder () {
         navigate('/')
     }
 
-    let payloadDataForPizzas = context.cartFinalised;
+    // let payloadDataForPizzas = JSON.parse(localStorage.context).cartFinalised;
     
 
-    let PizzaOven = payloadDataForPizzas.map(element => {
+    let PizzaOven = cart.map(element => {
         return {
             name: element.name,
             base: element.base,
@@ -35,20 +35,20 @@ function PlaceOrder () {
     const [state , setState]= useState({
         user_id: 1,
         pizza: PizzaOven,
-            side:[],
-            drink:[],
+        side:[],
+        drink:[]
     })
 
 
 
     function getPizzacart() 
     {
-        let data = context.cartFinalised;
+        // let data = JSON.parse(localStorage.context).cartFinalised;
           
 
-            if (data!= null)
+            if (cart != null)
                 return(
-                        data.reduce(
+                        cart.reduce(
                             (sum, {price}) => sum + price, 0
                         ).toFixed(2)
                     )
@@ -62,18 +62,14 @@ function PlaceOrder () {
             "side": state.side,
             "drink": state.drink
         }
-       
 
         apiUrl.post('/api/orders/new', payload)
 
         .then(function (response) {
             if(response.status === 201){
-                setState(prevState => ({
-                    ...prevState,
-                    'successMessage' : 'Order successful. Redirecting to home page..'
-                }))
+                setCart([])
                 redirectToHome();
-                console.log(null)
+                console.log("Order Successfully Posted")
             } else{
                 console.log("Some error ocurred");
             }
