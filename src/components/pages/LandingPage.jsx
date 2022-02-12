@@ -54,7 +54,9 @@ const LandingPage = () => {
         <div id="LandingPageContent">
             <div id="hero" className="container px-4">
             <p></p>
+            <div id="userButtons">
             {userButtons()}
+            </div>
             <p></p>
             <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
                 <div className="card mb-3" style={{width: 25 +'em'}}>
