@@ -24,6 +24,10 @@ function SignIn(props) {
         navigate('/')
     }
 
+    function goToAdmin(){
+        navigate ('/Admin')
+    }
+
     const sendDetailsToServer = (e) => {
         e.preventDefault();
         if(state.email.length && state.password.length) {
@@ -50,37 +54,43 @@ function SignIn(props) {
     }
 
     return(
-        <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
-            <form>
-                <div className="form-group text-left">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input type="email" 
-                        className="form-control" 
-                        id="email" 
-                        aria-describedby="emailHelp" 
-                        placeholder="Enter email" 
-                        value={state.email}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="form-group text-left">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" 
-                        className="form-control" 
-                        id="password" 
-                        placeholder="Password"
-                        value={state.password}
-                        onChange={handleChange} 
-                    />
-                </div>
-                <button 
-                    type="submit" 
-                    className="btn btn-primary"
-                    onClick={sendDetailsToServer}
-                    >Sign In
-                </button>
-            </form>
-        </div>
+        <>
+            <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
+                <form>
+                    <div className="form-group text-left">
+                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <input type="email" 
+                            className="form-control" 
+                            id="email" 
+                            aria-describedby="emailHelp" 
+                            placeholder="Enter email" 
+                            value={state.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group text-left">
+                        <label htmlFor="exampleInputPassword1">Password</label>
+                        <input type="password" 
+                            className="form-control" 
+                            id="password" 
+                            placeholder="Password"
+                            value={state.password}
+                            onChange={handleChange} 
+                        />
+                    </div>
+                    <button 
+                        type="submit" 
+                        className="btn btn-primary"
+                        onClick={sendDetailsToServer}
+                        >Sign In
+                    </button>
+                </form>
+            </div>
+            <div>
+                <button id="SignInBtn" onClick={goToAdmin}>Admin</button>
+            </div>
+        </>
+        
     )
 }
 
