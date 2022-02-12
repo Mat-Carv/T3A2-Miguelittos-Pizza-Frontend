@@ -22,20 +22,21 @@ const PendingOrders = () =>{
           }
       }, [])
 
-      function refreshPage(){
-          window.location.reload(false);
-      }
+    function refreshPage(){
+        window.location.reload(false);
+    }
+
+    const handleSubmitClick = (e) => {
+        e.preventDefault();
+        MarkOrderComplete(e)
+    }
         
-    const MarkOrderComplete = () => {
-        
-        const orderIDASecondTime = orders.map((newOrder, orderIndex) => {
-           return (newOrder.id)
-        })
+    function MarkOrderComplete (id) {
 
         const payload = {
             "complete": true
         }
-            apiUrl.put('/api/admin/orders/'+orderIDASecondTime, payload)
+            apiUrl.put('/api/admin/orders/'+id, payload)
             .then(function (response) {
                 if(response.status === 201)
                 {
@@ -97,7 +98,7 @@ const PendingOrders = () =>{
                             </div>
                         </div>
                         <div>
-                            <button onClick={MarkOrderComplete}>Mark Complete</button>
+                            <button onClick={() => MarkOrderComplete(newOrder.id)}>Mark Complete</button>
                         </div>
                     </div>
                 </div>
