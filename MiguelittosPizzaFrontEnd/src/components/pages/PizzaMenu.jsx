@@ -39,7 +39,6 @@ function PizzaMenu () {
   
   function goToDIYPizzas(){
     navigate('/DIYPizza')
-     
   }
 
   function goToCheckout(){

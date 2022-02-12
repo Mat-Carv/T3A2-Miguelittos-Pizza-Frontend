@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../context/context';
 import apiUrl from '../../config/api';
 import { useNavigate } from 'react-router';
-
 import Title from '../Header/Header';
 
 const DIYPizza = () =>{
@@ -12,7 +11,6 @@ const DIYPizza = () =>{
   const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
  
-  
   const {context, setContext} = useContext(Context) //call for save files
 
   const placeholderPizzaIngredientImageURL = 'https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg'
@@ -30,6 +28,7 @@ const DIYPizza = () =>{
           console.error(error)
       }
   }, [])
+
   //note to self refactor shopping cart into its own class if time allows
 
   //adds an ingredient to the cart
@@ -148,7 +147,7 @@ const DIYPizza = () =>{
                 <>
                 <div>
                     <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
-                    <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+                    <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
                         <p></p>
@@ -167,7 +166,7 @@ const DIYPizza = () =>{
                 <>
                 <div>
                     <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
-                    <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+                    <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
                         <p></p>

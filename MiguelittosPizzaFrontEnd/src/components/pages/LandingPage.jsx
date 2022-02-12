@@ -48,7 +48,6 @@ const LandingPage = () => {
         <div id="hero" className="container px-4">
         <p></p>
         {userButtons()}
-        {/* <img src="MiguelittosPizzaFrontEnd/src/images/miguelittosPizeriaLogo.png" alt="Miguelittos Pizza Logo in a circle" /> */}
         <p></p>
         <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
              <div className="card mb-3" style={{width: 25 +'em'}}>
