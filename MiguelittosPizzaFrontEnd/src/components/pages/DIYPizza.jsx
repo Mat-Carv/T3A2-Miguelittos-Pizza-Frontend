@@ -28,9 +28,7 @@ const DIYPizza = () =>{
           console.error(error)
       }
   }, [])
-
-  //note to self refactor shopping cart into its own class if time allows
-
+  
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
 
@@ -78,11 +76,9 @@ const DIYPizza = () =>{
   };
 
   const getCartTotalSum = () => {
-    let total = DIYCart.reduce(
+    return DIYCart.reduce(
       (sum, {price, quantity}) => sum + price *quantity, 0
     )
-      
-    return total
   }
 
   const clearCart = () => {
@@ -209,10 +205,10 @@ const DIYPizza = () =>{
     </div>
 
     <div id='TotalSum'>
-      <div>Total: ${getCartTotalSum()}</div>
+      <div>Total: ${getCartTotalSum().toFixed(2)}</div>
     </div>
 
-    <div id= 'addCustomPizzaTocart'>
+    <div id= 'addCustomPizzaToCart'>
         <button onClick={addCustomPizzaToCart}>
         Confirm Pizza
         </button>

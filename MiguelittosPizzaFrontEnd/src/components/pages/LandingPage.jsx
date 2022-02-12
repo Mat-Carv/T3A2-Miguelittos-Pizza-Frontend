@@ -2,6 +2,7 @@ import React from "react";
 import {useNavigate, Route} from "react-router-dom";
 
 import miguelittosLocationMap from "../images/Miguelittos_Pizeria_Location.png";
+import {signOut} from '../../services/authServices';
 import Title from "../Header/Header";
 
 
@@ -25,11 +26,16 @@ const LandingPage = () => {
         navigate ('/SignIn')
     }
 
+    function endSession(){
+        signOut()
+        navigate ('/')
+    }
+
     function userButtons(){
         if (sessionStorage.token) {
             return <>
                 <span>{sessionStorage.user}</span>
-                <button id="SignOutBtn" onClick={goToSignup}>Sign Out</button>
+                <button id="SignOutBtn" onClick={endSession}>Sign Out</button>
             </>
             
         } else {

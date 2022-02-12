@@ -22,21 +22,24 @@ const PendingOrders = () =>{
               console.error(error + " in order fetch")
           }
       }, [])
-      //refresh the page to reload the orders
-      function refreshPage(){
-          window.location.reload(false);
-      }
-    //function to mark order as complete on the server and refresh the page
-    const MarkOrderComplete = () => {
+
+
+    function refreshPage(){
+        window.location.reload(false);
+    }
+
+    const handleSubmitClick = (e) => {
+        e.preventDefault();
+        MarkOrderComplete(e)
+    }
         
-        const orderIDASecondTime = orders.map((newOrder, orderIndex) => {
-           return (newOrder.id)
-        })
+    function MarkOrderComplete (id) {
 
         const payload = {
             "complete": true
         }
-            apiUrl.put(putOrdersURL+orderIDASecondTime, payload)
+
+            apiUrl.put('/api/admin/orders/'+id, payload)
             .then(function (response) {
                 if(response.status === 201)
                 {
@@ -107,8 +110,9 @@ const PendingOrders = () =>{
                                 </div>
                             </div>
                         </div>
-                        <div id="markCompleteButton" >
-                            <button onClick={MarkOrderComplete} className='btn btn-success btn-lg'>Mark Complete</button>
+
+                        <div>
+                            <button onClick={() => MarkOrderComplete(newOrder.id)}>Mark Complete</button>
                         </div>
                     </div>
                 </div>
