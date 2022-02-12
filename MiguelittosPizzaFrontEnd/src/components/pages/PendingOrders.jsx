@@ -22,6 +22,34 @@ const PendingOrders = () =>{
           }
       }, [])
 
+      function refreshPage(){
+          window.location.reload(false);
+      }
+        
+    const MarkOrderComplete = () => {
+        
+        const orderIDASecondTime = orders.map((newOrder, orderIndex) => {
+           return (newOrder.id)
+        })
+
+        const payload = {
+            "complete": true
+        }
+            apiUrl.put('/api/admin/orders/'+orderIDASecondTime, payload)
+            .then(function (response) {
+                if(response.status === 201)
+                {
+                    console.log('success: Order marked complete')
+                    refreshPage()
+                } else{
+                    console.log("Some error ocurred");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });   
+      }
+
    function returnOrders(){ 
        
        const EachOrder = orders.map((newOrder, orderIndex) => {
@@ -69,7 +97,7 @@ const PendingOrders = () =>{
                             </div>
                         </div>
                         <div>
-                            <button>Mark Complete</button>
+                            <button onClick={MarkOrderComplete}>Mark Complete</button>
                         </div>
                     </div>
                 </div>
@@ -80,6 +108,8 @@ const PendingOrders = () =>{
                 
             
     }
+
+
 
     return(
         <>
