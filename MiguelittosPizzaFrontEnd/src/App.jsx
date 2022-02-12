@@ -18,13 +18,13 @@ import LandingPage from './components/pages/LandingPage.jsx' //this import occas
 
 function App() {
 
-  const [context,setContext] = useLocalStorage("context", {});
+  const [cart,setCart] = useState([]);
 //TODO: Admin Routes
 
   return (
     <div className="App">
      
-     <Context.Provider value={{context, setContext}}>
+     <Context.Provider value={{cart, setCart}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
