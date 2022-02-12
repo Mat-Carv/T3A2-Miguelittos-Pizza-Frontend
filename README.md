@@ -60,6 +60,8 @@ The target audience for this app is the current customer base for Miguelitto’s
 
 - Github
   - Backend: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Backend>
+  - Backend deployed: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Frontend/tree/main/MiguelittosPizzaFrontEnd>
+
   - Frontend: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Frontend>
 
 - Trello: <https://trello.com/b/gRpv5ZKk/t3a2publictrello>
@@ -336,4 +338,4 @@ By the 12th, the only remaining steps still in scope remaining to be completed a
 
 ### M&M IT Solutions
 
-Completed to satisfy requirements for Coder Academy's Fast Track Bootcamp assignment number T3A2
+Completed to satisfy requirements for Coder Academy's Fast Track Bootcamp assignment number T3A2, by Martin Olson & Mat Carvalho
