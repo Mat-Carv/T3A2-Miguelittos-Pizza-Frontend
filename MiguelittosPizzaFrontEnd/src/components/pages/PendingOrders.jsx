@@ -60,7 +60,7 @@ const PendingOrders = () =>{
                 <div id='OuterCard' className="card border-dark mb-3"style={{width: 33 +'em'}} >
                     <div id ='wholecard'>
                         <div id='everything but the button'>
-                            <div id='header' className="card-header">
+                            <div id='header' className="card-header fw-bold fs-3" >
                                 <div id='orderIDnumber'>
                                 Order ID: {newOrder.id}
                                 </div>
@@ -72,7 +72,7 @@ const PendingOrders = () =>{
                                 <div id='EachPizza'>{newOrder.pizza.map((aPizza,idx) =>(
                                     // return each pizza in the order
                                     <><div id="pizzaName" className="card-title">
-                                        <p>Pizzas Type: {aPizza.name}</p>
+                                        <p></p><p className="fs-4">Pizza Type: {aPizza.name}</p>
                                     </div>
                                     <div id="aboutApizza" className="card-text">
                                         <div id="pizzabase" >
@@ -86,8 +86,8 @@ const PendingOrders = () =>{
                                                 <div id="justCode">{Object.keys(aPizza.toppings).map(function (key) {
                                                     var topping = aPizza.toppings[key];
                                                     return (//return each topping on the pizza
-                                                        <div id="eachTopping">
-                                                         <p>{key}: {topping}</p> 
+                                                        <div id="eachTopping" >
+                                                        <span className="text-center"> {key}: {topping} </span>
                                                         </div>
                                                     );
                                                 }
@@ -107,8 +107,8 @@ const PendingOrders = () =>{
                                 </div>
                             </div>
                         </div>
-                        <div id="markCompleteButton">
-                            <button onClick={MarkOrderComplete} className='btn btn-success'>Mark Complete</button>
+                        <div id="markCompleteButton" >
+                            <button onClick={MarkOrderComplete} className='btn btn-success btn-lg'>Mark Complete</button>
                         </div>
                     </div>
                 </div>
@@ -124,8 +124,8 @@ const PendingOrders = () =>{
         <>
         <Title />
 
-        <div id="OrdersPanel">
-                <div>{returnOrders()}</div>
+        <div id="OrdersPanel" className="container">
+                <div className="col">{returnOrders()}</div>
         </div>
         
         </>
