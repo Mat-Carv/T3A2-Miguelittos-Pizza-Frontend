@@ -9,25 +9,8 @@ import Title from '../Header/Header';
 
 function PizzaMenu () {
 
-  //save cart context
-  // const {context, setContext} = useContext(Context)
-
-  //set state for the shopping cart
   const { cart, setCart } = useContext(Context);
   
-  
-  // const initialState = {
-  //   cart: []
-  // }
-
-  // const [store, dispatch] = useReducer(reducer, initialState)
-
-  // const {cart} = store
-
-  // if (localStorage.context) {
-  //   setCart(JSON.parse(localStorage.context).cartFinalised)
-  // }
-  //state for the menu
   const [menuItems, setMenuItems] = useState([])
   
   //cart functions
