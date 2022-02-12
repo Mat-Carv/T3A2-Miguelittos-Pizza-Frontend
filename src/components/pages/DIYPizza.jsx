@@ -3,6 +3,7 @@ import Context from '../context/context';
 import apiUrl from '../../config/api';
 import { useNavigate } from 'react-router';
 import Title from '../Header/Header';
+import pizzaPhoto from '../images/pizzaPhoto.jpg'
 
 const DIYPizza = () =>{
 
@@ -13,7 +14,7 @@ const DIYPizza = () =>{
  
   const {context, setContext} = useContext(Context) //call for save files
 
-  const placeholderPizzaIngredientImageURL = 'https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg'
+  const placeholderPizzaIngredientImageURL = pizzaPhoto
 
   const navigate = useNavigate()
 //fetch ingredients

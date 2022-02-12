@@ -5,6 +5,7 @@ import reducer from '../../utils/reducer'
 
 import Context from '../context/context';
 import Title from '../Header/Header';
+import pizzaPhoto from '../images/pizzaPhoto.jpg'
 
 function PizzaMenu () {
 
@@ -63,7 +64,7 @@ function PizzaMenu () {
       <div>
             <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>
                 <div className="card bg-dark text-white" style={{width: 18 +'em'}} key={menuIndex}>
-                  <img src="https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg" className='card-img' alt='pizzaimageshouldbehere'></img>
+                  <img src= {pizzaPhoto} className='card-img' alt='pizzaimageshouldbehere'></img>
                   <div className="card-img-overlay">
                     <h4 className="card-title">{menuItem.name}  ${menuItem.price}</h4>
                     <p className="card-text">{menuItem.description}</p>
@@ -94,7 +95,7 @@ function PizzaMenu () {
 
   <div id='customPizzaLink' onClick={goToDIYPizzas}>
         <div className="card bg-dark text-white" style={{width: 18 +'em'}}>
-            <img src="https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg" className='card-img' alt='pizzaimageshouldbehere'></img>
+            <img src={pizzaPhoto} className='card-img' alt='pizzaimageshouldbehere'></img>
             <div className="card-img-overlay">
               <h4 className="card-title">Custom Pizza</h4>
               <p className="card-text">Fancy something else? Try out our custom pizza designer to design your perfect pizza</p>
