@@ -32,7 +32,7 @@ function PizzaMenu () {
   const getCartTotalSum = () => {
     return cart.reduce(
       (sum, {price}) => sum + price, 0
-    )
+    ).toFixed(2)
   }
 
   let navigate = useNavigate();
@@ -61,11 +61,11 @@ function PizzaMenu () {
   const pizzaMenu = menuItems.map((menuItem,menuIndex) => {
      return (//the correct way to do style is below
      <>
-      <div>
+      <div className='col-md-3'>
             <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>
                 <div className="card bg-dark text-white" style={{width: 18 +'em'}} key={menuIndex}>
                   <img src= {pizzaPhoto} className='card-img' alt='pizzaimageshouldbehere'></img>
-                  <div className="card-img-overlay">
+                  <div className="card-img-top">
                     <h4 className="card-title">{menuItem.name}  ${menuItem.price}</h4>
                     <p className="card-text">{menuItem.description}</p>
                     <p></p>
@@ -88,45 +88,50 @@ function PizzaMenu () {
   <div id='PizzaMenuHeading'>
     <h2>Miguelitto's Classic Pizzas</h2>
   </div>
-
-  <div>{pizzaMenu}</div>
-  <p></p>
-  <p></p>
-
-  <div id='customPizzaLink' onClick={goToDIYPizzas}>
-        <div className="card bg-dark text-white" style={{width: 18 +'em'}}>
-            <img src={pizzaPhoto} className='card-img' alt='pizzaimageshouldbehere'></img>
-            <div className="card-img-overlay">
-              <h4 className="card-title">Custom Pizza</h4>
-              <p className="card-text">Fancy something else? Try out our custom pizza designer to design your perfect pizza</p>
-              <p></p>
-              <p></p>
-            </div>
-          <p></p>
-      </div>
+  <div className='container-fluid'>
+    <div className='card-group'>{pizzaMenu}</div>
+      <p></p>
+      <p></p>
+    <div className='col-md-3'>
+    <div id='customPizzaLink' onClick={goToDIYPizzas}>
+          <div className="card bg-dark text-white" style={{width: 18 +'em'}}>
+              <img src={pizzaPhoto} className='card-img' alt='pizzaimageshouldbehere'></img>
+              <div className="card-img-top">
+                <h4 className="card-title">Custom Pizza</h4>
+                <p className="card-text">Fancy something else? Try out our custom pizza designer to design your perfect pizza</p>
+                <p></p>
+                <p></p>
+              </div>
+            <p></p>
+        </div>
+    </div>
+    </div>
   </div>
-
-  <div id='ShoppingCart'>
+  <div id='ShoppingCart' className='col w-auto p-3'>
   <h1>Shopping Cart</h1>
     <p></p>
-    <div className='cart'>
+    <div className='card-group'>
       {//TODO: STYLE
         cart.map((menuItem, index) => (
-        <>
-          <div className='ItemsInCart' key={index}>
+        <><div className='card'>
+          <div id='ItemsInCart' key={index} className="card-body">
             <h3>{menuItem.name}</h3>
             <h4>{menuItem.price}</h4>
             <p></p>
           </div>
-          <button onClick={() => removeFromCart(menuItem)}>Remove?</button>
+          <button onClick={() => removeFromCart(menuItem)} className="btn btn-danger">Remove?</button>
+          </div>
         </>
         ))
       }
       <p>
       </p>
-      <div>Total: ${getCartTotalSum()}</div>
-      <button onClick={goToCheckout}>Check Out</button>
-      <button onClick={clearCart}>Clear Cart</button>
+      <div className='card'>
+        <div className='font-weight-bold fs-2'>Total: ${getCartTotalSum()}</div>
+      </div>
+
+      <button onClick={goToCheckout} className="btn btn-primary">Check Out</button>
+      <button onClick={clearCart} className="btn btn-danger">Clear Cart</button>
     </div>
   </div>
   </>)

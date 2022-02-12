@@ -41,8 +41,9 @@ const LandingPage = () => {
             
         } else {
             return <>
-                <button id="SignUpBtn" onClick={goToSignup}>SignUp</button>
-                <button id="SignInBtn" onClick={goToSignin}>SignIn</button>
+                <button id="SignUpBtn" onClick={goToSignup} className= "btn btn-primary">Sign Up</button>
+                <p></p>
+                <button id="SignInBtn" onClick={goToSignin} className= "btn btn-primary">Sign In</button>
             </>  
         }
         
@@ -87,7 +88,7 @@ const LandingPage = () => {
                 </div>
                 <p id="aboutUsBlurb">Miguelitto's Pizzeria is a traditional Italian Pizzeria that uses only the best and freshest ingredients to create the pizza of your dreams</p>
 
-                <div id="contactDetails">
+                <div id="contactDetails" className="border">
                     <div id="phone">Phone: 0455 555 555 555</div>
                         <p></p>
 
