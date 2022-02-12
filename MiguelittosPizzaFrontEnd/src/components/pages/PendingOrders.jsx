@@ -68,6 +68,9 @@ const PendingOrders = () =>{
                             Sides: {newOrder.side}
                             </div>
                         </div>
+                        <div>
+                            <button>Mark Complete</button>
+                        </div>
                     </div>
                 </div>
                 </>
