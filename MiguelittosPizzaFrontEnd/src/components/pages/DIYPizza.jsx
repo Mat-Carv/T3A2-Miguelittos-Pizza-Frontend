@@ -219,7 +219,7 @@ const DIYPizza = () =>{
       <div>Total: ${getCartTotalSum().toFixed(2)}</div>
     </div>
 
-    <div id= 'addCustomPizzaTocart'>
+    <div id= 'addCustomPizzaToCart'>
         <button onClick={addCustomPizzaToCart}>
         Confirm Pizza
         </button>

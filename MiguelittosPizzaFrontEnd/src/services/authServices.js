@@ -10,7 +10,7 @@ export async function signIn(data) {
 
     return response.data
 }
-export async function signOut(data) {
-	// sign in on server
-	return data.username
+export async function signOut() {
+	delete sessionStorage.user
+	delete sessionStorage.token
 }
