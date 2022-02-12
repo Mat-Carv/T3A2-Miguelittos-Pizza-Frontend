@@ -11,7 +11,7 @@ const DIYPizza = () =>{
 
   const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
-  // const [newCart, setNewCart] = useState([])
+ 
   
   const {context, setContext} = useContext(Context) //call for save files
 
@@ -23,7 +23,7 @@ const DIYPizza = () =>{
     console.log("menu ingredients fetched")
       try{
         const {status, data} = await apiUrl.get('/api/products/index/1') 
-        console.log (status, data)
+        console.log (status)
         setIngredients(data[0])//this removes the stupid pizza from the import and makes the rest of my life so much easier
       }
       catch(error){
@@ -31,15 +31,6 @@ const DIYPizza = () =>{
       }
   }, [])
   //note to self refactor shopping cart into its own class if time allows
-  //calls the cart if you come from the classic menu page
-  // function getCartIfItExists(){
-  //   let cartfromMiddata = context.cartToDIYPizzas;
-  //   if(cartfromMiddata != null){
-  //       setNewCart([])
-  //   }else{
-  //    let newCart = context.cartToDIYPizzas
-  //   }
-  // }
 
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
@@ -61,9 +52,7 @@ const DIYPizza = () =>{
               ...ingredient, quantity: 1,
             };
             newCart.push(itemInCart);
-            console.log(newCart)
           } 
-
             setDIYCart(newCart);
           };
 
@@ -78,7 +67,7 @@ const DIYPizza = () =>{
         ...ingredient, quantity: 1,
       };
       newCart.push(itemInCart);
-      //console.log(newCart)
+     
     }
     setDIYCart(newCart);
   }
@@ -96,10 +85,7 @@ const DIYPizza = () =>{
       
     return total
   }
-  const clearAllCarts = () => {
-    setDIYCart([]);
-    // setNewCart([]);
-  }
+
   const clearCart = () => {
     setDIYCart([]);
   }
@@ -117,7 +103,6 @@ const DIYPizza = () =>{
     let customPizzaSauce = DIYCart.filter( obj => obj.category =="Sauces")
     let totalPizzaPrice = getCartTotalSum()
     
-    console.log(totalPizzaPrice)
    // return 
     let customPizza = {
         name: "Custom",
@@ -127,11 +112,8 @@ const DIYPizza = () =>{
         toppings: pizzaToppings
     }
  //push to newCart  
-    console.log(customPizza);
     setCart([...cart,customPizza]);
-   
     navigate('/PizzaMenu')
-   //console.log(localStorage.context.cartToDIYPizzas)
   }
 
   function goToCheckout(){
@@ -243,7 +225,7 @@ const DIYPizza = () =>{
     </div>
 
     <div id='clearEverything'>
-      <button onClick={clearAllCarts}>Clear Everything</button>
+      <button onClick={clearCart}>Clear Everything</button>
 
     </div>
 
