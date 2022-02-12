@@ -2,8 +2,8 @@ import axios from 'axios'
 
 const apiUrl = axios.create({
     // Leave the desired URL uncommented
-    // baseURL: 'http://pizzaria-miguel.herokuapp.com'
-    baseURL: 'http://localhost:8080'
+    baseURL: 'http://pizzaria-miguel.herokuapp.com'
+        // baseURL: 'http://localhost:8080'
 })
 
 apiUrl.interceptors.request.use((request) => {
