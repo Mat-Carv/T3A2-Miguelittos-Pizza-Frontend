@@ -62,19 +62,14 @@ function PlaceOrder () {
             "side": state.side,
             "drink": state.drink
         }
-       
 
         apiUrl.post('/api/orders/new', payload)
 
         .then(function (response) {
             if(response.status === 201){
-                setState(prevState => ({
-                    ...prevState,
-                    'successMessage' : 'Order successful. Redirecting to home page..'
-                }))
+                setCart([])
                 redirectToHome();
-                console.log(null)
-                setContext(null)
+                console.log("Order Successfully Posted")
             } else{
                 console.log("Some error ocurred");
             }
