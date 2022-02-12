@@ -30,16 +30,6 @@ const DIYPizza = () =>{
           console.error(error)
       }
   }, [])
-  //note to self refactor shopping cart into its own class if time allows
-  //calls the cart if you come from the classic menu page
-  // function getCartIfItExists(){
-  //   let cartfromMiddata = context.cartToDIYPizzas;
-  //   if(cartfromMiddata != null){
-  //       setNewCart([])
-  //   }else{
-  //    let newCart = context.cartToDIYPizzas
-  //   }
-  // }
 
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
@@ -90,11 +80,9 @@ const DIYPizza = () =>{
   };
 
   const getCartTotalSum = () => {
-    let total = DIYCart.reduce(
+    return DIYCart.reduce(
       (sum, {price, quantity}) => sum + price *quantity, 0
     )
-      
-    return total
   }
   const clearAllCarts = () => {
     setDIYCart([]);
@@ -228,7 +216,7 @@ const DIYPizza = () =>{
     </div>
 
     <div id='TotalSum'>
-      <div>Total: ${getCartTotalSum()}</div>
+      <div>Total: ${getCartTotalSum().toFixed(2)}</div>
     </div>
 
     <div id= 'addCustomPizzaTocart'>
