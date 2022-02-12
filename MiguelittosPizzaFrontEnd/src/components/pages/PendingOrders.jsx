@@ -25,7 +25,7 @@ const PendingOrders = () =>{
    function returnOrders(){ 
        
        const EachOrder = orders.map((newOrder, orderIndex) => {
-          
+        
             return(
                 <>
                 <div>
@@ -37,16 +37,29 @@ const PendingOrders = () =>{
                             <div>
                             Name: {newOrder.name}
                             </div>
-                            <div>
-                                <div>
-                                    Pizzas Type: {newOrder.pizza[0].name}
-                                </div>
-                                <div>
-                                    Pizza base: {newOrder.pizza[0].base}
-                                </div>
-                                <div>
-                                    Pizza Sauce: {newOrder.pizza[0].sauce}
-                                </div>
+                            <div>{newOrder.pizza.map((aPizza,idx) =>(
+        
+                                <><></><div>
+                                    Pizzas Type: {aPizza.name}
+                                </div><div>
+                                        Pizza base: {aPizza.base}
+                                    </div><div>
+                                        Pizza Sauce: {aPizza.sauce}
+                                    </div><div>
+                                        Pizza Toppings:
+                                        <div>{Object.keys(aPizza.toppings).map(function (key) {
+                                            var topping = aPizza.toppings[key];
+                                            return (
+                                                <div>
+                                                    {key}: {topping}
+                                                </div>
+                                            );
+                                        }
+                                        )}</div>
+
+                                    </div></>
+                                ))
+                            }
                             </div>
                             <div>
                             Drinks: {newOrder.drink}
