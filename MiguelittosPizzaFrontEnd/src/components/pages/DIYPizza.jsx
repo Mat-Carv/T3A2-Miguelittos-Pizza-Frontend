@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../context/context';
 import apiUrl from '../../config/api';
 import { useNavigate } from 'react-router';
-
 import Title from '../Header/Header';
 
 const DIYPizza = () =>{
@@ -11,8 +10,7 @@ const DIYPizza = () =>{
 
   const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
-  // const [newCart, setNewCart] = useState([])
-  
+ 
   const {context, setContext} = useContext(Context) //call for save files
 
   const placeholderPizzaIngredientImageURL = 'https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg'
@@ -23,14 +21,14 @@ const DIYPizza = () =>{
     console.log("menu ingredients fetched")
       try{
         const {status, data} = await apiUrl.get('/api/products/index/1') 
-        console.log (status, data)
+        console.log (status)
         setIngredients(data[0])//this removes the stupid pizza from the import and makes the rest of my life so much easier
       }
       catch(error){
           console.error(error)
       }
   }, [])
-
+  
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
 
@@ -51,9 +49,7 @@ const DIYPizza = () =>{
               ...ingredient, quantity: 1,
             };
             newCart.push(itemInCart);
-            console.log(newCart)
           } 
-
             setDIYCart(newCart);
           };
 
@@ -68,7 +64,7 @@ const DIYPizza = () =>{
         ...ingredient, quantity: 1,
       };
       newCart.push(itemInCart);
-      //console.log(newCart)
+     
     }
     setDIYCart(newCart);
   }
@@ -84,10 +80,7 @@ const DIYPizza = () =>{
       (sum, {price, quantity}) => sum + price *quantity, 0
     )
   }
-  const clearAllCarts = () => {
-    setDIYCart([]);
-    // setNewCart([]);
-  }
+
   const clearCart = () => {
     setDIYCart([]);
   }
@@ -105,7 +98,6 @@ const DIYPizza = () =>{
     let customPizzaSauce = DIYCart.filter( obj => obj.category =="Sauces")
     let totalPizzaPrice = getCartTotalSum()
     
-    console.log(totalPizzaPrice)
    // return 
     let customPizza = {
         name: "Custom",
@@ -115,11 +107,8 @@ const DIYPizza = () =>{
         toppings: pizzaToppings
     }
  //push to newCart  
-    console.log(customPizza);
     setCart([...cart,customPizza]);
-   
     navigate('/PizzaMenu')
-   //console.log(localStorage.context.cartToDIYPizzas)
   }
 
   function goToCheckout(){
@@ -154,7 +143,7 @@ const DIYPizza = () =>{
                 <>
                 <div>
                     <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
-                    <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+                    <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
                         <p></p>
@@ -173,7 +162,7 @@ const DIYPizza = () =>{
                 <>
                 <div>
                     <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
-                    <img src="[placeholder]" className='card-img' alt='ingredientimageshouldbehere'></img>
+                    <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
                         <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
                         <p></p>
@@ -231,7 +220,7 @@ const DIYPizza = () =>{
     </div>
 
     <div id='clearEverything'>
-      <button onClick={clearAllCarts}>Clear Everything</button>
+      <button onClick={clearCart}>Clear Everything</button>
 
     </div>
 

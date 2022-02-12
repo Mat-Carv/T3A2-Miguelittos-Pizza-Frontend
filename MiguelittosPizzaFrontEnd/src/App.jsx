@@ -19,7 +19,6 @@ import PendingOrders from './components/pages/PendingOrders'
 function App() {
 
   const [cart,setCart] = useState([]);
-//TODO: Admin Routes
 
   return (
     <div className="App">
