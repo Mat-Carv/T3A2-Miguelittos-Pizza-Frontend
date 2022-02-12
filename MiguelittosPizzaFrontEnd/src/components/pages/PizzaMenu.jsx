@@ -15,7 +15,6 @@ function PizzaMenu () {
   
   //cart functions
   const addToCart = (menuItem) => {
-    console.log(menuItem.name + " added to cart");
     setCart([...cart,menuItem]);//pushes the given pizza to the cart array as a new object, not a duplicate
   }
 
@@ -36,17 +35,11 @@ function PizzaMenu () {
     )
   }
 
-
   let navigate = useNavigate();
   
   function goToDIYPizzas(){
-    console.log(cart)
     navigate('/DIYPizza')
      
-  }
-
-  function goToMainMenu(){
-    navigate('/')
   }
 
   function goToCheckout(){
@@ -55,10 +48,9 @@ function PizzaMenu () {
 
 
   useEffect(async () => {
-    console.log("menu fetched")
       try{
         const {status, data} = await apiUrl.get("/api/pizzas/index") 
-        console.log (status, data)
+        console.log (status)
         setMenuItems(data)
       }
       catch(error){

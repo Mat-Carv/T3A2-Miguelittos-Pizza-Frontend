@@ -43,16 +43,13 @@ function PlaceOrder () {
 
     function getPizzacart() 
     {
-        // let data = JSON.parse(localStorage.context).cartFinalised;
-          
-
             if (cart != null)
                 return(
                         cart.reduce(
                             (sum, {price}) => sum + price, 0
                         ).toFixed(2)
                     )
-            else return(console.log("There is no cart"))
+            else return(console.log("You have no cart, and thus, no pizzas"))
         }
 
     const sendCartToBackEnd=() =>{
@@ -86,7 +83,7 @@ function PlaceOrder () {
         <div>Your total: {getPizzacart()}</div>
         <button onClick={sendCartToBackEnd}>Place Order</button>
         <div id="ThisShouldBeAPopup">Your Pizzas will be ready in 30 minutes!</div>
-        <div id='goBackTO Home'>
+        <div id='goBackTOHome'>
             <button onClick={redirectToHome}>Back to Home</button>
         </div>
         </>

@@ -15,7 +15,7 @@ const PendingOrders = () =>{
         console.log("Orders fetched")
           try{
             const {status, data} = await apiUrl.get(summonOrdersURL) 
-            console.log (status, data)
+            console.log (status)
             setOrders(data)
           }
           catch(error){
