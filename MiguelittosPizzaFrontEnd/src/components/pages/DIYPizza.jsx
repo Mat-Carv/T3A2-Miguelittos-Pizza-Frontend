@@ -1,5 +1,4 @@
-import React, { useState, useEffect,useContext } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from 'react';
 import Context from '../context/context';
 import apiUrl from '../../config/api';
 import { useNavigate } from 'react-router';
@@ -7,22 +6,23 @@ import { useNavigate } from 'react-router';
 import Title from '../Header/Header';
 
 const DIYPizza = () =>{
+
+  const { cart, setCart } = useContext(Context);
+
   const [ingredientsTable, setIngredients] = useState([])//get ingredients from backend
   const [DIYCart, setDIYCart] = useState([])//creat a cart to build a pizza in
-  const [newCart, setNewCart] = useState([])
+  // const [newCart, setNewCart] = useState([])
   
   const {context, setContext} = useContext(Context) //call for save files
 
-  const ingredientsURL = '/api/products/index/1'
   const placeholderPizzaIngredientImageURL = 'https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg'
-
 
   const navigate = useNavigate()
 //fetch ingredients
   useEffect(async () => {
     console.log("menu ingredients fetched")
       try{
-        const {status, data} = await apiUrl.get(ingredientsURL) 
+        const {status, data} = await apiUrl.get('/api/products/index/1') 
         console.log (status, data)
         setIngredients(data[0])//this removes the stupid pizza from the import and makes the rest of my life so much easier
       }
@@ -32,14 +32,14 @@ const DIYPizza = () =>{
   }, [])
   //note to self refactor shopping cart into its own class if time allows
   //calls the cart if you come from the classic menu page
-  function getCartIfItExists(){
-    let cartfromMiddata = context.cartToDIYPizzas;
-    if(cartfromMiddata != null){
-        setNewCart([])
-    }else{
-     let newCart = context.cartToDIYPizzas
-    }
-  }
+  // function getCartIfItExists(){
+  //   let cartfromMiddata = context.cartToDIYPizzas;
+  //   if(cartfromMiddata != null){
+  //       setNewCart([])
+  //   }else{
+  //    let newCart = context.cartToDIYPizzas
+  //   }
+  // }
 
   //adds an ingredient to the cart
   const addIngredientToCart = (ingredient) => {
@@ -90,14 +90,15 @@ const DIYPizza = () =>{
   };
 
   const getCartTotalSum = () => {
-    return DIYCart.reduce(
+    let total = DIYCart.reduce(
       (sum, {price, quantity}) => sum + price *quantity, 0
     )
-   
+      
+    return total
   }
   const clearAllCarts = () => {
     setDIYCart([]);
-    setNewCart([]);
+    // setNewCart([]);
   }
   const clearCart = () => {
     setDIYCart([]);
@@ -114,18 +115,22 @@ const DIYPizza = () =>{
 
     let customPizzabase = DIYCart.filter( obj => obj.category =="Bases")
     let customPizzaSauce = DIYCart.filter( obj => obj.category =="Sauces")
+    let totalPizzaPrice = getCartTotalSum()
     
-    
+    console.log(totalPizzaPrice)
    // return 
     let customPizza = {
         name: "Custom",
+        price: totalPizzaPrice,
         base: customPizzabase[0].name,
         sauce: customPizzaSauce[0].name,
         toppings: pizzaToppings
     }
  //push to newCart  
-    setNewCart([...newCart,{...customPizza}]);
+    console.log(customPizza);
+    setCart([...cart,customPizza]);
    
+    navigate('/PizzaMenu')
    //console.log(localStorage.context.cartToDIYPizzas)
   }
 
@@ -204,7 +209,6 @@ const DIYPizza = () =>{
   return( 
   <>
     <Title />
-    {getCartIfItExists}
 
     <div id="ingredientsConstructor">{DIYPizzaConstructor}</div>
 

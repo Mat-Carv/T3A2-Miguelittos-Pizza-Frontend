@@ -1,28 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import axios from 'axios';
+import apiUrl from '../../config/api'
+import reducer from '../../utils/reducer'
 
 import Context from '../context/context';
 import './PizzaMenu.css';
 import Title from '../Header/Header';
 
-const PizzaMenu = () => {
+function PizzaMenu () {
 
-  //save cart context
-  const {context, setContext} = useContext(Context)
-  //url for pizza menu
-  const pizzaMenuUrl = "https://pizzaria-miguel.herokuapp.com/api/pizzas/index";
-
-  //set state for the shopping cart
-  const [cart, setCart] = useState([]);//created an empty shopping cart
-  //state for the menu
+  const { cart, setCart } = useContext(Context);
+  
   const [menuItems, setMenuItems] = useState([])
   
-//cart functions
+  //cart functions
   const addToCart = (menuItem) => {
     console.log(menuItem.name + " added to cart");
-    setCart([...cart,{...menuItem}]);//pushes the given pizza to the cart array as a new object, not a duplicate
+    setCart([...cart,menuItem]);//pushes the given pizza to the cart array as a new object, not a duplicate
   }
+
   //remove one item from cart function
   const removeFromCart =(menuItemToRemove) => {//removes a specific pizza object using the array.filter function. strictly speakign, this creates a new cart array with every item not the specific object that should be removed
     setCart(
@@ -43,29 +39,25 @@ const PizzaMenu = () => {
 
   let navigate = useNavigate();
   
-    function goToDIYPizzas(){
-      let cartToDIYPizzas = cart
-      console.log(cartToDIYPizzas)
-      setContext({...context, cartToDIYPizzas})
-      navigate('/DIYPizza')
-       
-    }
+  function goToDIYPizzas(){
+    console.log(cart)
+    navigate('/DIYPizza')
+     
+  }
 
-    function goToMainMenu(){
-      navigate('/')
-    }
+  function goToMainMenu(){
+    navigate('/')
+  }
 
-    function goToCheckout(){
-      let cartFinalised = cart
-      setContext({...context, cartFinalised})
-      navigate('/PlaceOrder')
-    }
+  function goToCheckout(){
+    navigate('/PlaceOrder')
+  }
 
 
   useEffect(async () => {
     console.log("menu fetched")
       try{
-        const {status, data} = await axios.get(pizzaMenuUrl) 
+        const {status, data} = await apiUrl.get("/api/pizzas/index") 
         console.log (status, data)
         setMenuItems(data)
       }
@@ -110,7 +102,7 @@ const PizzaMenu = () => {
   <p></p>
   <p></p>
 
-  {/* <div id='customPizzaLink' onClick={goToDIYPizzas}>
+  <div id='customPizzaLink' onClick={goToDIYPizzas}>
         <div className="card bg-dark text-white" style={{width: 18 +'em'}}>
             <img src="https://st.depositphotos.com/1003814/5052/i/950/depositphotos_50523105-stock-photo-pizza-with-tomatoes.jpg" className='card-img' alt='pizzaimageshouldbehere'></img>
             <div className="card-img-overlay">
@@ -121,7 +113,7 @@ const PizzaMenu = () => {
             </div>
           <p></p>
       </div>
-  </div> */}
+  </div>
 
   <div id='ShoppingCart'>
   <h1>Shopping Cart</h1>
