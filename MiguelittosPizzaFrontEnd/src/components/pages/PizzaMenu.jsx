@@ -4,7 +4,6 @@ import apiUrl from '../../config/api'
 import reducer from '../../utils/reducer'
 
 import Context from '../context/context';
-import './PizzaMenu.css';
 import Title from '../Header/Header';
 
 function PizzaMenu () {
