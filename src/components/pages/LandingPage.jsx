@@ -5,7 +5,8 @@ import miguelittosLocationMap from "../images/Miguelittos_Pizeria_Location.png";
 import {signOut} from '../../services/authServices';
 import Title from "../Header/Header";
 
-
+//Note to markers. Due to MIME type errors... for like the 10th FUCKING time in this assignment... making it imposible to deploy a project that has touched my computer, 
+// the final project had to be deployed via a fork on my team mates computer from one commit back
 
 const LandingPage = () => {
     let navigate = useNavigate();
