@@ -417,8 +417,6 @@ Final Trello Shot - 13/02/2022
 
 - In order to test the routing and responses from the Rails API, we used an extension for VS Code called REST client. This extension makes it possible to send any type of http request to the server while also sending any parameters that may be needed by the controllers that receive them. These requests can be made by accessing the .http files present in the base directory, where the different requests tested have their description above them and the option to "send request" available on click. This extension basically offers some core functionalities of services like PostMan, while keeping the requests saved locally and available at any time.
 
-- For testing the back end, the REST client was used to generate correctly formed and malformed requests for the backend to confirm the functionality of its data receiving and error checking ability.
-
 - User Testing of the Production website was done using family members of the development team as guinea pigs. This testing noted that the absence of feedback when clicking icons was confusing (a known issue resulting from a lack of time to customise the bootstrap styling), and that several of the redirects relating to user sign up and logging in were confusing, with no indication as to the correct course of action. However, time constraints and technical complexity prevented this from being implemented immediately. Further testing also noted that there was no indication that signing in or signing up was neccessary in order to create a pizza.
 
 ### M&M IT Solutions
