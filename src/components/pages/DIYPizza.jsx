@@ -202,18 +202,18 @@ const DIYPizza = () =>{
     <Title />
 
     <div className='text-justify'>
-      <h2 className='text-center'>Choose Your Base, Sauce and Toppings</h2>
+      <h2 className='text-center'>Ingredients</h2>
     </div>
 
-    <h2>Bases</h2>
+    <h2>Choose Base</h2>
     <div id="ingredientsConstructor" className='card-group col'>{DIYBaseConstructor}</div>
     <hr></hr>
     
-    <h2 >Sauces</h2>
+    <h2 >Choose Sauce</h2>
     <div id="ingredientsConstructor" className='card-group col'>{DIYSauceConstructor}</div>
     <hr></hr>
 
-    <h2>Toppings</h2>
+    <h2>Choose Toppings</h2>
     <div id="ingredientsConstructor" className='card-group col'>{DIYToppingConstructor}</div>
     <hr></hr>
 

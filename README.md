@@ -407,6 +407,10 @@ By the 12th, the only remaining steps still in scope remaining to be completed a
 
 ![trello board Screenshot 12 February](docs/Trello/TrelloBoardd120222.png "Trello Board showing progress for 12th of February")
 
+### Testing
+
+User Testing of the Production website was done using 
+
 ### M&M IT Solutions
 
 Completed to satisfy requirements for Coder Academy's Fast Track Bootcamp assignment number T3A2, by Martin Olson & Matheus Carvalho
