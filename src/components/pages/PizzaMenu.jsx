@@ -61,8 +61,8 @@ function PizzaMenu () {
   const pizzaMenu = menuItems.map((menuItem,menuIndex) => {
      return (//the correct way to do style is below
      <>
-      <div className='col-md-3'>
-            <div className='cardcustomhandler' id='cardHandler' onClick={()=>addToCart(menuItem)}>
+      <div className='col-md-3 '>
+            <div className='d-flex' id='cardHandler' onClick={()=>addToCart(menuItem)}>
                 <div className="card bg-dark text-white" style={{width: 18 +'em'}} key={menuIndex}>
                   <img src= {pizzaPhoto} className='card-img' alt='pizzaimageshouldbehere'></img>
                   <div className="card-img-top">
@@ -88,8 +88,8 @@ function PizzaMenu () {
   <div id='PizzaMenuHeading'>
     <h2>Miguelitto's Classic Pizzas</h2>
   </div>
-  <div className='container-fluid'>
-    <div className='card-group'>{pizzaMenu}</div>
+  <div className='container-fluid '>
+    <div className='card-group align-content-stretch flex-wrap'>{pizzaMenu}</div>
       <p></p>
       <p></p>
     <div className='col-md-3'>
