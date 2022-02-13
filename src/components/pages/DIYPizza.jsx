@@ -113,52 +113,9 @@ const DIYPizza = () =>{
   }
   
   //returns the ingredients fetched prior
-<<<<<<< HEAD
-  const DIYPizzaConstructor = ingredientsTable.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
-    //the Pizza that should never have been in the table has now been removed from the import
-            if (ingredient.category === "Toppings") {
-                return(
-                    <>
-                    <div className className='col'>
-                        <div className="card bg-dark text-white" style={{width: 18 +'em'}} key={index}  onClick={()=>addToppingToCart(ingredient)}>
-                        <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
-                            <div className="card-body">
-                              <h4 className="card-title">Topping: {ingredient.name}  ${ingredient.price}</h4>
-                            <p></p>
-                            <p></p>
-                            </div>
-                        <p></p>    
-                        </div>
-                        <p></p>
-                        <p></p>
-                    </div>
-                    </>
-                )
-            } if (ingredient.category === "Sauces") {
-                return(
-                <>
-                <div className='col'>
-                    <div className="card text-dark bg-warning" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
-                    <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
-                        <div className="card-body">
-                          <h4 className="card-title">Sauce: {ingredient.name}  ${ingredient.price}</h4>
-                        <p></p>
-                        <p></p>
-                        </div>
-                    <p></p>    
-                    </div>
-                    <p></p>
-                    <p></p>
-                </div>
-                </>
-                )
-                
-            } if(ingredient.category === "Bases"){
-=======
   const DIYBaseConstructor = ingredientsTable.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
 //the Pizza that should never have been in the table has now been removed from the import
             if(ingredient.category === "Bases"){
->>>>>>> cypress
                 return(
                 <>
                 <div className='col'>
