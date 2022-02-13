@@ -36,6 +36,10 @@ function SignUp(props) {
         navigate('/')
     }
 
+    function redirectToSignIn() {
+        navigate('/SignIn')
+    }
+
     function componentDidMount() {
         if (sessionStorage.user || sessionStorage.token) {
             redirectToHome()
@@ -122,6 +126,12 @@ function SignUp(props) {
                         >Sign Up
                     </button>
                 </form>
+                <button 
+                        type="submit" 
+                        className="mg-1 btn btn-warning"
+                        onClick={redirectToSignIn}
+                        >I already have an Account
+                </button>
             </div>
         </>
     )

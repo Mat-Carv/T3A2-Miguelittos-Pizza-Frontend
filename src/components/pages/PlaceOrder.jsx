@@ -19,6 +19,10 @@ function PlaceOrder () {
         navigate('/')
     }
 
+    function redirectToSignIn() {
+        navigate('/SignIn')
+    }
+
     // let payloadDataForPizzas = JSON.parse(localStorage.context).cartFinalised;
     
 
@@ -54,6 +58,10 @@ function PlaceOrder () {
 
     const sendCartToBackEnd=() =>{
         
+        if (!sessionStorage.user) {
+            redirectToSignIn()
+        }
+
         const payload ={  
             "pizza": state.pizza,
             "side": state.side,

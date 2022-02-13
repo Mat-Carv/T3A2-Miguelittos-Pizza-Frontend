@@ -24,6 +24,10 @@ function SignIn(props) {
         navigate('/')
     }
 
+    function redirectToSignUp() {
+        navigate('/SignUp')
+    }
+
     function goToAdmin(){
         navigate ('/Admin')
     }
@@ -90,7 +94,12 @@ function SignIn(props) {
                     </button>
                 </form>
                 <p></p>
+    
                 <div className="form-group text-left">
+                    <button id="SignInBtn" onClick={redirectToSignUp} className='btn btn-primary'>SignUp</button>
+                </div>
+
+                <div className="form-group text-right">
                     <button id="SignInBtn" onClick={goToAdmin} className='btn btn-danger'>Admin</button>
                 </div>
             </div>
