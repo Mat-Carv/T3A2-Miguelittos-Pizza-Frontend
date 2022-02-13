@@ -68,11 +68,11 @@ const LandingPage = () => {
                     </div>
                 <p></p>
 
-                <div className="card-group">
-                    <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="card col border-0" style={{height: 25 +'em'}} >
+                <div className="">
+                    <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="card col border-0">
                         <div className="row no-gutters">
                         
-                            <div className="card text-dark bg-danger col" style={{width: 20 +'em'}}>
+                            <div className="card text-dark bg-danger col-mb-3" style={{width: 33 +'em'}}>
                             <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top rounded-top" />
                                 <div className="col">
                                     <div className="card-body">
@@ -87,7 +87,7 @@ const LandingPage = () => {
                     <p></p>
                     <div id="MakeYourOwnSection" onClick={goToDIYPizzas} className="card col border-0" >
                         <div className="row no-gutters">
-                            <div className="card text-dark bg-warning col-mb-3" style={{width: 20 +'em'}} > 
+                            <div className=" text-dark bg-warning col-mb-3" style={{width: 33 +'em'}} > 
                             <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top reounded-top"/>
                                 <div className="col md-8">
                                     <div className="card-body">
@@ -100,8 +100,11 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
+            <p></p>
+            <p></p>
 
-            <div id= "aboutUs" className="col bg-dark text-white">
+
+            <div id= "aboutUs" className="col bg-dark text-white" style={{width: 33 +'em'}}>
                 <div id="aboutUsTitle" className="fs-3 col">
                     About Miguelittos Pizza
                 </div>
@@ -130,7 +133,7 @@ const LandingPage = () => {
 
                 <div id="aboutUsMap" className="col card bg-dark text-white">
                     <h3>Come Find Us</h3>
-                    <img src={miguelittosLocationMap} alt="Map totally showing the location of miguelittos pizzeria in Brazil"/>
+                    <img src={miguelittosLocationMap} style={{width: 33 +'em'}} alt="Map totally showing the location of miguelittos pizzeria in Brazil" className="img-fluid"/>
                 </div>
             </div>
         </div>
