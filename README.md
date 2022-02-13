@@ -38,7 +38,7 @@ $ npm install
 $ bundle install 
 ```
 
-Before running the application locally on your machine, you must first access the api.js (T3A2-Miguelittos-Pizza-Frontend/src/config/api.js) and in the apiUrl constant make sure the "baseURL: 'http://localhost:8080'" is the ***ONLY uncommented line*** inside of it. This will change the base url used for sending the requests to your localhost:8080, or which ever other port you decide to use.
+Before running the application locally on your machine, you must first access the api.js (T3A2-Miguelittos-Pizza-Frontend/src/config/api.js) and in the apiUrl constant make sure that "baseURL: 'http://localhost:8080'" is the ***ONLY uncommented line*** inside of it. This will change the base url used for sending the requests to your localhost:8080, or which ever other port you decide to use.
 
 ### Running Locally
 
@@ -47,6 +47,14 @@ Before running the application locally on your machine, you must first access th
 ```
 $ npm run dev 
 ```
+
+- Back end: Inside the cloned directory, setup the database.
+
+```
+$ rails db:setup 
+```
+
+  **Note:** All Categories, Products and Pizzas, as well as the Admin user credentials, are defined in the seeds.rb file. *Admin features require the current user to be an admin*.
 
 - Back end: Inside the cloned directory, start the Rails Server.
 
