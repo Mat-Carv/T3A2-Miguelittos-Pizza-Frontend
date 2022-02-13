@@ -42,9 +42,16 @@ const LandingPage = () => {
             
         } else {
             return <>
-                <button id="SignUpBtn" onClick={goToSignup} className= "btn btn-primary">Sign Up</button>
+            <div>
+                <div className="card">
+                    <button id="SignUpBtn" onClick={goToSignup} className= "btn btn-primary">Sign Up</button>
+                </div>
+            
                 <p></p>
-                <button id="SignInBtn" onClick={goToSignin} className= "btn btn-primary">Sign In</button>
+                <div className="card">
+                    <button id="SignInBtn" onClick={goToSignin} className= "btn btn-primary">Sign In</button>
+                </div>
+            </div>
             </>  
         }
         
@@ -53,43 +60,57 @@ const LandingPage = () => {
     return(
         <>
         <Title />
-        <div id="LandingPageContent">
-            <div id="hero" className="container px-4">
+        <div id="LandingPageContent" className="card-group">
+            <div id="hero" className="container">
             <p></p>
-            <div id="userButtons">
+            <div id="userButtons" className="col">
             {userButtons()}
             </div>
             <p></p>
-            <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="col">
-                <div className="card text-dark bg-danger" style={{width: 50 +'em'}}>
-                
+            <div className="card-group">
+            
+            <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="card col border-0" style={{height: 25 +'em'}} >
                 <div className="row no-gutters">
-                    <h5 className="card-title">Classic Pizzas</h5>
-                    <p className="card-text">Browse from our selection of classic pizzas</p>
-                    
-                </div>
+                
+                    <div className="card text-dark bg-danger col" style={{width: 20 +'em'}}>
+                    <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top rounded-top" />
+                        <div className="col">
+                        
+                            <div className="card-body">
+                            
+                                <h5 className="card-title">Classic Pizzas</h5>
+                                <p className="card-text">Browse from our selection of classic pizzas</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <p></p>
-            <div id="MakeYourOwnSection" onClick={goToDIYPizzas} className="col">
-                <div className="card text-dark bg-warning" style={{width: 50 +'em'}} >
-                    
+                <div id="MakeYourOwnSection" onClick={goToDIYPizzas} className="card col border-0" >
                     <div className="row no-gutters">
-                        <h5 className="card-title">Design Your Own Pizza</h5>
-                        <p className="card-text">Create your perfect pizza from our selection of the freshest ingredients available</p>
+                    <div className="card text-dark bg-warning col-mb-3" style={{width: 20 +'em'}} > 
+                    <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top reounded-top"/>
+                        <div className="col md-8">
+                            <div className="card-body">
+                            <h5 className="card-title">Design Your Own Pizza</h5>
+                            <p className="card-text">Create your perfect pizza from our selection of the freshest ingredients available</p>
+                            </div>
+                        </div>
                     </div>
                     </div>
+                </div>
             </div>
             </div>
 
-            <div id= "aboutUs" className="col">
-                <div id="aboutUsTitle" className="fs-3">
+            <div id= "aboutUs" className="col bg-dark text-white">
+                <div id="aboutUsTitle" className="fs-3 col">
                     About Miguelittos Pizza
                 </div>
-                <p id="aboutUsBlurb">Miguelitto's Pizzeria is a traditional Italian Pizzeria that uses only the best and freshest ingredients to create the pizza of your dreams</p>
-
-                <div id="contactDetails" className="border">
+                <div className="col">
+                <p id="aboutUsBlurb" className="fs-5">Miguelitto's Pizzeria is a traditional Italian Pizzeria that uses only the best and freshest ingredients to create the pizza of your dreams</p>
+                </div>
+                <div id="contactDetails" className="border col rounded text-white bg-dark">
                     <div id="phone">Phone: 0455 555 555 555</div>
                         <p></p>
 
@@ -107,7 +128,7 @@ const LandingPage = () => {
                         <p></p>
                 </div>
 
-                <div id="aboutUsMap">
+                <div id="aboutUsMap" className="col card bg-dark text-white">
                     <h3>Come Find Us</h3>
                     <img src={miguelittosLocationMap} alt="Map totally showing the location of miguelittos pizzeria in Brazil"/>
                 </div>
