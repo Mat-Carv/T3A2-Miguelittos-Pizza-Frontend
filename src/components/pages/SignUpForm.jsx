@@ -128,7 +128,7 @@ function SignUp(props) {
                 </form>
                 <button 
                         type="submit" 
-                        className="mg-1 btn btn-warning"
+                        className="btn btn-warning"
                         onClick={redirectToSignIn}
                         >I already have an Account
                 </button>
