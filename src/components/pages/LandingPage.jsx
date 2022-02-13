@@ -117,14 +117,14 @@ const LandingPage = () => {
                     <div id="Address">Address: 123 Fake St, Sydney</div>
                         <p></p>
 
-                    <div id="Instagram">Instagram: <a href ="https://www.instagram.com/">Instagram</a> </div>
+                    <div id="Instagram">Instagram: <a href ="https://www.instagram.com/" className="text-decoration-none">Instagram</a> </div>
                         <p></p>
                     
-                    <div id="Facebook">Facebook: <a href ='https://www.facebook.com/'>Facebook</a>
+                    <div id="Facebook">Facebook: <a href ='https://www.facebook.com/' className="text-decoration-none">Facebook</a>
                     </div>
                         <p></p>
         
-                    <div id="Myspace">Myspace:<a href="https://myspace.com/">Myspace</a></div>
+                    <div id="Myspace">Myspace: <a href="https://myspace.com/" className="text-decoration-none">Myspace</a></div>
                         <p></p>
                 </div>
 

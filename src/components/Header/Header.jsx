@@ -9,8 +9,8 @@ const Title = () => {
                 <div className="col">
                     <img src={miguelittosLogo} alt="miguelittos logo" style={{width: 7 +'em'}}/>
                 </div>
-                <div className="col">
-                    <h1 className="fs-1">Miguelitto's Pizzeria</h1>
+                <div className="col text-justify">
+                    <h1 className="fs-1 text-left font-weight-bold">Miguelitto's Pizzeria</h1>
                 </div>
             </div>
         </div></>
