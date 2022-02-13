@@ -62,54 +62,54 @@ const LandingPage = () => {
         <Title />
         <div id="LandingPageContent" className="card-group">
             <div id="hero" className="container">
-            <p></p>
-            <div id="userButtons" className="col">
-            {userButtons()}
-            </div>
-            <p></p>
-            <div className="card-group">
-            
-            <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="card col border-0" style={{height: 25 +'em'}} >
-                <div className="row no-gutters">
-                
-                    <div className="card text-dark bg-danger col" style={{width: 20 +'em'}}>
-                    <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top rounded-top" />
-                        <div className="col">
-                        
-                            <div className="card-body">
-                            
-                                <h5 className="card-title">Classic Pizzas</h5>
-                                <p className="card-text">Browse from our selection of classic pizzas</p>
-                            </div>
-                        </div>
+                <p></p>
+                    <div id="userButtons" className="col">
+                    {userButtons()}
                     </div>
-                </div>
-            </div>
+                <p></p>
 
-            <p></p>
-                <div id="MakeYourOwnSection" onClick={goToDIYPizzas} className="card col border-0" >
-                    <div className="row no-gutters">
-                    <div className="card text-dark bg-warning col-mb-3" style={{width: 20 +'em'}} > 
-                    <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top reounded-top"/>
-                        <div className="col md-8">
-                            <div className="card-body">
-                            <h5 className="card-title">Design Your Own Pizza</h5>
-                            <p className="card-text">Create your perfect pizza from our selection of the freshest ingredients available</p>
+                <div className="card-group">
+                    <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="card col border-0" style={{height: 25 +'em'}} >
+                        <div className="row no-gutters">
+                        
+                            <div className="card text-dark bg-danger col" style={{width: 20 +'em'}}>
+                            <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top rounded-top" />
+                                <div className="col">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Classic Pizzas</h5>
+                                        <p className="card-text">Browse from our selection of classic pizzas</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <p></p>
+                    <div id="MakeYourOwnSection" onClick={goToDIYPizzas} className="card col border-0" >
+                        <div className="row no-gutters">
+                            <div className="card text-dark bg-warning col-mb-3" style={{width: 20 +'em'}} > 
+                            <img src={pizzaPhoto} alt="photo of a pizza" className="card-img-top reounded-top"/>
+                                <div className="col md-8">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Design Your Own Pizza</h5>
+                                        <p className="card-text">Create your perfect pizza from our selection of the freshest ingredients available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
 
             <div id= "aboutUs" className="col bg-dark text-white">
                 <div id="aboutUsTitle" className="fs-3 col">
                     About Miguelittos Pizza
                 </div>
+
                 <div className="col">
-                <p id="aboutUsBlurb" className="fs-5">Miguelitto's Pizzeria is a traditional Italian Pizzeria that uses only the best and freshest ingredients to create the pizza of your dreams</p>
+                    <p id="aboutUsBlurb" className="fs-5">Miguelitto's Pizzeria is a traditional Italian Pizzeria that uses only the best and freshest ingredients to create the pizza of your dreams</p>
                 </div>
+
                 <div id="contactDetails" className="border col rounded text-white bg-dark">
                     <div id="phone">Phone: 0455 555 555 555</div>
                         <p></p>
