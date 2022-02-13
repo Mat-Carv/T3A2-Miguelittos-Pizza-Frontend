@@ -111,12 +111,6 @@ const DIYPizza = () =>{
     setCart([...cart,customPizza]);
     navigate('/PizzaMenu')
   }
-
-  function goToCheckout(){
-    let cartFinalised = newCart
-    setContext({...context, cartFinalised})
-    navigate('/PlaceOrder')
-  }
   
   //returns the ingredients fetched prior
   const DIYPizzaConstructor = ingredientsTable.map((ingredient, index) => {//so the issue here is that the products index has the custom pizza template in it. the question mark makes it possible to ignore it
@@ -219,12 +213,6 @@ const DIYPizza = () =>{
       </div>
       <div id="clearCart" className='card'>
         <button type="button" className="btn btn-danger btn-lg" onClick={clearCart}>Clear Pizza</button>
-      </div>
-      <div id='clearEverything' className='card'>
-        <button onClick={clearCart} className ="btn btn-danger btn-lg">Clear Cart</button>
-      </div>
-      <div id='submitOrder' className='card'>
-        <button onClick={goToCheckout} className='btn btn-success btn-lg'>Submit Order</button>
       </div>
     </div>
   </>
