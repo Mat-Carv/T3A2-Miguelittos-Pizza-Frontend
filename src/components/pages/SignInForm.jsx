@@ -55,7 +55,11 @@ function SignIn(props) {
 
     return(
         <>
-            <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
+        <div className='bg-dark text-white min-vh-100 d-flex justify-content-center align-items-center'>
+            <div id='title' className=''>
+                <h1 className=''>Sign in</h1>
+            </div>
+            <div className="card col-12 col-lg-4 login-card mt-2 hv-center bg-dark text-white">
                 <form>
                     <div className="form-group text-left">
                         <label htmlFor="exampleInputEmail1">Email address</label>
@@ -85,10 +89,12 @@ function SignIn(props) {
                         >Sign In
                     </button>
                 </form>
+                <p></p>
+                <div className="form-group text-left">
+                    <button id="SignInBtn" onClick={goToAdmin} className='btn btn-danger'>Admin</button>
+                </div>
             </div>
-            <div>
-                <button id="SignInBtn" onClick={goToAdmin}>Admin</button>
-            </div>
+        </div>
         </>
         
     )

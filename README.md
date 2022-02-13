@@ -28,14 +28,14 @@ In order to run the application, install all dependencies for both parts.
 
 - Front end: Inside the cloned directory, with node installed on your machine.
 
-```
-$ npm install 
+```bash
+npm install 
 ```
 
 - Back end: Inside the cloned directory, with ruby installed on your machine.
 
-```
-$ bundle install 
+```bash
+bundle install 
 ```
 
 Before running the application locally on your machine, you must first access the api.js (T3A2-Miguelittos-Pizza-Frontend/src/config/api.js) and in the apiUrl constant make sure that "baseURL: 'http://localhost:8080'" is the ***ONLY uncommented line*** inside of it. This will change the base url used for sending the requests to your localhost:8080, or which ever other port you decide to use.
@@ -44,8 +44,8 @@ Before running the application locally on your machine, you must first access th
 
 - Front end: Inside the cloned directory, start the React client server.
 
-```
-$ npm run dev 
+```bash
+npm run dev 
 ```
 
 - Back end: Inside the cloned directory, setup the database.
@@ -58,19 +58,23 @@ $ rails db:setup
 
 - Back end: Inside the cloned directory, start the Rails Server.
 
-```
-$ rails server 
+```bash
+rails server 
 ```
 
 ### Functionality/Features
 
 Functionalities of the app include:
 
-Like most occasions where I order pizza, in this case our eyes were bigger than our stomachs. While the majority of planned features were implemented, some were dropped due to time constraints. In other cases, our Agile development plan suggested alternative builds that would achieve the desired goals better. Furthermore, due to issues with SSL and MIME type errors during deployment, this website may not work after May 13, and some final commits may be stuck on a different fork.
+Like most occasions where I order pizza, in this case our eyes were bigger than our stomachs. While the majority of planned features were implemented, some were dropped due to time constraints. In other cases, our Agile development plan suggested alternative builds that would achieve the desired goals better. Furthermore, due to issues with SSL and MIME type errors during deployment, some final commits may be stuck on a different fork.
 
 - The landing page, where customers can find links to social media and location information about Miguelitto's Pizzeria. Note that without an extant Miguelitto's pizza, the links in question are dead.
 
 - An additional feature that was added during development was the ability for users to login and signup, which was extended from the planned admin login feature and implemented using knock.
+
+  - Note: to access the Admin Section of the page, the required login details are:
+    email: Miguel@test.com
+    password: abcdef
 
 - Allowing users to make orders, where they may:
 
@@ -110,7 +114,7 @@ The target audience for this app is the current customer base for Miguelitto’s
 
 - GitHub – Remote Source Control Repository
 
-#### * As of the due date of the T3A2 assignment (13/02/2022), some features are still planned to be implemented in the future; See **Issues and Setbacks
+#### * As of the due date of the T3A2 assignment (13/02/2022), some features are still planned to be implemented in the future, See **Issues and Setbacks
 
 ### Links
 

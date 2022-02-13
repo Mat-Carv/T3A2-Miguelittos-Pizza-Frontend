@@ -49,8 +49,10 @@ function AdminSignIn(props) {
         
     }
 
-    return(
-        <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
+    return(<>
+    <div className='col bg-dark text-white min-vh-100 d-flex justify-content-center align-items-center'>
+    <h1>Admin Sign in</h1>  
+        <div className="card col-12 col-lg-4 login-card mt-2 hv-center bg-dark text-white">
             <form>
                 <div className="form-group text-left">
                     <label htmlFor="exampleInputEmail1">Email address</label>
@@ -81,6 +83,8 @@ function AdminSignIn(props) {
                 </button>
             </form>
         </div>
+        </div>
+        </>
     )
 }
 
