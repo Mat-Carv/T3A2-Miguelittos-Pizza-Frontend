@@ -160,8 +160,7 @@ const DIYPizza = () =>{
               <p></p>
           </div>
           </>
-          )
-          
+          )    
       } 
                 
                 else {
@@ -175,7 +174,7 @@ const DIYPizza = () =>{
                 if (ingredient.category === "Toppings") {
                     return(
                         <>
-                        <div className className='col'>
+                        <div className='col'>
                             <div className="card bg-dark text-white" style={{width: 18 +'em'}} key={index}  onClick={()=>addToppingToCart(ingredient)}>
                             <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                                 <div className="card-body">
@@ -207,13 +206,16 @@ const DIYPizza = () =>{
     </div>
 
     <h2>Bases</h2>
-    <div id="ingredientsConstructor" className='card-group'>{DIYBaseConstructor}</div>
+    <div id="ingredientsConstructor" className='card-group col'>{DIYBaseConstructor}</div>
+    <hr></hr>
     
-    <h2>Sauces</h2>
-    <div id="ingredientsConstructor" className='card-group'>{DIYSauceConstructor}</div>
+    <h2 >Sauces</h2>
+    <div id="ingredientsConstructor" className='card-group col'>{DIYSauceConstructor}</div>
+    <hr></hr>
 
     <h2>Toppings</h2>
-    <div id="ingredientsConstructor" className='card-group'>{DIYToppingConstructor}</div>
+    <div id="ingredientsConstructor" className='card-group col'>{DIYToppingConstructor}</div>
+    <hr></hr>
 
     <div id='DIYPizzaCart' className='card-group'>
         
