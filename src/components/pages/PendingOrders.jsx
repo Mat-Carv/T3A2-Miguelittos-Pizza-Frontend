@@ -60,7 +60,8 @@ const PendingOrders = () =>{
         
             return(
                 <>
-                <div id='OuterCard' className="card border-dark mb-3"style={{width: 33 +'em'}} >
+                <div >
+                <div id='OuterCard' className="card mb-3" style={{width: 25 +'em'}} >
                     <div id ='wholecard'>
                         <div id='everything but the button'>
                             <div id='header' className="card-header fw-bold fs-3" >
@@ -112,9 +113,10 @@ const PendingOrders = () =>{
                         </div>
 
                         <div>
-                            <button onClick={() => MarkOrderComplete(newOrder.id)}>Mark Complete</button>
+                            <button onClick={() => MarkOrderComplete(newOrder.id)} className='btn btn-success btn-lg'>Mark Complete</button>
                         </div>
                     </div>
+                </div>
                 </div>
                 </>
             )
@@ -129,7 +131,7 @@ const PendingOrders = () =>{
         <Title />
 
         <div id="OrdersPanel" className="container">
-                <div className="col">{returnOrders()}</div>
+                <div className="card-deck">{returnOrders()}</div>
         </div>
         
         </>
