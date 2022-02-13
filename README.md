@@ -50,8 +50,8 @@ npm run dev
 
 - Back end: Inside the cloned directory, setup the database.
 
-```
-$ rails db:setup 
+```bash
+rails db:setup 
 ```
 
   **Note:** All Categories, Products and Pizzas, as well as the Admin user credentials, are defined in the seeds.rb file. *Admin features require the current user to be an admin*.
