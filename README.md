@@ -10,11 +10,55 @@ As a food store, Miguelitto’s Pizzeria offers only take outs for orders, all o
 
 To go around this issue, the business has requested a webapp from which its customers can make complete orders online and have a time estimate of when it will be ready. This will make it so that customers don’t need to wait in line and may even make orders from the comfort of their homes, knowing exactly when they may go to the store to claim their order, providing a much better customer experience.
 
+### Requirements
+
+This applications was developed with the following languages:
+  
+- Front end: React running with Node.js v16.11.1
+- Back end: Rails v6.1.4.4 running with Ruby v3.0.2p107
+
+If cloning repositories use:
+
+- Front end client: <https://github.com/Mat-Carv/T3A2-Miguelittos-Pizza-Frontend>
+- Back end server: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Backend>
+
+### Installing
+
+In order to run the application, install all dependencies for both parts.
+
+- Front end: Inside the cloned directory, with node installed on your machine.
+
+```
+$ npm install 
+```
+
+- Back end: Inside the cloned directory, with ruby installed on your machine.
+
+```
+$ bundle install 
+```
+
+Before running the application locally on your machine, you must first access the api.js (T3A2-Miguelittos-Pizza-Frontend/src/config/api.js) and in the apiUrl constant make sure the "baseURL: 'http://localhost:8080'" is the ***ONLY uncommented line*** inside of it. This will change the base url used for sending the requests to your localhost:8080, or which ever other port you decide to use.
+
+### Running Locally
+
+- Front end: Inside the cloned directory, start the React client server.
+
+```
+$ npm run dev 
+```
+
+- Back end: Inside the cloned directory, start the Rails Server.
+
+```
+$ rails server 
+```
+
 ### Functionality/Features
 
 Functionalities of the app include:
 
-Like most ocassions where I order pizza, in this case our eyes were bigger than our stomachs. While the majority of planned features were implemented, some were dropped due to time constraints. In other cases, our Agile development plan suggested alternative builds that would achieve the desired goals better. Furthermore, due to issues with SSL and MIME type errors during deployment, this website may not work after May 13, and some final commits may be stuck on a different fork.
+Like most occasions where I order pizza, in this case our eyes were bigger than our stomachs. While the majority of planned features were implemented, some were dropped due to time constraints. In other cases, our Agile development plan suggested alternative builds that would achieve the desired goals better. Furthermore, due to issues with SSL and MIME type errors during deployment, this website may not work after May 13, and some final commits may be stuck on a different fork.
 
 - The landing page, where customers can find links to social media and location information about Miguelitto's Pizzeria. Note that without an extant Miguelitto's pizza, the links in question are dead.
 
@@ -22,17 +66,19 @@ Like most ocassions where I order pizza, in this case our eyes were bigger than 
 
 - Allowing users to make orders, where they may:
 
-  - Choose one or more standard pizzas from a standard menu and edit it by adding or removing ingredients. In the final build, the ability to edit a standard pizza was judged superfluous, as it quickly became obvious, based on user stories and experience during development, that editing an already extant pizza was unneccessary; as it was no quicker than simply creating a new custom pizza as desired.
+  - Choose one or more standard pizzas from a standard menu and edit it by adding or removing ingredients. In the final build, the ability to edit a standard pizza was judged superfluous, as it quickly became obvious, based on user stories and experience during development, that editing an already extant pizza was unnecessary; as it was no quicker than simply creating a new custom pizza as desired.
 
   - Design their own pizzas from scratch, choosing from a variety of different bases, sauce types, and toppings. In the final build, the number of toppings is limited to 19, but this feature is fully implemented.
 
-  - Choose to add sides and drinks to the order. Sides and drinks exist in the database, as does the ability to handle them in the orders section, but due to time constraints they were not actually added to the front end of the site.
+  - *Choose to add sides and drinks to the order. Sides and drinks exist in the database, as does the ability to handle them in the orders section, but due to time constraints they were not actually added to the front end of the site.
 
   - View the final price in real time while items are added. This is fully implemented in both the classic pizza menu, and in the custom pizza menu, although the prices in question are arbitrary.
 
-  - View a time estimate for the order to be ready. As above, without an actual pizzeria, the time estimate is Arbitrary.
+  - *View a time estimate for the order to be ready. As above, without an actual pizzeria, the time estimate is Arbitrary.
 
-  - A dashboard displaying pending orders, which will be available only to the Admin user, and accessible by inputting the Admins login credentials in the "/admin" page. From the dashboard, the admin will be able to confirm pending orders as finished. The admin dashboard will also link to a page containing a list of available stocks of ingredients, with the admin allowed to mark various items as being out of stock or unavailable, which will show up on the website. Due to time constraints, only the core parts of the admin dashboard were implelemented, namely the admin login, which was created using knock, and the pending orders page, where Miguelitto can tick off orders as completed (or at least he could). All other planned pages were dropped from development due to time constraints.
+  - A dashboard displaying pending orders, which will be available only to the Admin user, and accessible by inputting the Admins login credentials in the "/Admin" page. From the dashboard, the admin will be able to confirm pending orders as finished. The admin dashboard will also link to a page containing a list of available stocks of ingredients, with the admin allowed to mark various items as being out of stock or unavailable, which will show up on the website. *Due to time constraints, only the core parts of the admin dashboard were implemented, namely the admin login, which was created using knock, and the pending orders page.
+
+#### * As of the due date of the T3A2 assignment (13/02/2022), some features are still planned to be implemented in the future; See **Issues and Setbacks
 
 ### Target Audience
 
@@ -46,9 +92,9 @@ The target audience for this app is the current customer base for Miguelitto’s
 
 - PostgreSQL – Database
 
-- Amazon S3 – While it was expected that there would be assets to store, this proved not to be the case, so this requirement was dropped.
+- *Amazon S3 – Due to time constraints, the team chose to store assets locally in the client and implement Amazon S3 storage as a future improvement.
 
-- Heroku & Netlify - Deployment – While Heroku was used to host the Backend ruby on rails server, time constraints meant it became neccessary to deploy the front end with netlify.
+- Heroku & Netlify - Deployment – While Heroku was used to host the Backend ruby on rails server, Netlify was chosen as an easy deployment platform for teh client.
 
 - Bootstrap - HTML & CSS library for structure and styling
 
@@ -56,13 +102,14 @@ The target audience for this app is the current customer base for Miguelitto’s
 
 - GitHub – Remote Source Control Repository
 
+#### * As of the due date of the T3A2 assignment (13/02/2022), some features are still planned to be implemented in the future; See **Issues and Setbacks
+
 ### Links
 
 - Github
   - Backend: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Backend>
-  - Backend deployed: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Frontend/tree/main/MiguelittosPizzaFrontEnd>
-
-  - Frontend: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Frontend>
+  - Frontend original: <https://github.com/MartinO55/T3A2-Miguelittos-Pizza-Frontend>
+  - Frontend deployed: <https://github.com/Mat-Carv/T3A2-Miguelittos-Pizza-Frontend> || **Note:** Due to issues with system errors and deployment using the original repo for the front end client, the team decided to continue work and deployment on a new fork as a solution. This link repository has all the updated work of the team.
 
 - Trello: <https://trello.com/b/gRpv5ZKk/t3a2publictrello>
 
@@ -82,15 +129,21 @@ The target audience for this app is the current customer base for Miguelitto’s
 
 ## ERD
 
-The ERD was altered on the revelation that all the ingredients tables could be collapsed into a single table if a second table with categories was added to act as a foreign key
+Entity Relationship Diagram established at the end of planning during Part A of the T3A2 assignment.
 
 ![Entity Relationship Diagram image](docs/ERD/MiguelittosPizzaERD3.png "Project Entity Relationship Diagram version 2")
+
+After reanalyzing the options for implementing the functionalities of the app, we decided to implement the shopping cart with context in React, and as such, the final ERD model to be followed in development was defined.
+
+![Entity Relationship Diagram image](docs/ERD/FinalERD.png "Project Entity Relationship Diagram final version")
+
+As of the due date of the T3A2 assignment (13/02/2022), the images displayed in the client are static and saved locally to the deployed app. Specific images for each product are intended for future implementation through AWS, as shown in the ERD; See **Issues and Setbacks.
 
 ## User Stories
 
 ### Alice
 
-Alice is a militant vegan coeliac who wants absolute control over what is put on her pizzas. She needs an app that lets her choose specifically gluten free products, while making sure that any ingredients she chooses are free of animal products. Alice wants specific background information on the ingredients used so she can make an informed choice.
+Alice is a militant vegan celiac who wants absolute control over what is put on her pizzas. She needs an app that lets her choose specifically gluten free products, while making sure that any ingredients she chooses are free of animal products. Alice wants specific background information on the ingredients used so she can make an informed choice.
 
 ### Bob
 
@@ -109,6 +162,12 @@ Dave just wants a pizza for dinner. Dave wants an app that lets him quickly and 
 ### Miguelitto
 
 Miguelitto is an overwhelmed and aging first generation immigrant Italian business owner juggling both running the customer service side of his pizzeria and the kitchen side. Miguelitto needs an application that reduces the pressure on the customer service side of his business so that he can focus on creating pizzas and speeding up the cooking process. In addition, he also wants to offer customers more freedom to experiment with their own favorite toppings to create a better customer experience. Therefore the application needs to both give his customers the ability to order food directly, saving both his and his customers time. Miguelitto also needs an application that does not take a great amount of time and effort to learn so that the new system does not over-complicate his life, taking up more time to operate than it saves, so that he can concentrate on what he does best; making pizzas.
+
+## ** Issues and Setbacks
+
+Due initial lack of knowledge and experience with the use of React, our team had poor judgment in setting all the features for the MVP in the given time frame for submission, which were proposed in Part A of the T3A2 assignment. Due to this, during development it became apparent that with our current skills it would not be possible to deliver all the proposed features until the final submission date, which resulted in the decision of moving some of these features to be implemented as future improvements.
+
+Some of these features are marked as (incomplete) in the following section.
 
 ## Wireframes
 
@@ -324,7 +383,7 @@ At this point, the prototype backend has been successfully deployed to Heroku, a
 
 ![trello board Screenshot 07 February](docs/Trello/TrelloBoardd070222.png "Trello Board showing progress for 7th of February")
 
-With the Agile sprint completed during the previosu week focussing primarily on backend work, by this point, identified refactors had been completed, and work had begun on the front end react project.
+With the Agile sprint completed during the previous week focussing primarily on backend work, by this point, identified refactors had been completed, and work had begun on the front end react project.
 
 ![trello board Screenshot 08 February](docs/Trello/TrelloBoardd080222.png "Trello Board showing progress for 8th of February")
 
@@ -338,4 +397,4 @@ By the 12th, the only remaining steps still in scope remaining to be completed a
 
 ### M&M IT Solutions
 
-Completed to satisfy requirements for Coder Academy's Fast Track Bootcamp assignment number T3A2, by Martin Olson & Mat Carvalho
+Completed to satisfy requirements for Coder Academy's Fast Track Bootcamp assignment number T3A2, by Martin Olson & Matheus Carvalho
