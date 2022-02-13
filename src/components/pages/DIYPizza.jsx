@@ -124,11 +124,11 @@ const DIYPizza = () =>{
             if (ingredient.category === "Toppings") {
                 return(
                     <>
-                    <div>
-                        <div className="card" style={{width: 18 +'em'}} key={index}  onClick={()=>addToppingToCart(ingredient)}>
+                    <div className className='col'>
+                        <div className="card bg-dark text-white" style={{width: 18 +'em'}} key={index}  onClick={()=>addToppingToCart(ingredient)}>
                         <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                             <div className="card-body">
-                            <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
+                              <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
                             <p></p>
                             <p></p>
                             </div>
@@ -142,11 +142,11 @@ const DIYPizza = () =>{
             } if (ingredient.category === "Sauces") {
                 return(
                 <>
-                <div>
-                    <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
+                <div className='col'>
+                    <div className="card text-dark bg-warning" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
                     <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
-                        <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
+                          <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
                         <p></p>
                         <p></p>
                         </div>
@@ -161,11 +161,11 @@ const DIYPizza = () =>{
             } if(ingredient.category === "Bases"){
                 return(
                 <>
-                <div>
-                    <div className="card" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
+                <div className='col'>
+                    <div className="card text-dark bg-danger" style={{width: 18 +'em'}} key={index} onClick={()=>addIngredientToCart(ingredient)}>
                     <img src={placeholderPizzaIngredientImageURL} className='card-img' alt='ingredientimageshouldbehere'></img>
                         <div className="card-body">
-                        <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
+                          <h4 className="card-title">{ingredient.name}  ${ingredient.price}</h4>
                         <p></p>
                         <p></p>
                         </div>
@@ -188,46 +188,44 @@ const DIYPizza = () =>{
   <>
     <Title />
 
-    <div id="ingredientsConstructor">{DIYPizzaConstructor}</div>
+    <div className='text-justify'>
+      <h2 className='text-center'>Choose Your Base, Sauce and Toppings</h2>
+    </div>
 
-    <div id='DIYPizzaCart'>
+    <div id="ingredientsConstructor" className='card-group'>{DIYPizzaConstructor}</div>
+
+    <div id='DIYPizzaCart' className='card-group'>
+        
         {
         DIYCart.map((ingredient, index) => (
           <>
-            <div className='ItemsInCart' key={index}>
+            <div id='ItemsInCart' key={index} className='card-md-8'>
               <h3>{ingredient.name} x {ingredient.quantity}</h3>
               <h4>${ingredient.price}</h4>
               <p></p>
             </div>
-            <button onClick={() => removeFromCart(ingredient)}>Remove?</button>
+            <button onClick={() => removeFromCart(ingredient)} className='btn btn-danger'>Remove?</button>
           </>
           ))
         }
+    
     </div>
-
-    <div id='TotalSum'>
+    <div id='TotalSum' className='card-md-8 fs-1'>
       <div>Total: ${getCartTotalSum().toFixed(2)}</div>
     </div>
-
-    <div id= 'addCustomPizzaToCart'>
-        <button onClick={addCustomPizzaToCart}>
-        Confirm Pizza
-        </button>
-
-    </div>
-    
-    <div id="clearCart">
-      <button type="button" className="btn btn-danger" onClick={clearCart}>Clear Pizza</button>
-    </div>
-
-    <div id='clearEverything'>
-      <button onClick={clearCart}>Clear Everything</button>
-
-    </div>
-
-    <div id='submitOrder'>
-        <button onClick={goToCheckout}>Submit Order</button>
-
+    <div id='button group' className='card-group'>
+      <div id='addCustomPizzaToCart' className='card'>
+        <button onClick={addCustomPizzaToCart} className='btn btn-primary btn-lg'>Confirm Pizza </button>
+      </div>
+      <div id="clearCart" className='card'>
+        <button type="button" className="btn btn-danger btn-lg" onClick={clearCart}>Clear Pizza</button>
+      </div>
+      <div id='clearEverything' className='card'>
+        <button onClick={clearCart} className ="btn btn-danger btn-lg">Clear Cart</button>
+      </div>
+      <div id='submitOrder' className='card'>
+        <button onClick={goToCheckout} className='btn btn-success btn-lg'>Submit Order</button>
+      </div>
     </div>
   </>
   )

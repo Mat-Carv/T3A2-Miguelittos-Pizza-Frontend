@@ -80,11 +80,11 @@ function PlaceOrder () {
         <>
         <Title />
         <h1>Confirm Order</h1>
-        <div>Your total: {getPizzacart()}</div>
-        <button onClick={sendCartToBackEnd}>Place Order</button>
-        <div id="ThisShouldBeAPopup">Your Pizzas will be ready in 30 minutes!</div>
+        <div className="fs-2">Your total: {getPizzacart()}</div>
+        <button onClick={sendCartToBackEnd} className='btn btn-success btn-lg'>Place Order</button>
+        <div id="ThisShouldBeAPopup" className="fs-3">Your Pizzas will be ready in 30 minutes!</div>
         <div id='goBackTOHome'>
-            <button onClick={redirectToHome}>Back to Home</button>
+            <button onClick={redirectToHome} className='btn btn-primary btn-lg'>Back to Home</button>
         </div>
         </>
     )
