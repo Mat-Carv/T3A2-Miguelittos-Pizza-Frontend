@@ -188,6 +188,10 @@ const DIYPizza = () =>{
   <>
     <Title />
 
+    <div className='text-justify'>
+      <h2 className='text-center'>Choose Your Base, Sauce and Toppings</h2>
+    </div>
+
     <div id="ingredientsConstructor" className='card-group'>{DIYPizzaConstructor}</div>
 
     <div id='DIYPizzaCart' className='card-group'>
@@ -217,7 +221,7 @@ const DIYPizza = () =>{
         <button type="button" className="btn btn-danger btn-lg" onClick={clearCart}>Clear Pizza</button>
       </div>
       <div id='clearEverything' className='card'>
-        <button onClick={clearCart} className ="btn btn-danger btn-lg">Clear Everything</button>
+        <button onClick={clearCart} className ="btn btn-danger btn-lg">Clear Cart</button>
       </div>
       <div id='submitOrder' className='card'>
         <button onClick={goToCheckout} className='btn btn-success btn-lg'>Submit Order</button>
