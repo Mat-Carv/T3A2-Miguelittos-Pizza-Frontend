@@ -407,9 +407,9 @@ By the 12th, the only remaining steps still in scope remaining to be completed a
 
 ![trello board Screenshot 12 February](docs/Trello/TrelloBoardd120222.png "Trello Board showing progress for 12th of February")
 
-### Testing
+## Testing
 
-User Testing of the Production website was done using 
+User Testing of the Production website was done using family members of the development team as guinea pigs. This testing noted that the absence of feedback when clicking icons was confusing (a known issue resulting from a lack of time to customise the bootstrap styling), and that several of the redirects relating to user sign up and logging in were confusing, with no indication as to the correct course of action. However, time constraints and technical complexity prevented this from being implemented immediately.
 
 ### M&M IT Solutions
 
