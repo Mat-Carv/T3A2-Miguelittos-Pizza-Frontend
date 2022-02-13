@@ -37,12 +37,12 @@ const LandingPage = () => {
         if (sessionStorage.token) {
             return <>
                 <span>{sessionStorage.user}</span>
-                <button id="SignOutBtn" onClick={endSession} className= "btn btn-primary">Sign Out</button>
+                <button id="SignOutBtn" onClick={endSession} className= "btn btn-primary w-auto p-">Sign Out</button>
             </>
             
         } else {
             return <>
-            <div>
+            <div className="w-auto p-1">
                 <div className="card">
                     <button id="SignUpBtn" onClick={goToSignup} className= "btn btn-primary">Sign Up</button>
                 </div>
@@ -61,14 +61,14 @@ const LandingPage = () => {
         <>
         <Title />
         <div id="LandingPageContent" className="card-group">
-            <div id="hero" className="container">
+            <div id="hero" className="container w-auto p-3">
                 <p></p>
                     <div id="userButtons" className="col">
                     {userButtons()}
                     </div>
                 <p></p>
 
-                <div className="">
+                <div className="w-auto p-3">
                     <div id="ClassicMenuSection" onClick={goToPizzaMenu} className="card col border-0">
                         <div className="row no-gutters">
                         
@@ -104,7 +104,7 @@ const LandingPage = () => {
             <p></p>
 
 
-            <div id= "aboutUs" className="col bg-dark text-white" style={{width: 33 +'em'}}>
+            <div id= "aboutUs" className="col bg-dark text-white w-auto p-3" style={{width: 33 +'em'}}>
                 <div id="aboutUsTitle" className="fs-3 col">
                     About Miguelittos Pizza
                 </div>
@@ -133,7 +133,7 @@ const LandingPage = () => {
 
                 <div id="aboutUsMap" className="col card bg-dark text-white">
                     <h3>Come Find Us</h3>
-                    <img src={miguelittosLocationMap} style={{width: 33 +'em'}} alt="Map totally showing the location of miguelittos pizzeria in Brazil" className="img-fluid"/>
+                    <img src={miguelittosLocationMap} style={{width: 100 +'em'}} alt="Map totally showing the location of miguelittos pizzeria in Brazil" className="img-fluid"/>
                 </div>
             </div>
         </div>
