@@ -409,7 +409,9 @@ By the 12th, the only remaining steps still in scope remaining to be completed a
 
 ## Testing
 
-User Testing of the Production website was done using family members of the development team as guinea pigs. This testing noted that the absence of feedback when clicking icons was confusing (a known issue resulting from a lack of time to customise the bootstrap styling), and that several of the redirects relating to user sign up and logging in were confusing, with no indication as to the correct course of action. However, time constraints and technical complexity prevented this from being implemented immediately.
+- For testing the back end, the REST client was used to generate correctly formed and malformed requests for the backend to confirm the functionality of its data receiving and error checking ability.
+
+- User Testing of the Production website was done using family members of the development team as guinea pigs. This testing noted that the absence of feedback when clicking icons was confusing (a known issue resulting from a lack of time to customise the bootstrap styling), and that several of the redirects relating to user sign up and logging in were confusing, with no indication as to the correct course of action. However, time constraints and technical complexity prevented this from being implemented immediately. Further testing also noted that there was no indication that signing in or signing up was neccessary in order to create a pizza.
 
 ### M&M IT Solutions
 
