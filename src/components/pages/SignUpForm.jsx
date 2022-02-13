@@ -71,7 +71,8 @@ function SignUp(props) {
     return(
         <>
         {componentDidMount}
-            <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
+            <div className="card col login-card hv-center bg-dark text-white min-vh-100 min-vw-100 d-flex justify-content-center align-items-center">
+                <h1>Sign Up</h1>
                 <form>
                     <div className="form-group text-left">
                         <label htmlFor="exampleInputName1">Name</label>
